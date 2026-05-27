@@ -128,8 +128,42 @@ Cloudflare needs:
 
 - `LRC_LEADS` KV binding
 - `ADMIN_ACCESS_CODE`
-- `SITE_ACCESS_PASSWORD` while gated
 - `PUBLIC_URL=https://www.lrcpropertyllc.com`
 - Stripe secrets are not needed while real-world payments are inactive
 
 Run `npm run check` before deploy.
+
+## GitHub and Live Deployment
+
+Canonical GitHub repo:
+
+- `KengaRoo0101/lrcpropertyllc-deploy`
+- default branch: `main`
+
+Cloudflare Pages project:
+
+- project name: `lrcsite`
+- live domain: `https://www.lrcpropertyllc.com`
+- current live project mode: direct upload through Wrangler
+
+Before publishing:
+
+```bash
+npm run check
+npm run audit:suite
+```
+
+The live upload bundle should exclude local-only and source-support paths:
+
+- dotfiles and `.github/`
+- `node_modules/`
+- `data/`
+- `scripts/`
+- `src/`
+- `server.js`
+- `package.json`
+- `package-lock.json`
+- Markdown files
+- local secrets and admin-access files
+
+GitHub Actions checks the site on pushes and pull requests. The manual Cloudflare deploy workflow is intentionally `workflow_dispatch` only. It requires repository secrets for `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` before it can deploy.

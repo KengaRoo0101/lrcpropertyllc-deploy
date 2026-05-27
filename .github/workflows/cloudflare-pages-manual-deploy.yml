@@ -1,0 +1,62 @@
+name: Cloudflare Pages Manual Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npm run check
+      - run: npm run audit:suite
+
+      - name: Validate Cloudflare secrets
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::error::Set CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID repository secrets before running this workflow."
+            exit 1
+          fi
+
+      - name: Build clean Pages upload bundle
+        run: |
+          rm -rf "$RUNNER_TEMP/lrc-pages-bundle"
+          mkdir -p "$RUNNER_TEMP/lrc-pages-bundle"
+          rsync -a --delete \
+            --exclude='.*' \
+            --exclude='node_modules' \
+            --exclude='data' \
+            --exclude='scripts' \
+            --exclude='src' \
+            --exclude='server.js' \
+            --exclude='package.json' \
+            --exclude='package-lock.json' \
+            --exclude='*.md' \
+            --exclude='wrangler.toml' \
+            --exclude='btl-redirect-worker.js' \
+            ./ "$RUNNER_TEMP/lrc-pages-bundle/"
+
+      - name: Deploy to Cloudflare Pages
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          COMMIT_MESSAGE="$(git log -1 --pretty=%s)"
+          npx wrangler pages deploy "$RUNNER_TEMP/lrc-pages-bundle" \
+            --project-name lrcsite \
+            --branch main \
+            --commit-hash "$GITHUB_SHA" \
+            --commit-message "$COMMIT_MESSAGE"
