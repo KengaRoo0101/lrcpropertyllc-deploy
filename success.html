@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout return | LRC Property LLC</title>
+    <link rel="stylesheet" href="./styles.css?v=11" />
+    <link rel="stylesheet" href="./assets/lrc-modern.css?v=10" />
+    <link rel="stylesheet" href="./assets/lrc-final.css?v=14" />
+    <link rel="stylesheet" href="./assets/lrc-affiliate-layout.css?v=3" />
+  </head>
+  <body class="lrc-affiliate">
+    <main class="site-shell">
+      <header class="lrc-return-header">
+        <a class="lrc-suite-home" href="/">
+          <img src="./assets/lrc-property-llc-logo.jpeg" alt="LRC Property LLC logo" />
+          <span>
+            <strong>LRC Property LLC</strong>
+            <small>Checkout return</small>
+          </span>
+        </a>
+        <nav class="lrc-suite-nav" aria-label="Checkout navigation">
+          <a href="/">Home</a>
+          <a href="/safety.html">Safety</a>
+          <a href="/cancel.html">Checkout hold</a>
+        </nav>
+      </header>
+
+      <section class="lead-panel">
+        <p class="eyebrow">Checkout return</p>
+        <h1 data-checkout-title>Checkout returned to LRC</h1>
+        <p data-checkout-copy>
+          Real-world payments are not active on this site. This page does not unlock paid access,
+          paid fulfillment, or a Formed buildout.
+        </p>
+        <p class="form-status" data-checkout-result data-state="hold" aria-live="polite">
+          No payment confirmation is being processed here.
+        </p>
+        <div class="lead-actions">
+          <a class="primary-button" href="/formed/#formed-start">Back to Formed</a>
+          <a class="secondary-button" href="/contact/">Contact LRC</a>
+        </div>
+      </section>
+    </main>
+    <script>
+      (function () {
+        const title = document.querySelector("[data-checkout-title]");
+        const copy = document.querySelector("[data-checkout-copy]");
+        const result = document.querySelector("[data-checkout-result]");
+        const params = new URLSearchParams(window.location.search);
+        const sessionId = params.get("session_id") || "";
+
+        function setState(state, heading, message, detail) {
+          if (title) title.textContent = heading;
+          if (copy) copy.textContent = message;
+          if (result) {
+            result.textContent = detail;
+            result.dataset.state = state;
+          }
+        }
+
+        async function verifyCheckout() {
+          setState(
+            "hold",
+            "Real-world payments are inactive",
+            "LRC is not processing payment checkout sessions from this site.",
+            "Use the Formed review path or contact LRC to continue without payment."
+          );
+          return;
+
+          if (!sessionId) {
+            setState(
+              "hold",
+              "Checkout needs review",
+              "No Stripe session id was returned, so LRC cannot treat this page as a confirmed payment.",
+              "Use the contact path if you believe payment was completed."
+            );
+            return;
+          }
+
+          try {
+            const response = await fetch(`/api/checkout-session?session_id=${encodeURIComponent(sessionId)}`, {
+              headers: { accept: "application/json" },
+            });
+            const data = await response.json().catch(() => ({}));
+
+            if (response.ok && data.verified) {
+              setState(
+              "success",
+              "Checkout record found",
+                "A checkout record was returned, but real-world payments are inactive on this site.",
+                data.message || "No payment unlock is active."
+              );
+              return;
+            }
+
+            setState(
+              "hold",
+              "Checkout needs review",
+              "This return page opened, but Stripe has not confirmed a paid LRC checkout.",
+              data.error || data.message || "Payment confirmation is not available yet."
+            );
+          } catch (error) {
+            setState(
+              "error",
+              "Checkout needs review",
+              "LRC could not verify the Stripe session from this browser.",
+              "Use the contact path if you believe payment was completed."
+            );
+          }
+        }
+
+        verifyCheckout();
+      })();
+    </script>
+  </body>
+</html>

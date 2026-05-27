@@ -1,0 +1,29 @@
+{
+  "name": "lrcpropertyllc-deploy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "start:ninja": "PORT=3000 node server.js",
+    "check": "npm run verify:launch",
+    "check:checkout-config": "node scripts/check-checkout-config.js",
+    "verify:ninja": "node scripts/verify-ninja-manager.js",
+    "verify:runtime-persistence": "node scripts/verify-runtime-persistence.js",
+    "verify:agent-safety": "node scripts/verify-agent-safety.js",
+    "verify:polish": "node scripts/verify-site-polish.js",
+    "set:stripe-secret": "wrangler pages secret put STRIPE_SECRET_KEY --project-name lrcsite",
+    "verify:ecosystem": "node scripts/verify-ecosystem-routes.js",
+    "verify:live-checkout": "node scripts/verify-live-checkout.js",
+    "audit:links": "node scripts/audit-links.js",
+    "audit:alt": "node scripts/audit-alt.js",
+    "audit:metadata": "node scripts/audit-metadata.js",
+    "audit:suite": "node scripts/audit-suite.js",
+    "verify:launch": "npm run verify:ninja && npm run verify:runtime-persistence && npm run verify:agent-safety && npm run verify:polish && npm run check:checkout-config && npm run verify:checkout-hold && npm run verify:ecosystem",
+    "verify:checkout-hold": "node scripts/verify-checkout-hold.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "stripe": "^22.1.0"
+  }
+}

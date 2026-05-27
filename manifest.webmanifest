@@ -1,0 +1,24 @@
+{
+  "name": "LRC Property LLC",
+  "short_name": "LRC",
+  "description": "Practical tools, AI-supported workflows, and user-first business systems for people making one clear move at a time.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#07090d",
+  "theme_color": "#c6a96b",
+  "icons": [
+    {
+      "src": "/assets/lrc-property-llc-logo.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any"
+    },
+    {
+      "src": "/assets/lrc-property-llc-logo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any"
+    }
+  ]
+}

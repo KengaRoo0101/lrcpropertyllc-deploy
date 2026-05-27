@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LRC Admin | Dashboard</title>
+    <meta name="robots" content="noindex,nofollow" />
+    <link rel="stylesheet" href="./styles.css?v=2" />
+    <link rel="stylesheet" href="../assets/lrc-modern.css?v=10" />
+    <link rel="stylesheet" href="../assets/lrc-final.css?v=14" />
+    <link rel="stylesheet" href="../assets/lrc-affiliate-layout.css?v=3" />
+    <script src="./app.js?v=11" defer></script>
+  </head>
+  <body class="lrc-affiliate">
+    <main class="admin-shell">
+      <header class="admin-header">
+        <a class="brand" href="../">
+          <img src="../assets/lrc-property-llc-logo.jpeg" alt="LRC Property LLC logo" />
+          <span>LRC Admin</span>
+        </a>
+        <nav class="admin-nav" aria-label="Admin shortcuts">
+          <a class="quiet-link" href="../ninja/">Ninja</a>
+          <a class="quiet-link" href="#setup">Setup</a>
+          <a class="quiet-link" href="../">Site</a>
+        </nav>
+      </header>
+
+      <section class="hero-panel">
+        <p class="eyebrow">Private dashboard</p>
+        <h1>See what came in, what needs review, and what Ninja is tracking.</h1>
+        <p>
+          Enter the admin code to review requests, applications, founder notes, payment records,
+          and Ninja’s current task flow. Public visitors do not see this page.
+        </p>
+
+        <form class="admin-login" id="admin-login">
+          <label>
+            Admin code
+            <input name="code" type="password" autocomplete="current-password" placeholder="Enter admin code" required />
+          </label>
+          <button class="primary-button" type="submit">Open dashboard</button>
+        </form>
+
+        <div class="admin-actions" aria-label="Admin actions">
+          <button class="quiet-button" type="button" id="refresh-admin">Update</button>
+          <a class="quiet-button action-link" href="../ninja/">Open Ninja</a>
+          <button class="quiet-button" type="button" id="export-csv">Download list</button>
+          <button class="quiet-button" type="button" id="export-json">Download full details</button>
+        </div>
+
+        <p class="status-line" id="admin-status" aria-live="polite"></p>
+      </section>
+
+      <section class="summary-grid" id="summary-grid" aria-label="Dashboard summary">
+        <article class="summary-card">
+          <span id="lead-count">0</span>
+          <p>Total requests</p>
+        </article>
+        <article class="summary-card">
+          <span id="growth-count">0</span>
+          <p>Growth signals</p>
+        </article>
+        <article class="summary-card">
+          <span id="levi-count">0</span>
+          <p>Levi previews</p>
+        </article>
+        <article class="summary-card">
+          <span id="career-count">0</span>
+          <p>Career applications</p>
+        </article>
+        <article class="summary-card">
+          <span id="formed-count">0</span>
+          <p>LLC reviews</p>
+        </article>
+        <article class="summary-card">
+          <span id="traffic-count">0</span>
+          <p>Site visits</p>
+        </article>
+        <article class="summary-card">
+          <span id="agent-activity-count">0</span>
+          <p>Agent work</p>
+        </article>
+        <article class="summary-card">
+          <span id="action-request-count">0</span>
+          <p>Action requests</p>
+        </article>
+        <article class="summary-card">
+          <span id="payment-count">0</span>
+          <p>Payment records</p>
+        </article>
+        <article class="summary-card">
+          <span id="ninja-task-count">0</span>
+          <p>Ninja work</p>
+        </article>
+        <article class="summary-card">
+          <span id="feature-request-count">0</span>
+          <p>Feature requests</p>
+        </article>
+      </section>
+
+      <section class="admin-tabs" aria-label="Admin data tabs">
+        <button class="tab-button is-active" type="button" data-tab="requests">Requests</button>
+        <button class="tab-button" type="button" data-tab="growth">Growth Signals</button>
+        <button class="tab-button" type="button" data-tab="levi">Levi Inbox</button>
+        <button class="tab-button" type="button" data-tab="careers">Careers</button>
+        <button class="tab-button" type="button" data-tab="formed">Formed.</button>
+        <button class="tab-button" type="button" data-tab="traffic">Traffic</button>
+        <button class="tab-button" type="button" data-tab="agent-activity">Agent Work</button>
+        <button class="tab-button" type="button" data-tab="action-requests">Action Requests</button>
+        <button class="tab-button" type="button" data-tab="payments">Payments</button>
+        <button class="tab-button" type="button" data-tab="setup">Setup</button>
+        <button class="tab-button" type="button" data-tab="ninja-tasks">Ninja Work</button>
+        <button class="tab-button" type="button" data-tab="feature-requests">Feature Requests</button>
+      </section>
+
+      <section class="data-panel is-active" id="requests" data-panel="requests">
+        <div class="panel-heading">
+          <p class="eyebrow">Requests</p>
+          <h2>General LRC intake</h2>
+        </div>
+        <div class="record-list" id="request-list"></div>
+      </section>
+
+      <section class="data-panel" id="growth" data-panel="growth">
+        <div class="panel-heading">
+          <p class="eyebrow">Growth Signals</p>
+          <h2>Routed audience, suite, and market signals</h2>
+        </div>
+        <div class="record-list" id="growth-list"></div>
+      </section>
+
+      <section class="data-panel" id="levi" data-panel="levi">
+        <div class="panel-heading">
+          <p class="eyebrow">Levi Inbox</p>
+          <h2>Agent previews ready for founder review</h2>
+          <p>
+            These are previews people chose to send to LRC. Treat them as review-ready opportunities,
+            not permission for Levi to submit, publish, buy, message, or change anything.
+          </p>
+        </div>
+        <div class="record-list" id="levi-list"></div>
+      </section>
+
+      <section class="data-panel" id="careers" data-panel="careers">
+        <div class="panel-heading">
+          <p class="eyebrow">Careers</p>
+          <h2>Applications and hiring notes</h2>
+        </div>
+        <div class="record-list" id="career-list"></div>
+      </section>
+
+      <section class="data-panel" id="formed" data-panel="formed">
+        <div class="panel-heading">
+          <p class="eyebrow">Formed.</p>
+          <h2>LLC formation reviews</h2>
+        </div>
+        <div class="record-list" id="formed-list"></div>
+      </section>
+
+      <section class="data-panel" id="traffic" data-panel="traffic">
+        <div class="panel-heading">
+          <p class="eyebrow">Traffic</p>
+          <h2>How the site is being used</h2>
+          <p>
+            This shows page visits and safe usage signals. Passwords, cookies, admin codes, and
+            request bodies are not shown here.
+          </p>
+        </div>
+        <div class="record-list" id="traffic-list"></div>
+      </section>
+
+      <section class="data-panel" id="agent-activity" data-panel="agent-activity">
+        <div class="panel-heading">
+          <p class="eyebrow">Agent Work</p>
+          <h2>What the agents prepared</h2>
+          <p>
+            This shows safe drafts, page starts, local previews, and places where the agent stopped
+            for owner approval.
+          </p>
+        </div>
+        <div class="record-list" id="agent-activity-list"></div>
+      </section>
+
+      <section class="data-panel" id="action-requests" data-panel="action-requests">
+        <div class="panel-heading">
+          <p class="eyebrow">Action Requests</p>
+          <h2>Queued agent requests that need review</h2>
+          <p>
+            These records are stored for owner review only. The action endpoint cannot submit,
+            publish, purchase, message, delete, change access, or use restricted systems.
+          </p>
+        </div>
+        <div class="record-list" id="action-request-list"></div>
+      </section>
+
+      <section class="data-panel" id="payments" data-panel="payments">
+        <div class="panel-heading">
+          <p class="eyebrow">Payments</p>
+          <h2>Confirmed payment records</h2>
+          <p>
+            Payment records appear only after Stripe confirmation. Treat them as fulfillment notes,
+            not public access passes.
+          </p>
+        </div>
+        <div class="record-list" id="payment-list"></div>
+      </section>
+
+      <section class="data-panel" id="ninja-tasks" data-panel="ninja-tasks">
+        <div class="panel-heading">
+          <p class="eyebrow">Ninja Work</p>
+          <h2>What Ninja is managing</h2>
+          <p>
+            Each item shows the goal, owner, current status, blocker, approval need, and next safe
+            move.
+          </p>
+        </div>
+        <div class="record-list" id="ninja-task-list"></div>
+      </section>
+
+      <section class="data-panel" id="feature-requests" data-panel="feature-requests">
+        <div class="panel-heading">
+          <p class="eyebrow">Feature Requests</p>
+          <h2>Approve build, review locally, approve deploy.</h2>
+          <p>
+            Public recommendations stop here until admin approval. Each request includes a build
+            packet, acceptance checks, and a separate deployment approval.
+          </p>
+        </div>
+        <div class="record-list" id="feature-request-list"></div>
+      </section>
+
+      <section class="data-panel" id="setup" data-panel="setup">
+        <div class="panel-heading">
+          <p class="eyebrow">Setup</p>
+          <h2>Payment hold status</h2>
+          <p>
+            This checks whether payment paths remain safely inactive or need owner review before
+            any checkout can be enabled.
+          </p>
+        </div>
+        <div class="setup-status" id="checkout-setup-status">
+          <p class="empty-state">Open the dashboard to check payment hold status.</p>
+        </div>
+      </section>
+
+      <section class="ops-note">
+        <p class="eyebrow">Private setup note</p>
+        <p>
+          Keep storage bindings, admin access, payment settings, and secrets out of public pages,
+          screenshots, chats, and customer-facing copy. Review configuration only inside approved
+          owner workflows.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>

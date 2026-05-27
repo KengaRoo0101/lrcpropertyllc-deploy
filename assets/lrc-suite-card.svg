@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">LRC suite visual placeholder</title>
+  <desc id="desc">Abstract product cards connected by a safe review path.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#07101b"/>
+      <stop offset="0.55" stop-color="#102033"/>
+      <stop offset="1" stop-color="#0b151f"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#1b2e45"/>
+      <stop offset="1" stop-color="#101b29"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" x2="1">
+      <stop offset="0" stop-color="#f5cf77"/>
+      <stop offset="1" stop-color="#7dd6b0"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#000" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1010" cy="100" r="190" fill="#7db7ff" opacity="0.08"/>
+  <circle cx="170" cy="540" r="230" fill="#7dd6b0" opacity="0.08"/>
+  <path d="M190 322h820" stroke="#7db7ff" stroke-width="6" stroke-linecap="round" opacity="0.26"/>
+  <path d="M190 322c130-140 270-140 420 0s290 140 400 0" fill="none" stroke="url(#gold)" stroke-width="9" stroke-linecap="round" opacity="0.86"/>
+  <g filter="url(#shadow)">
+    <rect x="92" y="116" width="250" height="166" rx="18" fill="url(#card)" stroke="#7db7ff" stroke-opacity="0.24"/>
+    <rect x="475" y="96" width="250" height="206" rx="18" fill="url(#card)" stroke="#f5cf77" stroke-opacity="0.34"/>
+    <rect x="858" y="116" width="250" height="166" rx="18" fill="url(#card)" stroke="#7dd6b0" stroke-opacity="0.28"/>
+    <rect x="276" y="382" width="250" height="142" rx="18" fill="url(#card)" stroke="#7dd6b0" stroke-opacity="0.24"/>
+    <rect x="674" y="382" width="250" height="142" rx="18" fill="url(#card)" stroke="#7db7ff" stroke-opacity="0.24"/>
+  </g>
+  <g fill="#eef4fb">
+    <rect x="130" y="156" width="112" height="15" rx="7"/>
+    <rect x="130" y="190" width="164" height="10" rx="5" opacity="0.58"/>
+    <rect x="130" y="216" width="128" height="10" rx="5" opacity="0.42"/>
+    <rect x="513" y="142" width="124" height="16" rx="8"/>
+    <rect x="513" y="180" width="154" height="10" rx="5" opacity="0.58"/>
+    <rect x="513" y="207" width="110" height="10" rx="5" opacity="0.42"/>
+    <rect x="896" y="156" width="120" height="15" rx="7"/>
+    <rect x="896" y="190" width="158" height="10" rx="5" opacity="0.58"/>
+    <rect x="896" y="216" width="118" height="10" rx="5" opacity="0.42"/>
+    <rect x="314" y="420" width="118" height="14" rx="7"/>
+    <rect x="314" y="452" width="158" height="10" rx="5" opacity="0.55"/>
+    <rect x="712" y="420" width="122" height="14" rx="7"/>
+    <rect x="712" y="452" width="156" height="10" rx="5" opacity="0.55"/>
+  </g>
+  <g fill="#f5cf77">
+    <circle cx="190" cy="322" r="16"/>
+    <circle cx="600" cy="322" r="18"/>
+    <circle cx="1010" cy="322" r="16"/>
+  </g>
+</svg>

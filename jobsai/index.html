@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JobsAI Career and Role Tools | LRC Property LLC</title>
+    <meta name="description" content="Use AI-assisted tools to organize job searches, improve resumes, and prepare career next steps." />
+    <meta property="og:title" content="JobsAI Career and Role Tools | LRC Property LLC" />
+    <meta property="og:description" content="Use AI-assisted tools to organize job searches, improve resumes, and prepare career next steps." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.lrcpropertyllc.com/jobsai/" />
+    <meta property="og:image" content="https://www.lrcpropertyllc.com/assets/lrc-suite-card.svg" />
+    <link rel="canonical" href="https://www.lrcpropertyllc.com/jobsai/" />
+    <meta name="theme-color" content="#c6a96b" />
+    <meta name="application-name" content="LRC Property LLC" />
+    <meta name="apple-mobile-web-app-title" content="JobsAI Work Match" />
+    <link rel="manifest" href="../manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="../assets/lrc-property-llc-logo.jpeg" />
+    <link rel="stylesheet" href="./styles.css?v=3" />
+    <link rel="stylesheet" href="../assets/ai-workflows.css?v=8" />
+    <link rel="stylesheet" href="../assets/lrc-modern.css?v=10" />
+    <link rel="stylesheet" href="../assets/lrc-final.css?v=14" />
+    <link rel="stylesheet" href="../assets/lrc-affiliate-layout.css?v=4" />
+    <link rel="stylesheet" href="../assets/agent-guide.css?v=52" />
+    <link rel="stylesheet" href="/assets/lrc-system.css?v=21" />
+    <script src="../assets/lead-handoff.js?v=2" defer></script>
+    <script src="../assets/ai-workflows.js?v=9" defer></script>
+    <script src="../assets/agent-guide.js?v=64" defer></script>
+    <script src="../assets/runtime-notice.js?v=1" defer></script>
+    <script src="/assets/lrc-runtime.js?v=6" defer></script>
+    <script src="/assets/lrc-agent.js?v=23" defer></script>
+    <script src="/assets/lrc-suite.js?v=2" defer></script>
+  </head>
+  <body class="lrc-affiliate jobsai-page">
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand-lockup" href="#top" aria-label="JobsAI. home">
+          <span class="brand-symbol" aria-hidden="true">
+            <img src="../assets/lrc-property-llc-logo.jpeg" alt="" />
+          </span>
+          <span>
+            <strong>JobsAI.</strong>
+            <small>Work Match</small>
+          </span>
+        </a>
+
+        <nav class="header-links" aria-label="Primary navigation">
+          <a href="#work-match">Start</a>
+          <a href="#profile">Applicant</a>
+          <a href="#packages">Pricing</a>
+          <a href="../index.html">LRC</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="hero-content">
+            <div class="product-mark">
+              <span class="product-logo" aria-hidden="true">J</span>
+              <span>JobsAI</span>
+            </div>
+            <h1>Clear roles. Better matches.</h1>
+            <p class="hero-lede">
+              Turn rough hiring notes, applicant experience, or role ideas into structured hiring workflows.
+            </p>
+
+            <div class="hero-actions">
+              <a class="primary-button" href="#work-match" data-jobsai-start="hire">Build Hiring Brief</a>
+              <a class="secondary-button" href="#work-match" data-jobsai-start="resume">Improve Applicant Fit</a>
+            </div>
+
+            <p class="trust-line">
+              AI-assisted drafting with human review before external actions.
+            </p>
+          </div>
+
+          <aside class="hero-panel live-preview-card" aria-label="Live JobsAI preview">
+            <div class="preview-status">
+              <span></span>
+              <p>Live preview</p>
+            </div>
+            <p class="panel-label" data-preview-label>Role brief example</p>
+            <h2 data-preview-title>Executive Assistant brief</h2>
+            <p data-preview-copy>
+              Organize daily support needs into responsibilities, fit signals, applicant questions, and a review step before posting.
+            </p>
+            <div class="preview-list" data-preview-list>
+              <p>Role purpose</p>
+              <p>30-day outcomes</p>
+              <p>Applicant next step</p>
+            </div>
+          </aside>
+        </section>
+
+        <section class="section guided-workflow" id="work-match" aria-label="JobsAI guided workflow">
+          <div class="workflow-intro">
+            <p class="eyebrow">Start building</p>
+            <h2>Get a first hiring output now.</h2>
+            <p>
+              Pick the closest task, add one sentence if you want, and JobsAI creates the first usable draft.
+            </p>
+          </div>
+
+          <div class="task-grid" role="group" aria-label="What are you trying to do?">
+            <button class="task-card is-active" type="button" data-work-task="hire">
+              <span>01</span>
+              <strong>Hire Someone</strong>
+              <small>Role brief and applicant path</small>
+            </button>
+            <button class="task-card" type="button" data-work-task="resume">
+              <span>02</span>
+              <strong>Improve Resume</strong>
+              <small>Applicant fit summary</small>
+            </button>
+            <button class="task-card" type="button" data-work-task="role">
+              <span>03</span>
+              <strong>Clarify Role</strong>
+              <small>Responsibilities and success signals</small>
+            </button>
+            <button class="task-card" type="button" data-work-task="review">
+              <span>04</span>
+              <strong>Review Applicants</strong>
+              <small>Screening notes and next step</small>
+            </button>
+          </div>
+
+          <form class="quick-form" id="work-match-form">
+            <label for="work-match-input">Describe the role or problem in one sentence</label>
+            <div class="quick-input-row">
+              <input
+                id="work-match-input"
+                name="workMatchInput"
+                maxlength="180"
+                placeholder="Example: I need an assistant who can manage calendars, calls, and follow-up."
+              />
+              <button class="primary-button" type="submit">Generate First Draft</button>
+            </div>
+          </form>
+
+          <div class="workflow-output is-ready" id="work-match-output" aria-live="polite">
+            <p class="panel-label">First output</p>
+            <h3>Hiring brief starter</h3>
+            <p>
+              Choose a task or use the button above. JobsAI will immediately build a draft you can refine.
+            </p>
+          </div>
+        </section>
+
+        <section class="section outcome-strip" aria-label="JobsAI outputs">
+          <article>
+            <p class="panel-label">Brief</p>
+            <h3>Role clarity</h3>
+            <p>Responsibilities, fit signals, and candidate-facing copy.</p>
+          </article>
+          <article>
+            <p class="panel-label">Fit</p>
+            <h3>Applicant summary</h3>
+            <p>Experience, proof points, gaps, and next review notes.</p>
+          </article>
+          <article>
+            <p class="panel-label">Workflow</p>
+            <h3>Review system</h3>
+            <p>Intake questions, scorecard prompts, and owner approval gates.</p>
+          </article>
+        </section>
+
+        <section class="lrc-app levi-support" id="lrc-operating-system" aria-label="Levi Assist support">
+          <div class="lrc-shell">
+            <p class="lrc-route">Levi Assist</p>
+            <h2 class="lrc-title">Need help finishing the draft?</h2>
+            <p class="lrc-subtitle">Levi can clarify the next step, then stops before any external action.</p>
+            <span hidden>Your starting plan is ready.</span>
+            <div class="safety-pause-banner" data-lrc-safety-banner>
+              Nothing happens without your approval. You securely review and authorize payment before anything is charged.
+            </div>
+
+            <input
+              class="lrc-input"
+              data-lrc-agent-input
+              placeholder="Ask Levi to clarify the next JobsAI step."
+            />
+
+            <div class="lrc-output" data-lrc-agent-output>
+              <div class="lrc-label">Draft mode</div>
+              <div class="lrc-value">Levi can guide, explain, and build a starting plan for review.</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section review-section" id="brief">
+          <div class="section-heading">
+            <p class="eyebrow">Refine hiring brief</p>
+            <h2>Turn the first output into a cleaner role packet.</h2>
+            <p>
+              Use this when the first draft needs work type, stage, and package direction.
+            </p>
+          </div>
+
+          <div class="review-layout">
+            <form class="review-form" id="jobsai-intake">
+              <label>
+                Role title
+                <input name="role" maxlength="80" placeholder="Executive Assistant" />
+              </label>
+
+              <label>
+                Work type
+                <select name="workType">
+                  <option>In person</option>
+                  <option>Remote</option>
+                  <option>Hybrid</option>
+                  <option>Not sure yet</option>
+                </select>
+              </label>
+
+              <label>
+                Hiring stage
+                <select name="stage">
+                  <option>Need to define role</option>
+                  <option>Listing draft needs review</option>
+                  <option>Reviewing applicants</option>
+                  <option>Improving an existing listing</option>
+                </select>
+              </label>
+
+              <div class="check-grid">
+                <label><input type="checkbox" name="needsListing" /> Listing copy</label>
+                <label><input type="checkbox" name="needsResume" /> Resume tools</label>
+                <label><input type="checkbox" name="needsIntake" /> Applicant intake</label>
+                <label><input type="checkbox" name="needsPremium" /> Premium support</label>
+              </div>
+
+              <button class="primary-button" type="submit">Build Hiring Brief</button>
+              <p class="form-note">
+                This preview stays in this browser and does not publish a listing.
+              </p>
+            </form>
+
+            <div class="review-output" id="brief-output" aria-live="polite">
+              <p class="panel-label">Brief output</p>
+              <h3>Start with the role you want.</h3>
+              <p>
+                The output will show package direction, listing focus, and practical next steps.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section review-section" id="profile">
+          <div class="section-heading">
+            <p class="eyebrow">Improve applicant fit</p>
+            <h2>Turn experience into a clearer applicant summary.</h2>
+            <p>
+              Use this for resume direction, profile copy, or a stronger fit note.
+            </p>
+          </div>
+
+          <div class="review-layout">
+            <form class="review-form" id="profile-intake">
+              <label>
+                Target role
+                <input name="targetRole" maxlength="80" placeholder="Executive Assistant" />
+              </label>
+
+              <label>
+                Experience level
+                <select name="experienceLevel">
+                  <option>Early career</option>
+                  <option>Experienced</option>
+                  <option>Manager / lead</option>
+                  <option>Career change</option>
+                </select>
+              </label>
+
+              <label>
+                Main strengths
+                <textarea
+                  name="strengths"
+                  maxlength="320"
+                  rows="4"
+                  placeholder="Scheduling, customer follow-up, research, operations, project coordination"
+                ></textarea>
+              </label>
+
+              <label>
+                Work proof or examples
+                <textarea
+                  name="proof"
+                  maxlength="320"
+                  rows="4"
+                  placeholder="Handled calendars, organized files, supported launches, improved response times"
+                ></textarea>
+              </label>
+
+              <button class="primary-button" type="submit">Improve Applicant Fit</button>
+              <p class="form-note">
+                This creates editable profile copy. It does not publish, submit, or guarantee outcomes.
+              </p>
+            </form>
+
+            <div class="review-output" id="profile-output" aria-live="polite">
+              <p class="panel-label">Applicant output</p>
+              <h3>Start with the target role.</h3>
+              <p>
+                The output will create a headline, about section, and profile improvements.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="section packages" id="packages">
+          <div class="section-heading">
+            <p class="eyebrow">Packages</p>
+            <h2>Pick the support level after the first draft.</h2>
+          </div>
+
+          <div class="package-grid">
+            <article class="package-card">
+              <p class="panel-label">Starter Brief</p>
+              <h3>$99</h3>
+              <ul>
+                <li>Role clarity</li>
+                <li>Hiring brief</li>
+                <li>Candidate-facing copy</li>
+              </ul>
+              <a class="primary-button" href="#work-match" data-jobsai-start="hire">Start Building</a>
+            </article>
+            <article class="package-card highlight">
+              <p class="panel-label">Premium Support</p>
+              <h3>From $249</h3>
+              <ul>
+                <li>Resume tools</li>
+                <li>Workflow setup</li>
+                <li>Applicant intake and review systems</li>
+              </ul>
+              <a class="primary-button" href="#profile" data-jobsai-start="resume">Improve Applicant Fit</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="section legal-panel" id="legal">
+          <p class="eyebrow">Legal notices</p>
+          <h2>Powered by LRC Property LLC.</h2>
+          <p>
+            JobsAI. provides informational hiring, listing, resume, and workflow support. It does
+            not provide legal, employment, tax, financial, recruiting-agency, background-check,
+            placement, or professional advice.
+          </p>
+          <p>
+            JobsAI. does not guarantee applicants, candidates, interviews, placements, job offers,
+            wages, eligibility, compliance, business outcomes, or employment results. Customers are
+            responsible for lawful hiring practices, accurate postings, required notices, equal
+            opportunity compliance, and professional review where needed.
+          </p>
+          <p>
+            Job posts, applicant tools, and promotional claims should stay accurate, inclusive, and
+            clear about who is responsible for hiring decisions.
+          </p>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-brand">
+          <a class="footer-mark" href="../index.html" aria-label="LRC Property LLC home">
+            <img src="../assets/lrc-property-llc-logo.jpeg" alt="LRC Property LLC logo" />
+          </a>
+          <div>
+            <strong>JobsAI.</strong>
+            <span>Powered by LRC Property LLC</span>
+          </div>
+        </div>
+        <nav class="footer-links" aria-label="Footer">
+          <a href="mailto:careers@lrcpropertyllc.com">careers@lrcpropertyllc.com</a>
+          <a href="../index.html">LRC Property LLC</a>
+          <a href="#packages">Packages</a>
+          <a href="../careers/index.html">Careers</a>
+          <a href="#legal">Legal</a>
+        </nav>
+      </footer>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

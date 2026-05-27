@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ninja Work Assistant | LRC Property LLC</title>
+    <meta name="description" content="Ninja helps organize work, prepare useful drafts, and pause approval-required actions." />
+    <meta property="og:title" content="Ninja Work Assistant | LRC Property LLC" />
+    <meta property="og:description" content="Ninja helps organize work, prepare useful drafts, and pause approval-required actions." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.lrcpropertyllc.com/ninja/" />
+    <meta property="og:image" content="https://www.lrcpropertyllc.com/assets/lrc-suite-card.svg" />
+    <link rel="canonical" href="https://www.lrcpropertyllc.com/ninja/" />
+    <script>
+      if (window.location.protocol === "file:") {
+        window.location.replace("http://localhost:3000/ninja/");
+      }
+    </script>
+    <link rel="stylesheet" href="/assets/lrc-affiliate-layout.css?v=4" />
+    <link rel="stylesheet" href="/assets/lrc-system.css?v=21" />
+    <link rel="stylesheet" href="/ninja/styles.css?v=11" />
+  </head>
+  <body class="lrc-affiliate ninja-page">
+    <div class="ninja-shell">
+      <header class="ninja-topbar">
+        <a class="ninja-brand" href="/" aria-label="LRC Property LLC home">
+          <span class="ninja-mark" aria-hidden="true">
+            <span class="palm-leaf leaf-one"></span>
+            <span class="palm-leaf leaf-two"></span>
+            <span class="palm-leaf leaf-three"></span>
+            <span class="palm-trunk"></span>
+          </span>
+          <span>
+            <span class="eyebrow">Ninja</span>
+            <strong>Work Partner</strong>
+          </span>
+        </a>
+
+        <nav class="ninja-links" aria-label="Ninja navigation">
+          <a href="/">Home</a>
+        </nav>
+      </header>
+
+      <main class="ninja-stack" aria-labelledby="ninja-title">
+        <section class="ninja-hero">
+          <div class="ninja-copy">
+            <p class="eyebrow">Ninja</p>
+            <h1 id="ninja-title">Move one task forward.</h1>
+            <p class="hero-lede">Describe the work. Ninja returns one useful next step.</p>
+
+            <form class="ninja-form" id="ninja-form">
+              <label for="ninja-prompt">What are you trying to finish?</label>
+              <div class="composer-row">
+                <textarea
+                  id="ninja-prompt"
+                  name="prompt"
+                  rows="2"
+                  autofocus
+                  placeholder="Example: I need help organizing a business launch."
+                ></textarea>
+                <button class="mic-button" id="listen-toggle" type="button" aria-label="Use microphone" aria-pressed="false">Talk</button>
+                <button class="send-button" type="submit">Start</button>
+              </div>
+            </form>
+
+            <p class="hint" id="listen-status">One sentence is enough.</p>
+          </div>
+
+          <article class="ninja-output-card" id="ninja-output" aria-live="polite">
+            <section class="ninja-result-section">
+              <h2>Current task</h2>
+              <p>Tell Ninja what you want to finish.</p>
+            </section>
+            <section class="ninja-result-section">
+              <h2>Recommended next step</h2>
+              <p>Start with one sentence.</p>
+            </section>
+            <section class="ninja-result-section">
+              <h2>Draft ready</h2>
+              <p>Your draft will appear here.</p>
+            </section>
+            <section class="ninja-result-section">
+              <h2>Approval check</h2>
+              <p>Nothing will be submitted, published, charged, or sent without your approval.</p>
+            </section>
+          </article>
+        </section>
+      </main>
+    </div>
+    <script src="/ninja/app.js?v=12" defer></script>
+  </body>
+</html>
