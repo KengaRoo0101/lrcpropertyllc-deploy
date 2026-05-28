@@ -93,6 +93,7 @@ function checkoutStatus() {
     ok: true,
     available: false,
     mode: "hold",
+    paymentStatus: "not_started",
     message: PAYMENT_HOLD_MESSAGE,
   };
 }
@@ -2769,10 +2770,11 @@ app.post("/api/agent/activity", async (req, res) => {
   }
 });
 
-app.post("/create-checkout-session", async (_req, res) => {
+app.post(["/create-checkout-session", "/api/create-checkout-session"], async (_req, res) => {
   const status = await verifiedCheckoutStatus();
   if (!status.available) {
     res.status(503).json({
+      ...status,
       ok: false,
       error: status.message,
     });

@@ -38,6 +38,7 @@
     <script src="/assets/lrc-agent.js?v=24" defer></script>
     <script src="/assets/lrc-suite.js?v=2" defer></script>
     <script src="/assets/feature-requests.js?v=2" defer></script>
+    <script src="./assets/timeclock.js?v=1" defer></script>
   </head>
   <body class="lrc-affiliate focused-home formed-home">
     <div class="site-shell">
@@ -56,6 +57,7 @@
           <a class="nav-cta" href="./goal/">Goal</a>
           <a href="./formed/">Formed</a>
           <a href="./safety.html">Safety</a>
+          <a href="#employee-access">Employee</a>
         </nav>
 
         <p class="site-header-note">Stripe Checkout only. You approve before anything is charged.</p>
@@ -98,6 +100,31 @@
             <a class="secondary-button" href="./formed/#formed-start">Start Formed</a>
           </div>
         </section>
+
+        <section class="employee-panel" id="employee-access">
+          <div class="section-heading">
+            <p class="eyebrow">Employee access</p>
+            <h2>Timeclock portal for LRC team members.</h2>
+            <p>
+              Employees can record shifts and breaks, review recent timecards, and request
+              corrections from one private workspace.
+            </p>
+          </div>
+
+          <div class="employee-access">
+            <div>
+              <p class="panel-label">Timeclock</p>
+              <h3>Clock in, manage breaks, and close out the day.</h3>
+              <p>
+                The portal stays behind employee login. Current demo data is saved only in this
+                browser until the backend is connected.
+              </p>
+            </div>
+            <button class="primary-button" id="open-timeclock" type="button">
+              Open employee timeclock
+            </button>
+          </div>
+        </section>
       </main>
 
       <footer class="site-footer">
@@ -127,6 +154,116 @@
 
         <p class="footer-fine">Copyright 2026 LRC Property LLC. All rights reserved.</p>
       </footer>
+    </div>
+
+    <div class="timeclock-modal" id="timeclock-modal" aria-hidden="true">
+      <div class="timeclock-backdrop" data-timeclock-close></div>
+      <section
+        class="timeclock-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="timeclock-title"
+      >
+        <div class="timeclock-modal-header">
+          <div>
+            <p class="eyebrow">LRC employee portal</p>
+            <h2 id="timeclock-title">Timeclock</h2>
+          </div>
+          <button class="icon-button" type="button" data-timeclock-close aria-label="Close timeclock">
+            &times;
+          </button>
+        </div>
+
+        <form class="timeclock-login" id="timeclock-login-form">
+          <label>
+            Employee name
+            <input name="employeeName" autocomplete="name" placeholder="Your name" required />
+          </label>
+          <label>
+            Demo PIN
+            <input
+              name="employeePin"
+              type="password"
+              inputmode="numeric"
+              autocomplete="current-password"
+              placeholder="1234"
+              required
+            />
+          </label>
+          <button class="primary-button" type="submit">Enter timeclock</button>
+          <p class="timeclock-status" id="timeclock-login-status" aria-live="polite">
+            Demo PIN: 1234
+          </p>
+        </form>
+
+        <div class="timeclock-app" id="timeclock-app" hidden>
+          <div class="timeclock-toolbar">
+            <div>
+              <p class="panel-label" id="timeclock-employee">Signed in</p>
+              <p class="timeclock-now" id="timeclock-now">--</p>
+            </div>
+            <button class="secondary-button" id="timeclock-logout" type="button">Switch employee</button>
+          </div>
+
+          <div class="timeclock-summary" aria-label="Current timeclock status">
+            <div>
+              <span>Status</span>
+              <strong id="timeclock-status-label">Off clock</strong>
+            </div>
+            <div>
+              <span>Current shift</span>
+              <strong id="timeclock-shift-label">No active shift</strong>
+            </div>
+            <div>
+              <span>Break time</span>
+              <strong id="timeclock-break-label">0m</strong>
+            </div>
+          </div>
+
+          <div class="timeclock-actions" aria-label="Timeclock actions">
+            <button class="primary-button" id="clock-in-button" type="button">Clock in</button>
+            <button class="secondary-button" id="start-break-button" type="button">Start break</button>
+            <button class="secondary-button" id="end-break-button" type="button">End break</button>
+            <button class="secondary-button danger-button" id="clock-out-button" type="button">Clock out</button>
+          </div>
+
+          <p class="timeclock-status" id="timeclock-action-status" aria-live="polite"></p>
+
+          <div class="timeclock-workspace">
+            <section class="timeclock-list-section" aria-labelledby="recent-timecards-title">
+              <div class="timeclock-section-head">
+                <p class="eyebrow">Recent timecards</p>
+                <h3 id="recent-timecards-title">Latest activity</h3>
+              </div>
+              <div class="timecard-list" id="timecard-list"></div>
+            </section>
+
+            <section class="timeclock-list-section" aria-labelledby="correction-title">
+              <div class="timeclock-section-head">
+                <p class="eyebrow">Correction requests</p>
+                <h3 id="correction-title">Request a timecard fix</h3>
+              </div>
+              <form class="correction-form" id="correction-form">
+                <label>
+                  Timecard
+                  <select name="timecardId" id="correction-timecard" required></select>
+                </label>
+                <label>
+                  Correction needed
+                  <textarea
+                    name="correctionNote"
+                    rows="4"
+                    placeholder="Example: Forgot to end break at 12:30 PM."
+                    required
+                  ></textarea>
+                </label>
+                <button class="primary-button" type="submit">Submit correction request</button>
+              </form>
+              <div class="correction-list" id="correction-list"></div>
+            </section>
+          </div>
+        </div>
+      </section>
     </div>
   </body>
 </html>
