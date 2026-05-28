@@ -150,6 +150,7 @@ function checkoutStatus(env) {
     ok: true,
     available: false,
     mode: "hold",
+    paymentStatus: "not_started",
     message: PAYMENT_HOLD_MESSAGE,
   };
 }
@@ -273,7 +274,11 @@ async function handleCreateCheckoutSession(request, env) {
 
   const status = await verifiedCheckoutStatus(env);
   if (!status.available) {
-    return jsonResponse({ ok: false, error: status.message }, 503);
+    return jsonResponse({
+      ...status,
+      ok: false,
+      error: status.message,
+    }, 503);
   }
 
   const stripeResponse = await fetch("https://api.stripe.com/v1/checkout/sessions", {
@@ -3373,7 +3378,7 @@ export default {
       return finalize(await handleAgentActivityRequest(request, env));
     }
 
-    if (url.pathname === "/create-checkout-session") {
+    if (url.pathname === "/create-checkout-session" || url.pathname === "/api/create-checkout-session") {
       return finalize(await handleCreateCheckoutSession(request, env));
     }
 
