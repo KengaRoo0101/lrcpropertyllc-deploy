@@ -4,6 +4,9 @@ const path = require("path");
 const pages = [
   "index.html",
   "suite/index.html",
+  "stewardship-packet/index.html",
+  "founding-circle/index.html",
+  "friends-family/index.html",
   "formed/index.html",
   "offshoot/index.html",
   "jobsai/index.html",

@@ -71,6 +71,225 @@ const AGENT_BLOCKED_TERMS = [
   "act as my lawyer",
   "legal advice",
 ];
+const PRIVATE_PREVIEW_ACKNOWLEDGEMENT_VERSION = "lrc-private-preview-v1";
+const PRIVATE_PREVIEW_INVITES = {
+  misty: {
+    label: "Misty / Boss Suite",
+    envCode: "PRIVATE_PREVIEW_MISTY_CODE",
+    fallbackCode: "misty",
+    proof:
+      "LRC already has a suite hub, Goal Builder, Formed path, JobsAI path, Ninja workflow path, SocialScan path, Be Happy path, and safety boundary working together as one ecosystem.",
+    pitch:
+      "Misty could connect as an independent AI-minded collaborator. The pitch is not to merge brands or take over Boss Suite; it is to explore optional shared workflows, AI testing, client organization, and practical templates where both sides stay clear.",
+    safeFirstAsk:
+      "Review one LRC tool, point out what is confusing, and suggest one Boss Suite-style workflow that could stay separate but compatible.",
+    ctaLabel: "Show LRC Suite",
+    ctaHref: "/suite/",
+  },
+  bear: {
+    label: "Bear",
+    envCode: "PRIVATE_PREVIEW_BEAR_CODE",
+    fallbackCode: "bear",
+    proof:
+      "LRC can now show a live front door, product routes, safety notes, and local draft tools that a trusted tester can walk through and critique.",
+    pitch:
+      "Bear is already helping, so the safest fit is practical support: testing pages, reading drafts like a real user, spotting confusing steps, and helping decide what should be fixed before anything is shown more widely.",
+    safeFirstAsk:
+      "Test Goal, Formed, and one other tool, then send a short list of what felt clear, what felt risky, and what should be simplified.",
+    ctaLabel: "Open Goal Builder",
+    ctaHref: "/goal/",
+  },
+  robert: {
+    label: "Robert",
+    envCode: "PRIVATE_PREVIEW_ROBERT_CODE",
+    fallbackCode: "robert",
+    proof:
+      "LRC can show live routes, private preview gating, checkout safe-hold, and a working review boundary instead of only an idea.",
+    pitch:
+      "Robert is being invited as a quality-first reviewer: someone who can look past presentation, ask whether the work is practical, and point out where the foundation needs to be stronger before wider exposure.",
+    safeFirstAsk:
+      "Review Founding Circle and one live tool, then send the three strongest concerns and one thing that already feels useful.",
+    ctaLabel: "Open Founding Circle",
+    ctaHref: "/founding-circle/",
+  },
+  christina: {
+    label: "Christina",
+    envCode: "PRIVATE_PREVIEW_CHRISTINA_CODE",
+    fallbackCode: "christina",
+    proof:
+      "LRC now has a visible purpose page, support invitation barrier, product routes, and safety language that can be reviewed like a real early ecosystem.",
+    pitch:
+      "Christina is invited to review clarity and trust: whether someone can understand the purpose, where they fit, and what stays protected without getting lost in formatting.",
+    safeFirstAsk:
+      "Read the private invitation and tell LRC what feels clear, what feels too broad, and what would make a serious person lean in.",
+    ctaLabel: "Read Founding Circle",
+    ctaHref: "/founding-circle/",
+  },
+  professormichael: {
+    label: "Professor Michael",
+    envCode: "PRIVATE_PREVIEW_PROFESSOR_MICHAEL_CODE",
+    fallbackCode: "professormichael",
+    proof:
+      "LRC has moved from a loose idea into a routed ecosystem with purpose language, stewardship boundaries, and approval gates that can be challenged and improved.",
+    pitch:
+      "Professor Michael is invited for standards and stewardship review: challenge the assumptions, ethics, governance, and credibility before this grows beyond a small trusted circle.",
+    safeFirstAsk:
+      "Review the Founding Circle standard and send the strongest objections, missing safeguards, and one practical next approval layer.",
+    ctaLabel: "Read Safety Notes",
+    ctaHref: "/safety.html",
+  },
+  andrew: {
+    label: "Andrew",
+    envCode: "PRIVATE_PREVIEW_ANDREW_CODE",
+    fallbackCode: "andrew",
+    proof:
+      "LRC now has live pages, a stewardship packet, regression checks, checkout safe-hold, and scoped agent boundaries ready for careful learning-systems review.",
+    pitch:
+      "Andrew is invited for college coding and future-of-learning review: whether this can become a serious model for AI-assisted builders who learn by doing real governed work.",
+    safeFirstAsk:
+      "Review the stewardship packet and identify one learning-system risk, one technical opportunity, and one rule that would help builders improve safely.",
+    ctaLabel: "Open Stewardship Packet",
+    ctaHref: "/stewardship-packet/",
+  },
+  andrewr: {
+    label: "Andrew R",
+    envCode: "PRIVATE_PREVIEW_ANDREW_R_CODE",
+    fallbackCode: "andrewr",
+    proof:
+      "LRC has a governed access model, referral accountability, trial review, paid usage boundaries, and private preview acknowledgements ready for risk review.",
+    pitch:
+      "Andrew R is invited for risk management and work-from-home operations review: abuse cases, remote trust, productivity signals, access discipline, and how to manage people without overreaching.",
+    safeFirstAsk:
+      "Review the packet and send the top three operational risks, plus one remote-work rule that would protect quality without killing creativity.",
+    ctaLabel: "Open Stewardship Packet",
+    ctaHref: "/stewardship-packet/",
+  },
+  eddie: {
+    label: "Eddie",
+    envCode: "PRIVATE_PREVIEW_EDDIE_CODE",
+    fallbackCode: "eddie",
+    proof:
+      "LRC can already present a working front door, tool paths, private invitations, and approval boundaries that can be stress-tested for real-world usefulness.",
+    pitch:
+      "Eddie is invited for operational realism: whether the tools make sense to a practical person, where the flow feels weak, and what would make the first core group stronger.",
+    safeFirstAsk:
+      "Use the home page and one tool path, then send what felt useful, what felt confusing, and what should be removed before wider sharing.",
+    ctaLabel: "Open LRC Home",
+    ctaHref: "/",
+  },
+  trent: {
+    label: "Trent",
+    envCode: "PRIVATE_PREVIEW_TRENT_CODE",
+    fallbackCode: "trent",
+    proof:
+      "LRC has multiple connected routes, a private invitation barrier, safe checkout hold, and tests that protect the baseline from drifting.",
+    pitch:
+      "Trent is invited for systems and quality review: look for fragile points, unclear handoffs, duplicated ideas, or places where the foundation needs more discipline before growth.",
+    safeFirstAsk:
+      "Review the LRC Suite and send the top three structural risks or quality fixes you would handle first.",
+    ctaLabel: "Open LRC Suite",
+    ctaHref: "/suite/",
+  },
+  berechia: {
+    label: "Berechia",
+    envCode: "PRIVATE_PREVIEW_BERECHIA_CODE",
+    fallbackCode: "berechia",
+    proof:
+      "LRC now has a purpose-led invitation, private preview barrier, safety language, and product paths that can be reviewed for trust and human usefulness.",
+    pitch:
+      "Berechia is invited for rare judgment, trust, and stewardship review: whether the message feels grounded, respectful, and serious enough for the kind of people who should be near the foundation.",
+    safeFirstAsk:
+      "Read the purpose and private preview language, then send what feels sincere, what feels overbuilt, and what would make the invitation safer.",
+    ctaLabel: "Read Founding Circle",
+    ctaHref: "/founding-circle/",
+  },
+  elijah: {
+    label: "Elijah",
+    envCode: "PRIVATE_PREVIEW_ELIJAH_CODE",
+    fallbackCode: "elijah",
+    proof:
+      "LRC now has a tangible stewardship packet, private invitation gate, live product routes, safe checkout hold, and governance language ready for serious review.",
+    pitch:
+      "Elijah is invited for operating discipline and credibility review: whether this feels clear, serious, and strong enough to keep people focused, accountable, and in line with the standard.",
+    safeFirstAsk:
+      "Read the stewardship packet and send what makes the idea feel credible, what feels unproven, and what would make a high-quality person take the next step.",
+    ctaLabel: "Open Stewardship Packet",
+    ctaHref: "/stewardship-packet/",
+  },
+  brodie: {
+    label: "Brodie",
+    envCode: "PRIVATE_PREVIEW_BRODIE_CODE",
+    fallbackCode: "brodie",
+    proof:
+      "LRC can now show the operating model in one place: invitation, trial, review, ownership, AI data boundaries, paid usage resources, and removal accountability.",
+    pitch:
+      "Brodie is invited for manager-level practicality review: whether the system feels useful, manageable, and grounded for real work instead of abstract or overbuilt.",
+    safeFirstAsk:
+      "Review the packet like a real user, then send what feels simple, what feels confusing, and what should be cut before wider sharing.",
+    ctaLabel: "Open Stewardship Packet",
+    ctaHref: "/stewardship-packet/",
+  },
+  professorbacon: {
+    label: "Professor Bacon",
+    envCode: "PRIVATE_PREVIEW_PROFESSOR_BACON_CODE",
+    fallbackCode: "professorbacon",
+    proof:
+      "LRC is now framed as a governed AI builder ecosystem with no paid recruiting, trial access, referral accountability, user-owned work, and explicit misuse review.",
+    pitch:
+      "Professor Bacon is invited for psychology and human-systems review: motivation, group dynamics, learning safety, prestige pressure, misuse risk, and whether the trial model supports responsible development.",
+    safeFirstAsk:
+      "Review the stewardship packet and identify the strongest human-risk issue, the clearest safeguard, and the one approval rule that should exist before scale.",
+    ctaLabel: "Open Stewardship Packet",
+    ctaHref: "/stewardship-packet/",
+  },
+  rebecca: {
+    label: "Rebecca",
+    envCode: "PRIVATE_PREVIEW_REBECCA_CODE",
+    fallbackCode: "rebecca",
+    proof:
+      "LRC now has a purpose-led invitation, private preview barrier, safety language, and enough working routes to show that the idea is becoming a real foundation.",
+    pitch:
+      "Rebecca is invited because encouragement and steady belief matter at the start. The role here is purpose review: whether the invitation feels human, sincere, and strong enough to help the right people keep going.",
+    safeFirstAsk:
+      "Read the Founding Circle page and send what feels inspiring, what feels unclear, and what would make a trusted person take the work seriously.",
+    ctaLabel: "Read Founding Circle",
+    ctaHref: "/founding-circle/",
+  },
+  jake: {
+    label: "Jake",
+    envCode: "PRIVATE_PREVIEW_JAKE_CODE",
+    fallbackCode: "jake",
+    proof:
+      "LRC has enough real structure to be judged now: live product routes, a private invite barrier, safe checkout hold, admin review path, and purpose-led stewardship language.",
+    pitch:
+      "Jake is invited for high-quality strategy and systems review. The ask is not broad commitment; it is sharp judgment on whether the foundation is coherent, serious, and worth tightening.",
+    safeFirstAsk:
+      "Review the Founding Circle and LRC Suite, then send the strongest strategic concern and the one improvement that would raise the quality fastest.",
+    ctaLabel: "Open LRC Suite",
+    ctaHref: "/suite/",
+  },
+  rahul: {
+    label: "Rahul",
+    envCode: "PRIVATE_PREVIEW_RAHUL_CODE",
+    fallbackCode: "rahul",
+    proof:
+      "LRC has a live ecosystem surface, private invite acknowledgement flow, safe checkout hold, admin review path, and deployable Cloudflare Pages foundation.",
+    pitch:
+      "Rahul is invited for product and technical judgment: whether this is coherent enough to build on, which part should be tightened first, and where the foundation needs stronger architecture or restraint.",
+    safeFirstAsk:
+      "Review the suite and Founding Circle, then send one product risk, one technical risk, and one practical next build step.",
+    ctaLabel: "Open LRC Suite",
+    ctaHref: "/suite/",
+  },
+};
+const PRIVATE_PREVIEW_BOUNDARIES = [
+  "This preview does not create employment, contractor status, partnership, ownership, sponsorship, or endorsement.",
+  "No secrets, customer data, payment access, admin access, deployment rights, or account permissions are granted.",
+  "LRC is not a pyramid, recruiting chain, or pay-to-enter system; no payment, commission, rank, ownership, or authority is created by adding someone.",
+  "Referrals only start review, and misuse by an invited person can trigger review of both the invitee and the person who referred them.",
+  "Tasks, systems, tools, notes, knowledge, and work product should be credited to the person who created them unless a written agreement says otherwise.",
+  "A separate signed agreement is required before deeper access, coding work, private files, customer data, or public representation.",
+];
 const FEATURE_STATUS_STEPS = [
   "requested",
   "approved_for_build",
@@ -460,7 +679,7 @@ async function handleStripeWebhook(request, env) {
 }
 
 function robotsResponse() {
-  return new Response("User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/\nDisallow: /__access\nDisallow: /stripe/\nSitemap: https://www.lrcpropertyllc.com/sitemap.xml\n", {
+  return new Response("User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/\nDisallow: /__access\nDisallow: /stripe/\nDisallow: /friends-family/\nDisallow: /stewardship-packet/\nSitemap: https://www.lrcpropertyllc.com/sitemap.xml\n", {
     status: 200,
     headers: securityHeaders({
       "content-type": "text/plain; charset=utf-8",
@@ -1131,6 +1350,85 @@ function normalizeLead(body) {
   return lead;
 }
 
+function normalizePrivatePreviewKey(value) {
+  return cleanText(value, 120).toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+
+function privatePreviewAccessCode(invite, env = {}) {
+  return normalizePrivatePreviewKey(env[invite.envCode] || invite.fallbackCode);
+}
+
+function privatePreviewRecordId() {
+  return `private-preview-${new Date().toISOString().replace(/[^0-9]/g, "").slice(0, 14)}-${crypto.randomUUID().slice(0, 8)}`;
+}
+
+function previewResponse(invite) {
+  return {
+    inviteeLabel: invite.label,
+    proof: invite.proof,
+    pitch: invite.pitch,
+    safeFirstAsk: invite.safeFirstAsk,
+    ctaLabel: invite.ctaLabel,
+    ctaHref: invite.ctaHref,
+    boundaries: PRIVATE_PREVIEW_BOUNDARIES,
+  };
+}
+
+async function buildPrivatePreviewAcknowledgement(body = {}, request, env) {
+  const invitee = normalizePrivatePreviewKey(body.invitee);
+  const invite = PRIVATE_PREVIEW_INVITES[invitee];
+  if (!invite) {
+    const error = new Error("Private preview invitation was not found.");
+    error.statusCode = 404;
+    throw error;
+  }
+
+  const passphrase = normalizePrivatePreviewKey(body.passphrase);
+  if (passphrase !== privatePreviewAccessCode(invite, env)) {
+    const error = new Error("Private preview name did not match this invitation.");
+    error.statusCode = 403;
+    throw error;
+  }
+
+  const signatureName = cleanText(body.signatureName, 160);
+  if (signatureName.length < 2) {
+    const error = new Error("Typed acknowledgement name is required.");
+    error.statusCode = 400;
+    throw error;
+  }
+
+  if (body.agreement !== true || body.acknowledgementVersion !== PRIVATE_PREVIEW_ACKNOWLEDGEMENT_VERSION) {
+    const error = new Error("Private preview acknowledgement is required.");
+    error.statusCode = 400;
+    throw error;
+  }
+
+  const ip = cleanText(request.headers.get("cf-connecting-ip"), 120);
+  const createdAt = new Date().toISOString();
+  const record = {
+    id: privatePreviewRecordId(),
+    createdAt,
+    source: cleanText(body.source, 80) || "friends-family",
+    type: "private-preview-acknowledgement",
+    invitee,
+    inviteeLabel: invite.label,
+    signatureName,
+    acknowledgementVersion: PRIVATE_PREVIEW_ACKNOWLEDGEMENT_VERSION,
+    boundariesAccepted: PRIVATE_PREVIEW_BOUNDARIES,
+    noRoleCreated: true,
+    noAccessGranted: true,
+    separateAgreementRequired: true,
+    path: cleanText(new URL(request.url).pathname, 200),
+    userAgent: cleanText(request.headers.get("user-agent"), 300),
+    country: cleanText(request.cf?.country, 80),
+    colo: cleanText(request.cf?.colo, 80),
+    ray: cleanText(request.headers.get("cf-ray"), 120),
+    ipHash: ip ? await sha256Hex(`lrc-private-preview:${ip}`) : "",
+  };
+
+  return { record, preview: previewResponse(invite) };
+}
+
 function normalizeAgentActivity(body) {
   return {
     createdAt: new Date().toISOString(),
@@ -1774,6 +2072,7 @@ async function getAdminDatasets(env) {
   const events = await listKvJson(env, "event:");
   const recommendations = await listKvJson(env, "recommendation:");
   const approvals = await listKvJson(env, "approval:");
+  const privatePreview = await listKvJson(env, "private-preview:ack:");
   const growth = leads.filter((lead) => isGrowthSignalLead(lead));
   const levi = leads.filter((lead) => isLeviLead(lead));
   const careers = leads.filter((lead) => String(lead.source || "").includes("careers"));
@@ -1781,7 +2080,7 @@ async function getAdminDatasets(env) {
     const source = String(lead.source || "");
     return !source.includes("careers") && !isGrowthSignalLead(lead) && !isLeviLead(lead);
   });
-  return { leads, requests, growth, levi, careers, formedIntakes, traffic, agentActivity, actionRequests, payments, ninjaTasks, featureRequests, entities, events, recommendations, approvals };
+  return { leads, requests, growth, levi, careers, formedIntakes, traffic, agentActivity, actionRequests, payments, ninjaTasks, featureRequests, entities, events, recommendations, approvals, privatePreview };
 }
 
 function isGrowthSignalLead(lead) {
@@ -1809,6 +2108,7 @@ function selectAdminDataset(datasets, type) {
   if (type === "events") return datasets.events;
   if (type === "recommendations") return datasets.recommendations;
   if (type === "approvals") return datasets.approvals;
+  if (type === "private-preview" || type === "private-preview-acknowledgements") return datasets.privatePreview;
   return datasets.leads;
 }
 
@@ -2980,6 +3280,35 @@ async function handleLeadRequest(request, env) {
   }
 }
 
+async function handlePrivatePreviewAcknowledgementRequest(request, env) {
+  if (request.method !== "POST") {
+    return jsonResponse({ ok: false, error: "Method not allowed." }, 405);
+  }
+
+  if (!env.LRC_LEADS) {
+    return jsonResponse(
+      {
+        ok: false,
+        error: "Private preview storage is not configured. Use a signed agreement before sharing deeper details.",
+      },
+      503
+    );
+  }
+
+  try {
+    const body = await request.json();
+    const { record, preview } = await buildPrivatePreviewAcknowledgement(body || {}, request, env);
+    const key = `private-preview:ack:${record.createdAt}:${record.id}`;
+    await env.LRC_LEADS.put(key, JSON.stringify(record));
+    return jsonResponse({ ok: true, stored: true, acknowledgementId: record.id, preview }, 201);
+  } catch (error) {
+    return jsonResponse(
+      { ok: false, error: error.message || "Private preview acknowledgement could not be recorded." },
+      error.statusCode || 400
+    );
+  }
+}
+
 async function handleFeatureRequest(request, env) {
   if (request.method !== "POST") {
     return jsonResponse({ ok: false, error: "Method not allowed." }, 405);
@@ -3152,7 +3481,7 @@ async function handleAdminSummaryRequest(request, env) {
     );
   }
 
-  const { leads, formedIntakes, careers, growth, levi, traffic, agentActivity, actionRequests, payments, ninjaTasks, featureRequests, entities, events, recommendations, approvals } = await getAdminDatasets(env);
+  const { leads, formedIntakes, careers, growth, levi, traffic, agentActivity, actionRequests, payments, ninjaTasks, featureRequests, entities, events, recommendations, approvals, privatePreview } = await getAdminDatasets(env);
 
   return jsonResponse({
     ok: true,
@@ -3173,6 +3502,7 @@ async function handleAdminSummaryRequest(request, env) {
       events: events.length,
       recommendations: recommendations.length,
       approvals: approvals.length,
+      privatePreview: privatePreview.length,
     },
     leads: leads.slice(0, 100),
     formedIntakes: formedIntakes.slice(0, 100),
@@ -3186,6 +3516,7 @@ async function handleAdminSummaryRequest(request, env) {
     events: events.slice(0, 250),
     recommendations: recommendations.slice(0, 250),
     approvals: approvals.slice(0, 250),
+    privatePreview: privatePreview.slice(0, 250),
   });
 }
 
@@ -3320,6 +3651,10 @@ export default {
 
     if (url.pathname === "/api/lead") {
       return finalize(await handleLeadRequest(request, env));
+    }
+
+    if (url.pathname === "/api/private-preview/acknowledgement") {
+      return finalize(await handlePrivatePreviewAcknowledgementRequest(request, env));
     }
 
     if (url.pathname === "/api/feature-requests") {

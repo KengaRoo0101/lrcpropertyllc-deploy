@@ -4,4 +4,6 @@ Disallow: /admin/
 Disallow: /api/
 Disallow: /__access
 Disallow: /stripe/
+Disallow: /friends-family/
+Disallow: /stewardship-packet/
 Sitemap: https://www.lrcpropertyllc.com/sitemap.xml

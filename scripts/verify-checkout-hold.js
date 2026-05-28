@@ -134,7 +134,7 @@ async function run() {
     assertContains("checkout confirmation error", confirmation.json.error || "", "Real-world payments are not active");
 
     const home = await fetchText("/");
-    assertContains("home", home.text, "LRC Property LLC | Launch Plan Builder");
+    assertContains("home", home.text, "LRC Property LLC | Tool Ecosystem and Launch Plan Builder");
     assertContains("home", home.text, "Guided business tools");
     assertContains("home", home.text, "/assets/lrc-system.css");
     assertContains("home", home.text, "/assets/lrc-agent.js");

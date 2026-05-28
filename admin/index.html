@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="../assets/lrc-modern.css?v=10" />
     <link rel="stylesheet" href="../assets/lrc-final.css?v=14" />
     <link rel="stylesheet" href="../assets/lrc-affiliate-layout.css?v=3" />
-    <script src="./app.js?v=11" defer></script>
+    <script src="./app.js?v=12" defer></script>
   </head>
   <body class="lrc-affiliate">
     <main class="admin-shell">
@@ -96,6 +96,10 @@
           <span id="feature-request-count">0</span>
           <p>Feature requests</p>
         </article>
+        <article class="summary-card">
+          <span id="private-preview-count">0</span>
+          <p>Private previews</p>
+        </article>
       </section>
 
       <section class="admin-tabs" aria-label="Admin data tabs">
@@ -111,6 +115,7 @@
         <button class="tab-button" type="button" data-tab="setup">Setup</button>
         <button class="tab-button" type="button" data-tab="ninja-tasks">Ninja Work</button>
         <button class="tab-button" type="button" data-tab="feature-requests">Feature Requests</button>
+        <button class="tab-button" type="button" data-tab="private-preview">Private Previews</button>
       </section>
 
       <section class="data-panel is-active" id="requests" data-panel="requests">
@@ -227,6 +232,18 @@
           </p>
         </div>
         <div class="record-list" id="feature-request-list"></div>
+      </section>
+
+      <section class="data-panel" id="private-preview" data-panel="private-preview">
+        <div class="panel-heading">
+          <p class="eyebrow">Private Previews</p>
+          <h2>Friends and family acknowledgement records.</h2>
+          <p>
+            These records show who unlocked an individualized private preview. They do not grant
+            role, access, ownership, payment authority, deployment rights, or legal status.
+          </p>
+        </div>
+        <div class="record-list" id="private-preview-list"></div>
       </section>
 
       <section class="data-panel" id="setup" data-panel="setup">

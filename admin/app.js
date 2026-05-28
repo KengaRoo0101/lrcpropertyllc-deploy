@@ -26,6 +26,7 @@ const counts = {
   payments: document.querySelector("#payment-count"),
   ninjaTasks: document.querySelector("#ninja-task-count"),
   featureRequests: document.querySelector("#feature-request-count"),
+  privatePreview: document.querySelector("#private-preview-count"),
 };
 
 const lists = {
@@ -40,6 +41,7 @@ const lists = {
   payments: document.querySelector("#payment-list"),
   ninjaTasks: document.querySelector("#ninja-task-list"),
   featureRequests: document.querySelector("#feature-request-list"),
+  privatePreview: document.querySelector("#private-preview-list"),
 };
 
 const pathwayLabels = {
@@ -109,6 +111,8 @@ function tabFromHash() {
     configure: "setup",
     config: "setup",
     features: "feature-requests",
+    previews: "private-preview",
+    "private-previews": "private-preview",
   };
   return aliases[hash] || hash || "requests";
 }
@@ -491,6 +495,27 @@ function renderFeatureRequest(item) {
   `;
 }
 
+function renderPrivatePreview(item) {
+  const boundaries = Array.isArray(item.boundariesAccepted) ? item.boundariesAccepted : [];
+  return `
+    <article class="record-card private-preview-record">
+      <div>
+        <p class="record-kicker">${escapeHtml(item.inviteeLabel || item.invitee || "Private preview")} • ${escapeHtml(item.acknowledgementVersion || "acknowledgement")}</p>
+        <h3>${escapeHtml(item.signatureName || "Unsigned acknowledgement")}</h3>
+        <p>${escapeHtml("Preview was unlocked for review only. No role, access, ownership, or authority was granted.")}</p>
+      </div>
+      <div class="record-meta">
+        <span>${escapeHtml(item.source || "friends-family")}</span>
+        <span>${escapeHtml(item.noRoleCreated ? "No role created" : "Review role claim")}</span>
+        <span>${escapeHtml(item.noAccessGranted ? "No access granted" : "Review access claim")}</span>
+        <span>${formatDate(item.createdAt)}</span>
+      </div>
+      ${boundaries.length ? `<ul>${boundaries.map((boundary) => `<li>${escapeHtml(boundary)}</li>`).join("")}</ul>` : ""}
+      <p class="record-warning">${escapeHtml("Use a real signed NDA, contractor agreement, employee agreement, or IP assignment before deeper access or work.")}</p>
+    </article>
+  `;
+}
+
 function featurePacketText(card) {
   const heading = card.querySelector("h3")?.textContent || "Feature request";
   const packet = card.querySelector(".record-feature-packet")?.innerText || "";
@@ -506,6 +531,7 @@ function renderSummary(data) {
   const payments = (Array.isArray(data.payments) ? data.payments : []).slice(0, recordLimit);
   const ninjaTasks = (Array.isArray(data.ninjaTasks) ? data.ninjaTasks : []).slice(0, recordLimit);
   const featureRequests = (Array.isArray(data.featureRequests) ? data.featureRequests : []).slice(0, recordLimit);
+  const privatePreview = (Array.isArray(data.privatePreview) ? data.privatePreview : []).slice(0, recordLimit);
   const serverCounts = data.counts || {};
   const growthLeads = leads.filter((lead) => isGrowthSignalLead(lead));
   const leviLeads = leads.filter((lead) => isLeviLead(lead));
@@ -526,6 +552,7 @@ function renderSummary(data) {
   if (counts.payments) counts.payments.textContent = String(serverCounts.payments ?? payments.length);
   if (counts.ninjaTasks) counts.ninjaTasks.textContent = String(serverCounts.ninjaTasks ?? ninjaTasks.length);
   if (counts.featureRequests) counts.featureRequests.textContent = String(serverCounts.featureRequests ?? featureRequests.length);
+  if (counts.privatePreview) counts.privatePreview.textContent = String(serverCounts.privatePreview ?? privatePreview.length);
 
   if (lists.requests) {
     lists.requests.innerHTML = requestLeads.length
@@ -591,6 +618,12 @@ function renderSummary(data) {
     lists.featureRequests.innerHTML = featureRequests.length
       ? featureRequests.map(renderFeatureRequest).join("")
       : emptyState("No feature requests submitted yet.");
+  }
+
+  if (lists.privatePreview) {
+    lists.privatePreview.innerHTML = privatePreview.length
+      ? privatePreview.map(renderPrivatePreview).join("")
+      : emptyState("No private preview acknowledgements yet.");
   }
 }
 

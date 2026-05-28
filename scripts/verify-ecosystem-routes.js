@@ -12,6 +12,12 @@ const publicRoutes = [
   "/goal",
   "/suite/",
   "/suite",
+  "/stewardship-packet/",
+  "/stewardship-packet",
+  "/founding-circle/",
+  "/founding-circle",
+  "/friends-family/",
+  "/friends-family",
   "/formed/",
   "/product-lab/",
   "/agentcheck/",
@@ -221,6 +227,11 @@ async function checkRoutes() {
   assertContains("home", home, "Tell us what you want to build and get a real launch plan in minutes.");
   assertContains("home", home, "Stripe Checkout only. You approve before anything is charged.");
   assertContains("home", home, 'href="./goal/"');
+  assertContains("home", home, 'href="./suite/"');
+  assertContains("home", home, 'href="./founding-circle/"');
+  assertContains("home", home, 'href="./friends-family/"');
+  assertContains("home", home, "LRC ecosystem");
+  assertContains("home", home, "One front door, multiple focused tools.");
   assertContains("home", home, '<body class="lrc-affiliate focused-home formed-home">');
   blockedPublicCopy.forEach((blocked) => assertNotContains("home", home, blocked));
 
@@ -253,6 +264,191 @@ async function checkRoutes() {
   assertContains("ninja", ninja, "Nothing will be submitted, published, charged, or sent without your approval.");
   assertContains("ninja", ninja, ">Start</button>");
   assertNotContains("ninja", ninja, "data-lrc-agent-input");
+
+  const founding = await assertRouteOk("/founding-circle/");
+  assertContains("founding-circle", founding, "A serious invitation to build around purpose.");
+  assertContains("founding-circle", founding, "AI, people, our future.");
+  assertContains("founding-circle", founding, "Money can make the work durable, but money is not the center.");
+  assertContains("founding-circle", founding, "The work is the sale.");
+  assertContains("founding-circle", founding, "No pyramid, no paid recruiting, no automatic access.");
+  assertContains("founding-circle", founding, "Trusted few first, heavy hitters later.");
+  assertContains("founding-circle", founding, "Referral starts review.");
+  assertContains("founding-circle", founding, "Inviters carry responsibility.");
+  assertContains("founding-circle", founding, "Work belongs to its creator.");
+  assertContains("founding-circle", founding, "This site demands quality.");
+  assertContains("founding-circle", founding, "Hand picked, not open-door.");
+  assertContains("founding-circle", founding, "Trust earns deeper access.");
+  assertContains("founding-circle", founding, "What they build can be theirs. What joins LRC must be clear.");
+  assertContains("founding-circle", founding, "Tasks and systems are credited.");
+  assertContains("founding-circle", founding, "No payment, commission, rank, ownership, or");
+  assertContains("founding-circle", founding, "not legal advice and is not a contract");
+  assertContains("founding-circle", founding, "../friends-family/");
+  assertContains("founding-circle", founding, "../stewardship-packet/");
+
+  const packet = await assertRouteOk("/stewardship-packet/");
+  assertContains("stewardship-packet", packet, "An institution-grade standard for responsible AI builders.");
+  assertContains("stewardship-packet", packet, "Attorney and core reviewer brief");
+  assertContains("stewardship-packet", packet, "Read this first. Record the video later.");
+  assertContains("stewardship-packet", packet, "Canva-ready founder brief");
+  assertContains("stewardship-packet", packet, "The video should feel like a private founder note, not a commercial.");
+  assertContains("stewardship-packet", packet, "Use this script in Canva, HeyGen, Descript, or ElevenLabs only when the voice and");
+  assertContains("stewardship-packet", packet, "If the video does not improve trust, leave it off.");
+  assertContains("stewardship-packet", packet, "no synthetic-sounding narration");
+  assertContains("stewardship-packet", packet, "Smart people do not need an ad.");
+  assertContains("stewardship-packet", packet, "I am building LRC as a controlled place");
+  assertContains("stewardship-packet", packet, "The facts are simple enough to verify");
+  assertContains("stewardship-packet", packet, "Eli can carry this to the attorneys");
+  assertContains("stewardship-packet", packet, "Berechia is here because brilliant people");
+  assertContains("stewardship-packet", packet, "Brodie knows the industry, technical work, and operations");
+  assertContains("stewardship-packet", packet, "Andrew and Professor Bacon are help on the ground");
+  assertContains("stewardship-packet", packet, "16 private invite profiles");
+  assertContains("stewardship-packet", packet, "16 audited pages");
+  assertContains("stewardship-packet", packet, "Checkout refuses sessions while safe hold is active");
+  assertContains("stewardship-packet", packet, "AI capability is outpacing governance");
+  assertContains("stewardship-packet", packet, "Good ideas fail in the handoff");
+  assertContains("stewardship-packet", packet, "Access, action, and payment are separated");
+  assertContains("stewardship-packet", packet, "Each reviewer covers a failure mode");
+  assertContains("stewardship-packet", packet, "The standard is the advantage");
+  assertNotContains("stewardship-packet", packet, "data-video-audio");
+  assertNotContains("stewardship-packet", packet, "Play founder brief");
+  assertNotContains("stewardship-packet", packet, "Play explanation");
+  assertNotContains("stewardship-packet", packet, "stewardship-founder-brief.m4a");
+  assertNotContains("stewardship-packet", packet, '<script src="./app.js?v=1" defer></script>');
+  assertContains("stewardship-packet", packet, "Show smart reviewers that this is already working.");
+  assertContains("stewardship-packet", packet, "AI turns scattered thinking into usable systems, while people keep control.");
+  assertContains("stewardship-packet", packet, "AI is the force multiplier.");
+  assertContains("stewardship-packet", packet, "The site demonstrates the method");
+  assertContains("stewardship-packet", packet, "Brodie: technical operations proof");
+  assertContains("stewardship-packet", packet, "usable, buildable, and grounded");
+  assertContains("stewardship-packet", packet, "Andrew: future-of-learning proof");
+  assertContains("stewardship-packet", packet, "What each person does next");
+  assertContains("stewardship-packet", packet, "Pressure-test the work system");
+  assertContains("stewardship-packet", packet, "Pressure-test the learning model");
+  assertContains("stewardship-packet", packet, "safe payment hold");
+  assertContains("stewardship-packet", packet, "Why it can win");
+  assertContains("stewardship-packet", packet, "Bear: operator proof");
+  assertContains("stewardship-packet", packet, "Attorney 1: structure proof");
+  assertContains("stewardship-packet", packet, "Attorney 2: risk proof");
+  assertContains("stewardship-packet", packet, "Invitation is earned. Access is governed. Usage is");
+  assertContains("stewardship-packet", packet, "No recruiting compensation");
+  assertContains("stewardship-packet", packet, "Claims review");
+  assertContains("stewardship-packet", packet, "This is a team, not a");
+  assertContains("stewardship-packet", packet, "This is the trusted launch circle to get the foundation off the ground.");
+  assertContains("stewardship-packet", packet, "Call the heavy hitters after the foundation is safe.");
+  assertContains("stewardship-packet", packet, "Berechia");
+  assertContains("stewardship-packet", packet, "Elijah");
+  assertContains("stewardship-packet", packet, "Brodie");
+  assertContains("stewardship-packet", packet, "Christina");
+  assertContains("stewardship-packet", packet, "Andrew");
+  assertContains("stewardship-packet", packet, "Andrew R");
+  assertContains("stewardship-packet", packet, "Professor Bacon");
+  assertContains("stewardship-packet", packet, "future-of-learning");
+  assertContains("stewardship-packet", packet, "risk-management and work-from-home operations");
+  assertContains("stewardship-packet", packet, "Do not borrow another institution");
+  assertContains("stewardship-packet", packet, "not legal advice and is not a contract");
+
+  const support = await assertRouteOk("/friends-family/");
+  assertContains("friends-family", support, "Proof of concept for people invited into the room.");
+  assertContains("friends-family", support, "Access is a privilege, not a general invitation.");
+  assertContains("friends-family", support, "does not replace a signed NDA");
+  assertContains("friends-family", support, "This is not a pyramid, recruiting chain, or pay-to-enter system.");
+  assertContains("friends-family", support, "No payment for adding people");
+  assertContains("friends-family", support, "Quality is tested first");
+  assertContains("friends-family", support, "Referrers can be reviewed");
+  assertContains("friends-family", support, "Tasks, systems, notes, tools, and useful work should be credited");
+  assertContains("friends-family", support, "No payments are made for adding people.");
+  assertContains("friends-family", support, "This trusted launch circle is here to get the foundation off the ground.");
+  assertContains("friends-family", support, "Each person unlocks only their own invitation.");
+  assertContains("friends-family", support, "Misty / Boss Suite");
+  assertContains("friends-family", support, "Bear");
+  assertContains("friends-family", support, "Robert");
+  assertContains("friends-family", support, "Christina");
+  assertContains("friends-family", support, "Professor Michael");
+  assertContains("friends-family", support, "Andrew");
+  assertContains("friends-family", support, "Andrew R");
+  assertContains("friends-family", support, "Eddie");
+  assertContains("friends-family", support, "Trent");
+  assertContains("friends-family", support, "Berechia");
+  assertContains("friends-family", support, "Elijah");
+  assertContains("friends-family", support, "Brodie");
+  assertContains("friends-family", support, "Professor Bacon");
+  assertContains("friends-family", support, "Rebecca");
+  assertContains("friends-family", support, "Jake");
+  assertContains("friends-family", support, "Rahul");
+  assertContains("friends-family", support, "This is a team, not a crowd.");
+  assertContains("friends-family", support, "Learning systems");
+  assertContains("friends-family", support, "Risk and remote work");
+  assertContains("friends-family", support, "does not");
+  assertContains("friends-family", support, "public endorser");
+  assertContains("friends-family", support, "No sensitive access");
+  assertContains("friends-family", support, "Private preview name");
+  assertContains("friends-family", support, "Typed acknowledgement name");
+  assertContains("friends-family", support, "copy protected ideas");
+  assertContains("friends-family", support, "separate written owner approval");
+  assertContains("friends-family", support, '<script src="./app.js?v=1" defer></script>');
+  assertNotContains("friends-family", support, "LRC already has a suite hub, Goal Builder, Formed path");
+  assertNotContains("friends-family", support, "The ecosystem has real routes, regression checks");
+  assertNotContains("friends-family", support, "Ray");
+  assertNotContains("friends-family", support, "Bearechia");
+
+  const preview = await postJson("/api/private-preview/acknowledgement", {
+    invitee: "misty",
+    passphrase: "misty",
+    signatureName: "Misty Preview Test",
+    agreement: true,
+    acknowledgementVersion: "lrc-private-preview-v1",
+    source: "verification",
+  });
+  if (preview.response.status !== 201) fail(`/api/private-preview/acknowledgement returned ${preview.response.status}`);
+  assertContains("private-preview proof", preview.json.preview?.proof || "", "LRC already has a suite hub");
+  assertContains("private-preview boundary", (preview.json.preview?.boundaries || []).join(" "), "separate signed agreement");
+
+  const rahulPreview = await postJson("/api/private-preview/acknowledgement", {
+    invitee: "rahul",
+    passphrase: "rahul",
+    signatureName: "Rahul Preview Test",
+    agreement: true,
+    acknowledgementVersion: "lrc-private-preview-v1",
+    source: "verification",
+  });
+  if (rahulPreview.response.status !== 201) fail(`Rahul private preview returned ${rahulPreview.response.status}`);
+  assertContains("rahul private-preview pitch", rahulPreview.json.preview?.pitch || "", "product and technical judgment");
+  assertContains("rahul private-preview boundary", (rahulPreview.json.preview?.boundaries || []).join(" "), "not a pyramid");
+  assertContains("rahul private-preview boundary", (rahulPreview.json.preview?.boundaries || []).join(" "), "misuse by an invited person can trigger review");
+  assertContains("rahul private-preview boundary", (rahulPreview.json.preview?.boundaries || []).join(" "), "work product should be credited");
+
+  const professorBaconPreview = await postJson("/api/private-preview/acknowledgement", {
+    invitee: "professor-bacon",
+    passphrase: "professorbacon",
+    signatureName: "Professor Bacon Preview Test",
+    agreement: true,
+    acknowledgementVersion: "lrc-private-preview-v1",
+    source: "verification",
+  });
+  if (professorBaconPreview.response.status !== 201) {
+    fail(`Professor Bacon private preview returned ${professorBaconPreview.response.status}`);
+  }
+  assertContains("professor bacon private-preview pitch", professorBaconPreview.json.preview?.pitch || "", "psychology and human-systems review");
+
+  const deniedPreview = await postJson("/api/private-preview/acknowledgement", {
+    invitee: "misty",
+    passphrase: "wrong",
+    signatureName: "Misty Preview Test",
+    agreement: true,
+    acknowledgementVersion: "lrc-private-preview-v1",
+    source: "verification",
+  });
+  if (deniedPreview.response.status !== 403) fail("private preview should reject the wrong passphrase");
+
+  const removedPreview = await postJson("/api/private-preview/acknowledgement", {
+    invitee: "ray",
+    passphrase: "ray",
+    signatureName: "Ray Preview Test",
+    agreement: true,
+    acknowledgementVersion: "lrc-private-preview-v1",
+    source: "verification",
+  });
+  if (removedPreview.response.status !== 404) fail("removed Ray private preview should not unlock");
 }
 
 async function checkAssets() {

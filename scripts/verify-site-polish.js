@@ -104,6 +104,7 @@ function checkSyntax() {
     "formed/app.js",
     "ninja/app.js",
     "goal/app.js",
+    "friends-family/app.js",
     "server.js",
     "_worker.js",
   ].forEach((file) => {
@@ -127,6 +128,14 @@ function checkHome() {
   assertContains("home", home, "data-lrc-agent-output hidden");
   assertContains("home", home, "founder-flow-page");
   assertContains("home", home, "Stripe Checkout only. You approve before anything is charged.");
+  assertContains("home", home, "LRC ecosystem");
+  assertContains("home", home, "One front door, multiple focused tools.");
+  assertContains("home", home, "href=\"./suite/\"");
+  assertContains("home", home, "JobsAI + Careers");
+  assertContains("home", home, "href=\"./founding-circle/\"");
+  assertContains("home", home, "Founding Circle");
+  assertContains("home", home, "href=\"./friends-family/\"");
+  assertContains("home", home, "Friends & Family");
 
   [
     "user-pathway",
@@ -135,7 +144,6 @@ function checkHome() {
     "lead-panel",
     "feature-request-form",
     "Agent and tool routes",
-    "ecosystem",
     "Founder Tax Match",
     "Payments stay inactive until owner approval",
     "id=\"paywall\"",
@@ -253,6 +261,168 @@ function checkPublicPages() {
   });
 }
 
+function checkFriendsFamilyPage() {
+  const page = readText("friends-family/index.html");
+  const app = readText("friends-family/app.js");
+  [
+    "Private Preview Invitations | LRC Property LLC",
+    "Proof of concept for people invited into the room.",
+    "Access is a privilege, not a general invitation.",
+    "does not replace a signed NDA",
+    "Individual proof-of-concept previews",
+    "Each person unlocks only their own invitation.",
+    "This is not a pyramid, recruiting chain, or pay-to-enter system.",
+    "No payment for adding people",
+    "Quality is tested first",
+    "Referrers can be reviewed",
+    "Tasks, systems, notes, tools, and useful work should be credited",
+    "No payments are made for adding people.",
+    "This trusted launch circle is here to get the foundation off the ground.",
+    "visible acknowledgement barrier",
+    "data-invite-card",
+    "data-invite-form",
+    "Private preview name",
+    "Typed acknowledgement name",
+    "Misty / Boss Suite",
+    "Bear",
+    "Robert",
+    "Christina",
+    "Professor Michael",
+    "Andrew",
+    "Andrew R",
+    "Eddie",
+    "Trent",
+    "Berechia",
+    "Elijah",
+    "Brodie",
+    "Professor Bacon",
+    "Rebecca",
+    "Jake",
+    "Rahul",
+    "This is a team, not a crowd.",
+    "Learning systems",
+    "Risk and remote work",
+    "copy protected ideas",
+    "separate written owner approval",
+    "./app.js?v=1",
+  ].forEach((expected) => assertContains("friends-family page", page, expected));
+  [
+    "LRC already has a suite hub, Goal Builder, Formed path",
+    "The ecosystem has real routes, regression checks",
+    "Ray",
+    "Bearechia",
+  ].forEach((blocked) => assertNotContains("friends-family page", page, blocked));
+  [
+    "/api/private-preview/acknowledgement",
+    "Acknowledgement recorded. Private preview unlocked.",
+    "does not create a role, grant access, or replace a signed agreement",
+    "invited person's first name",
+  ].forEach((expected) => assertContains("friends-family app", app, expected));
+}
+
+function checkFoundingCirclePage() {
+  const page = readText("founding-circle/index.html");
+  [
+    "LRC Founding Circle | Stewardship Invitation",
+    "A serious invitation to build around purpose.",
+    "AI, people, our future.",
+    "Money can make the work durable, but money is not the center.",
+    "The work is the sale.",
+    "No pyramid, no paid recruiting, no automatic access.",
+    "Trusted few first, heavy hitters later.",
+    "Referral starts review.",
+    "Quality is tested first.",
+    "Inviters carry responsibility.",
+    "Work belongs to its creator.",
+    "This site demands quality.",
+    "Hand picked, not open-door.",
+    "Approval before power.",
+    "Attorneys before deep work.",
+    "Trust earns deeper access.",
+    "What they build can be theirs. What joins LRC must be clear.",
+    "Tasks and systems are credited.",
+    "No payment, commission, rank, ownership, or",
+    "The standard each person must agree to before deeper work.",
+    "not legal advice and is not a contract",
+    "../friends-family/",
+    "../stewardship-packet/",
+  ].forEach((expected) => assertContains("founding-circle page", page, expected));
+}
+
+function checkStewardshipPacketPage() {
+  const page = readText("stewardship-packet/index.html");
+  [
+    "LRC Stewardship Packet | Attorney and Core Reviewer Brief",
+    "An institution-grade standard for responsible AI builders.",
+    "Attorney and core reviewer brief",
+    "Read this first. Record the video later.",
+    "Canva-ready founder brief",
+    "The video should feel like a private founder note, not a commercial.",
+    "Use this script in Canva, HeyGen, Descript, or ElevenLabs only when the voice and",
+    "If the video does not improve trust, leave it off.",
+    "What good looks like",
+    "no synthetic-sounding narration",
+    "Smart people do not need an ad.",
+    "I am building LRC as a controlled place",
+    "The facts are simple enough to verify",
+    "Eli can carry this to the attorneys",
+    "Berechia is here because brilliant people",
+    "Brodie knows the industry, technical work, and operations",
+    "Andrew and Professor Bacon are help on the ground",
+    "16 private invite profiles",
+    "16 audited pages",
+    "Checkout refuses sessions while safe hold is active",
+    "AI capability is outpacing governance",
+    "Good ideas fail in the handoff",
+    "Access, action, and payment are separated",
+    "Each reviewer covers a failure mode",
+    "The standard is the advantage",
+    "Show smart reviewers that this is already working.",
+    "AI turns scattered thinking into usable systems, while people keep control.",
+    "AI is the force multiplier.",
+    "The site demonstrates the method",
+    "Brodie: technical operations proof",
+    "usable, buildable, and grounded",
+    "Andrew: future-of-learning proof",
+    "What each person does next",
+    "Pressure-test the work system",
+    "Pressure-test the learning model",
+    "safe payment hold",
+    "Why it can win",
+    "Bear: operator proof",
+    "Attorney 1: structure proof",
+    "Attorney 2: risk proof",
+    "Invitation is earned. Access is governed. Usage is",
+    "Work belongs to its creator unless written terms",
+    "No recruiting compensation",
+    "AI and data governance",
+    "Claims review",
+    "This is a team, not a",
+    "This is the trusted launch circle to get the foundation off the ground.",
+    "Call the heavy hitters after the foundation is safe.",
+    "Berechia",
+    "Elijah",
+    "Brodie",
+    "Christina",
+    "Andrew",
+    "Andrew R",
+    "Professor Bacon",
+    "future-of-learning",
+    "risk-management and work-from-home operations",
+    "Do not borrow another institution",
+    "not legal advice and is not a contract",
+    "../friends-family/",
+  ].forEach((expected) => assertContains("stewardship-packet page", page, expected));
+  [
+    "data-video-audio",
+    "Play founder brief",
+    "Play explanation",
+    "speechSynthesis",
+    "stewardship-founder-brief.m4a",
+    "./app.js?v=1",
+  ].forEach((blocked) => assertNotContains("stewardship-packet page", page, blocked));
+}
+
 function checkFormedV1() {
   const app = readText("formed/app.js");
   [
@@ -337,6 +507,9 @@ function run() {
   checkRuntime();
   checkStyles();
   checkPublicPages();
+  checkFoundingCirclePage();
+  checkStewardshipPacketPage();
+  checkFriendsFamilyPage();
   checkFormedV1();
   checkGoalRoute();
   checkPrivateIpDisclosure();
