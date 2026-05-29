@@ -101,6 +101,7 @@ function checkSyntax() {
   [
     "assets/lrc-agent.js",
     "assets/lrc-runtime.js",
+    "assets/section-tabs.js",
     "formed/app.js",
     "ninja/app.js",
     "goal/app.js",
@@ -116,6 +117,51 @@ function checkSyntax() {
     });
     if (result.status !== 0) fail(`${file} syntax failed: ${result.stderr || result.stdout}`);
   });
+}
+
+function checkSectionTabs() {
+  const tabs = readText("assets/section-tabs.js");
+  [
+    "section-tabs-shell",
+    "role\", \"tablist\"",
+    "data-section-tab-panel",
+    "hashchange",
+    "visibleDirectSections",
+  ].forEach((expected) => assertContains("section tabs", tabs, expected));
+
+  [
+    "index.html",
+    "suite/index.html",
+    "founding-circle/index.html",
+    "friends-family/index.html",
+    "stewardship-packet/index.html",
+    "formed/index.html",
+    "jobsai/index.html",
+    "offshoot/index.html",
+    "socialscan/index.html",
+    "behappy/index.html",
+    "careers/index.html",
+    "product-lab/index.html",
+    "contact/index.html",
+    "agentcheck/index.html",
+    "goal/index.html",
+    "ninja/index.html",
+    "promo/index.html",
+    "promo/posts.html",
+    "promo/launch.html",
+    "success.html",
+    "cancel.html",
+    "404.html",
+    "terms.html",
+    "privacy.html",
+    "safety.html",
+    "disclaimer.html",
+    "formed/terms.html",
+    "formed/privacy.html",
+    "formed/refunds.html",
+  ].forEach((file) => assertContains(file, readText(file), "/assets/section-tabs.js?v=1"));
+
+  assertNotContains("admin page", readText("admin/index.html"), "section-tabs.js");
 }
 
 function checkHome() {
@@ -524,6 +570,7 @@ function checkPrivateIpDisclosure() {
 
 function run() {
   checkSyntax();
+  checkSectionTabs();
   checkHome();
   checkSharedAgent();
   checkRuntime();
