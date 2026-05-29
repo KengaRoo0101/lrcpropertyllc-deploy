@@ -75,7 +75,7 @@
         <article class="ai-level-card is-ready">
           <span>Level 4</span>
           <h4>Open the tool</h4>
-          <p>The next click opens the matching workflow. Submission stays under user control.</p>
+          <p>The next click opens the matching workflow. Submission stays under team member control.</p>
         </article>
       </div>
     `;

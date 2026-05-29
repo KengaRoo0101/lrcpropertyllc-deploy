@@ -223,8 +223,8 @@ async function checkRoutes() {
   }
 
   const home = await assertRouteOk("/");
-  assertContains("home", home, "Build the next version with guided LRC support.");
-  assertContains("home", home, "Bring the idea, problem, or work goal.");
+  assertContains("home", home, "Step into the LRC ecosystem with one clear move.");
+  assertContains("home", home, "Bring the idea, work goal, or support need.");
   assertContains("home", home, "Public home. Member tools and team workspaces require approved access.");
   assertContains("home", home, "Membership starts with review, not an automatic checkout.");
   assertContains("home", home, 'href="./goal/"');

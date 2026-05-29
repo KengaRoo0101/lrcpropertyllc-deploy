@@ -180,7 +180,7 @@ function categoryMessage(category = "") {
 
 function nextSetupStep(category = "") {
   if (category === "ready") return "Do not enable checkout while the no-payment rule is active.";
-  if (category === "real-world-payments-disabled") return "Keep users on preview, review, or contact paths. Do not enable checkout.";
+  if (category === "real-world-payments-disabled") return "Keep team members on preview, review, or contact paths. Do not enable checkout.";
   if (category === "checkout-disabled") return "Enable checkout only after owner approval and confirmed production payment configuration.";
   if (category === "missing-secret-key") return "Add STRIPE_SECRET_KEY in Cloudflare Pages production secrets. Keep the value out of chat.";
   if (category === "missing-price-id" || category === "invalid-price-id-format") return "Add the active production Stripe price id inside the approved secret manager.";
@@ -480,7 +480,7 @@ function renderFeatureRequest(item) {
       ${renderApprovalLog(item.approvalLog)}
       <div class="record-feature-packet">
         <p class="record-kicker">Build packet</p>
-        <p>${escapeHtml(packet.userStory || `As an LRC user, I want ${String(item.title || "this feature").toLowerCase()} so the workflow is easier to finish.`)}</p>
+        <p>${escapeHtml(packet.userStory || `As an LRC team member, I want ${String(item.title || "this feature").toLowerCase()} so the workflow is easier to finish.`)}</p>
         <p>${escapeHtml(packet.buildBrief || item.description || "No build brief available.")}</p>
         ${Array.isArray(packet.acceptanceChecks) ? `<ul>${packet.acceptanceChecks.map((check) => `<li>${escapeHtml(check)}</li>`).join("")}</ul>` : ""}
         <p>${escapeHtml(packet.deployGuardrail || "Deploy only after admin approval.")}</p>
@@ -511,7 +511,7 @@ function renderPrivatePreview(item) {
         <span>${formatDate(item.createdAt)}</span>
       </div>
       ${boundaries.length ? `<ul>${boundaries.map((boundary) => `<li>${escapeHtml(boundary)}</li>`).join("")}</ul>` : ""}
-      <p class="record-warning">${escapeHtml("Use a real signed NDA, contractor agreement, employee agreement, or IP assignment before deeper access or work.")}</p>
+      <p class="record-warning">${escapeHtml("Use a real signed NDA, contractor agreement, associate agreement, or IP assignment before deeper access or work.")}</p>
     </article>
   `;
 }

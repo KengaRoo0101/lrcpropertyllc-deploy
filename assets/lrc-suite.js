@@ -3,10 +3,10 @@
   const PRODUCTS = {
     "/formed/": {
       name: "Formed",
-      title: "Turn a business idea into a structured launch plan.",
-      who: "New founders and owners who need offer structure, launch checklists, and review-ready next steps.",
-      helps: ["Business launch planning", "Offer drafts", "Launch checklists", "Owner approval packets"],
-      steps: ["Describe the idea", "Prepare the local launch draft", "Review gaps and assumptions", "Choose preview, contact, or owner-approved checkout"],
+      title: "Make the business idea look ready to move.",
+      who: "Founders and owners who want the idea shaped into offer structure, launch checklists, and review-ready next steps.",
+      helps: ["Launch planning", "Offer drafts", "Review-ready checklists", "Owner approval packets"],
+      steps: ["Describe the idea", "Prepare the local launch draft", "Review gaps and assumptions", "Choose preview, contact, or owner-approved access"],
       visual: "Business Builder mockup with launch checklist cards.",
       faq: [
         ["Does Formed file paperwork?", "No. It prepares drafts and checklists. Filing or external submission needs owner approval."],
@@ -17,7 +17,7 @@
     },
     "/offshoot/": {
       name: "Off Shoot",
-      title: "Shape rough ideas before they become a larger build.",
+      title: "Give rough ideas a real path before they get bigger.",
       who: "Founders, creators, and operators with a concept, prototype, or custom path that needs a clearer lane.",
       helps: ["Idea routing", "Product test framing", "Audience fit", "One next experiment"],
       steps: ["Name the rough concept", "Pick the closest route", "Draft the first test", "Review before any external move"],
@@ -31,7 +31,7 @@
     },
     "/jobsai/": {
       name: "JobsAI",
-      title: "Organize job searches, roles, resumes, and career next steps.",
+      title: "Make work paths, roles, and resumes easier to act on.",
       who: "Applicants, founders, and teams that need clearer role briefs, applicant notes, or resume direction.",
       helps: ["Role briefs", "Resume improvement suggestions", "Applicant positioning", "Hiring workflow drafts"],
       steps: ["Choose applicant or founder path", "Enter the role or resume context", "Prepare a local recommendation", "Review before outreach or posting"],
@@ -45,7 +45,7 @@
     },
     "/ninja/": {
       name: "Ninja",
-      title: "Turn stuck work into one clear starting plan and next move.",
+      title: "Turn stuck work into one useful next move.",
       who: "Owners and operators who need workflow clarity before opening another tool or taking outside action.",
       helps: ["Task organization", "Blocker summaries", "Workflow drafts", "Approval boundaries"],
       steps: ["Write the stuck point", "Prepare the local workflow draft", "Review owner, blocker, and next move", "Approve before any external action"],
@@ -59,7 +59,7 @@
     },
     "/socialscan/": {
       name: "SocialScan",
-      title: "Review public profiles and organize a clearer online presence.",
+      title: "Make public presence easier to trust.",
       who: "Founders, applicants, and owners preparing for outreach, promotion, or trust review.",
       helps: ["Profile audit drafts", "Trust signals", "Public presence cleanup", "Outreach readiness"],
       steps: ["Enter public links or notes", "Prepare a local audit", "Review improvement opportunities", "Approve before outreach or publishing"],
@@ -73,8 +73,8 @@
     },
     "/careers/": {
       name: "Careers",
-      title: "Explain roles and applicant proof more clearly.",
-      who: "People interested in LRC opportunities and LRC hiring workflows.",
+      title: "Show opportunities with clearer role proof.",
+      who: "People interested in LRC opportunities, associate paths, and LRC hiring workflows.",
       helps: ["Application notes", "Role clarity", "Hiring timeline context", "Applicant preparation"],
       steps: ["Review the role", "Prepare an application note", "Submit only when ready", "Wait for owner review"],
       visual: "Apply, review, interview, and start timeline.",
@@ -87,8 +87,8 @@
     },
     "/behappy/": {
       name: "Be Happy",
-      title: "Track simple reflections, routines, and supportive daily next steps.",
-      who: "People who want a lightweight local companion for reflection, positive habits, and support planning.",
+      title: "Make the next healthy step feel simple.",
+      who: "Team members who want a lightweight local companion for reflection, positive habits, and support planning.",
       helps: ["Daily check-ins", "Reflection notes", "Habit visibility", "Support resource reminders"],
       steps: ["Start with today's check-in", "Save local routine notes", "Review what helped", "Use real support when needed"],
       visual: "Daily reflection card and habit progress mockup.",
@@ -101,8 +101,8 @@
     },
     "/product-lab/": {
       name: "Product Lab",
-      title: "Explore LRC prototypes and product tests without guessing the next tool.",
-      who: "Users who know the category of work but need the right experiment, route, or review path.",
+      title: "Explore the next useful LRC product path.",
+      who: "Team members who know the category of work but need the right experiment, route, or review path.",
       helps: ["Tool comparison", "Market tests", "Prototype routing", "Safe next-action planning"],
       steps: ["Pick the kind of work", "Compare the available tool routes", "Prepare a local test draft", "Review before launch or outreach"],
       visual: "Grid of experimental product cards.",
@@ -208,7 +208,7 @@
     const title = el("h2", null, product.title);
     title.id = "lrc-product-guide-title";
     header.append(title);
-    header.append(el("p", null, "A short, review-safe overview of who this tool helps and what it prepares."));
+    header.append(el("p", null, "A focused preview of why the tool matters, who it helps, and what a team member can leave with."));
 
     const grid = el("div", "lrc-guide-grid");
     const who = el("article", "lrc-guide-card");

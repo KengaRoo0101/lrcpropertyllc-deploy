@@ -99,7 +99,7 @@ const PRIVATE_PREVIEW_INVITES = {
     proof:
       "LRC can now show a live front door, product routes, safety notes, and local draft tools that a trusted tester can walk through and critique.",
     pitch:
-      "This role is practical support: testing pages, reading drafts like a real user, spotting confusing steps, and helping decide what should be fixed before anything is shown more widely.",
+      "This role is practical support: testing pages, reading drafts like a real team member, spotting confusing steps, and helping decide what should be fixed before anything is shown more widely.",
     safeFirstAsk:
       "Test Goal, Formed, and one other tool, then send a short list of what felt clear, what felt risky, and what should be simplified.",
     ctaLabel: "Open Goal Builder",
@@ -231,7 +231,7 @@ const PRIVATE_PREVIEW_INVITES = {
     pitch:
       "This role provides manager-level practicality review: whether the system feels useful, manageable, and grounded for real work instead of abstract or overbuilt.",
     safeFirstAsk:
-      "Review the packet like a real user, then send what feels simple, what feels confusing, and what should be cut before wider sharing.",
+      "Review the packet like a real team member, then send what feels simple, what feels confusing, and what should be cut before wider sharing.",
     ctaLabel: "Open Stewardship Packet",
     ctaHref: "/stewardship-packet/",
   },
@@ -240,7 +240,7 @@ const PRIVATE_PREVIEW_INVITES = {
     envCode: "PRIVATE_PREVIEW_PSYCHOLOGY_REVIEW_CODE",
     fallbackCode: "psychologyreview",
     proof:
-      "LRC is now framed as a governed AI builder ecosystem with no paid recruiting, trial access, referral accountability, user-owned work, and explicit misuse review.",
+      "LRC is now framed as a governed AI builder ecosystem with no paid recruiting, trial access, referral accountability, team-owned work, and explicit misuse review.",
     pitch:
       "This role reviews psychology and human systems: motivation, group dynamics, learning safety, prestige pressure, misuse risk, and whether the trial model supports responsible development.",
     safeFirstAsk:
@@ -1286,8 +1286,8 @@ function ninjaUsefulArtifact(prompt = "", primaryRoute = {}, approvalCategory = 
     title: `${label} workflow`,
     items: [
       "Route spine: LRC Home → Recommended Route → Starter Business Draft → Owner Approval → Preview, Contact, or Checkout",
-      "Smooth transition: keep the user in one path from the starter Business Draft into the recommended route.",
-      "Ninja continuity: preserve the route, blocker, approval gate, and next move without sending the user into extra panels.",
+      "Smooth transition: keep the team member in one path from the starter Business Draft into the recommended route.",
+      "Ninja continuity: preserve the route, blocker, approval gate, and next move without sending the team member into extra panels.",
       cleanText(`Business Draft: build a polished local product draft for "${task}" before opening another tool.`, 220),
       "Approval gate: review before filing, publishing, charging, submitting, sending, account changes, uploads, deletion, or secrets.",
       approvalCategory
@@ -1619,7 +1619,7 @@ function normalizeApprovalRecord(body = {}, checkout = checkoutStatus()) {
     },
     policy,
     nextAction: checkout.available
-      ? "User must review and authorize Stripe Checkout before payment."
+      ? "Team member must review and authorize Stripe Checkout before payment."
       : "Hold for owner review or contact path. Stripe Checkout is not active.",
     approvalBoundary: AGENT_SAFETY_PAUSE,
   };
@@ -1683,10 +1683,10 @@ function buildFeaturePacket(feature = {}) {
   return {
     title,
     area,
-    userStory: `As an LRC user, I want ${title.toLowerCase()} so the ${area} workflow is easier to finish.`,
-    buildBrief: `Build "${title}" for ${area}. User request: ${description || "No extra details provided."}${reason ? ` Outcome: ${reason}.` : ""}`,
+    userStory: `As an LRC team member, I want ${title.toLowerCase()} so the ${area} workflow is easier to finish.`,
+    buildBrief: `Build "${title}" for ${area}. Team member request: ${description || "No extra details provided."}${reason ? ` Outcome: ${reason}.` : ""}`,
     acceptanceChecks: [
-      "The user can complete the feature path without extra mode choices.",
+      "The team member can complete the feature path without extra mode choices.",
       "The feature produces a visible output, status, or next action.",
       "Admin approval remains visible before public, paid, external, or deploy actions.",
       "No secrets, payment details, account access, or private records are exposed.",
@@ -2445,7 +2445,7 @@ const leviRouteCatalog = {
     href: "/jobsai/#brief",
     outcome: "Work fit brief",
     reason: "Use when the need is hiring, roles, applicants, resumes, profiles, or work fit.",
-    terms: ["job", "jobs", "hiring", "hire", "resume", "applicant", "role", "work", "career", "employee", "candidate"],
+    terms: ["job", "jobs", "hiring", "hire", "resume", "applicant", "role", "work", "career", "associate", "candidate"],
   },
   market: {
     label: "Untapped",

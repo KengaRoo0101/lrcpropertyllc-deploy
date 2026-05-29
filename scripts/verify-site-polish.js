@@ -2,8 +2,8 @@ const fs = require("fs");
 const { spawnSync } = require("child_process");
 
 const FOUNDATIONAL_COPY = {
-  headline: "Build the next version with guided LRC support.",
-  subheadline: "Bring the idea, problem, or work goal.",
+  headline: "Step into the LRC ecosystem with one clear move.",
+  subheadline: "Bring the idea, work goal, or support need.",
   cta: "Start My Plan",
   storageKey: "lrc_workspace_v1",
   safety: "Nothing happens without your approval. You securely review and authorize payment before anything is charged.",
@@ -186,14 +186,14 @@ function checkHome() {
   assertContains("home", home, "Founding Circle");
   assertContains("home", home, "href=\"./friends-family/\"");
   assertContains("home", home, "Friends & Family");
-  assertContains("home", home, "LRC Employee Portal");
+  assertContains("home", home, "LRC Associate Portal");
   assertContains("home", home, "legal document routing");
-  assertContains("home", home, "employee-portal-data.js?v=1");
-  assertContains("home", home, "timeclock.js?v=2");
+  assertContains("home", home, "employee-portal-data.js?v=2");
+  assertContains("home", home, "timeclock.js?v=3");
   assertContains("home", home, "id=\"employee-portal-nav\"");
   assertContains("home", home, "id=\"employee-portal-content\"");
   assertContains("home", home, "It does not provide");
-  assertContains("home", home, "HR compliance, or employment-law advice");
+  assertContains("home", home, "HR compliance, or workplace-law advice");
   const worker = readText("_worker.js");
   assertContains("worker", worker, "SITE_PASSWORD_PROTECTED_PREFIXES");
   assertContains("worker", worker, "isSitePasswordProtectedRoute");

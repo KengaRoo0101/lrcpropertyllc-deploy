@@ -18,7 +18,7 @@
   const portalLogout = document.querySelector("#employee-portal-logout");
 
   const DEMO_PIN = "1234";
-  const TIMECLOCK_STORAGE_KEY = "lrc_timeclock_demo_v1";
+  const TIMECLOCK_STORAGE_KEY = "lrc_associate_timeclock_demo_v1";
   let activeView = "dashboard";
   let lastFocusedElement = null;
 
@@ -79,7 +79,9 @@
   function readable(value) {
     return String(value || "")
       .replace(/_/g, " ")
-      .replace(/\b\w/g, (letter) => letter.toUpperCase());
+      .replace(/\b\w/g, (letter) => letter.toUpperCase())
+      .replace(/\bEmployees\b/g, "Associates")
+      .replace(/\bEmployee\b/g, "Associate");
   }
 
   function loadTimeclockState() {
@@ -162,7 +164,7 @@
   function trustNote(kind = "portal") {
     const notes = {
       portal:
-        "LRC Employee Portal is an internal operations and planning tool. It does not provide legal, tax, payroll, accounting, HR compliance, or employment-law advice.",
+        "LRC Associate Portal is an internal operations and planning tool. It does not provide legal, tax, payroll, accounting, HR compliance, or workplace-law advice.",
       desk:
         "Do not submit passwords, bank credentials, private keys, medical records, or sensitive documents unless the company has provided an approved secure process.",
       payroll:
@@ -221,7 +223,7 @@
       if (portalMode) portalMode.textContent = "Local portal data stays in this browser.";
       if (loginStatus) {
         loginStatus.textContent =
-          actor?.status === "inactive" ? "Inactive employees do not have demo portal access." : "Demo PIN: 1234";
+          actor?.status === "inactive" ? "Inactive associates do not have demo portal access." : "Demo PIN: 1234";
         loginStatus.dataset.state = actor?.status === "inactive" ? "error" : "";
       }
       return;
@@ -316,7 +318,7 @@
     `;
 
     return `
-      ${sectionHeader("LRC Employee Portal", admin ? "Admin operating dashboard" : "Employee dashboard", "Messages, schedule, tasks, requests, email notifications, and timeclock demo records stay organized here.")}
+      ${sectionHeader("LRC Associate Portal", admin ? "Admin operating dashboard" : "Associate dashboard", "Messages, schedule, tasks, requests, email notifications, and timeclock demo records stay organized here.")}
       ${trustNote("portal")}
       <div class="portal-quick-actions">
         <button type="button" class="primary-button" data-jump-view="messages">Post or read message</button>
@@ -413,7 +415,7 @@
               </label>
               <label>Start <input name="startAt" type="datetime-local" required /></label>
               <label>End <input name="endAt" type="datetime-local" required /></label>
-              <label>Employee <select name="employeeId"><option value="">Team-wide</option>${employeeOptions(state)}</select></label>
+              <label>Associate <select name="employeeId"><option value="">Team-wide</option>${employeeOptions(state)}</select></label>
               <label>Team <input name="team" placeholder="Operations" /></label>
               <label>Location <input name="location" placeholder="Remote or office" /></label>
               <label>Notes <textarea name="notes" rows="2" placeholder="Internal schedule notes"></textarea></label>
@@ -534,7 +536,7 @@
       ? state.taskProposals
       : state.taskProposals.filter((proposal) => proposal.proposedBy === actor.id);
     return `
-      ${sectionHeader("Propose task", "Employee ideas with admin approval", "Team members can propose useful work. Admins can accept, decline, reassign, or request revision.")}
+      ${sectionHeader("Propose task", "Associate ideas with admin approval", "Team members can propose useful work. Admins can accept, decline, reassign, or request revision.")}
       ${
         portalData.can(actor, "propose_tasks")
           ? `<form class="portal-form" data-form="proposal">
@@ -590,7 +592,7 @@
       return ticket.submittedBy === actor.id || ticket.assignedTo === actor.id;
     });
     return `
-      ${sectionHeader("Automated Desk", "Route employee requests, questions, corrections, and support needs into one trackable queue.")}
+      ${sectionHeader("Automated Desk", "Route associate requests, questions, corrections, and support needs into one trackable queue.")}
       ${trustNote("desk")}
       <form class="portal-form" data-form="desk-ticket">
         <label>Title <input name="title" required placeholder="What do you need help with?" /></label>
@@ -666,7 +668,7 @@
         ${card("Emergency contact placeholder", "Do not store sensitive emergency records in this browser demo.")}
         ${portalData.can(actor, "manage_hr_payroll") ? card("Admin/HR restricted notes", "Restricted notes are placeholder only until secure storage and server access controls exist.") : ""}
       </div>
-      <section class="portal-panel">${sectionHeader("Employee profile", "Current demo profile")}${profile}</section>
+      <section class="portal-panel">${sectionHeader("Associate profile", "Current demo profile")}${profile}</section>
       <form class="portal-form" data-form="hr-ticket">
         <label>Request title <input name="title" required placeholder="HR request" /></label>
         <label>Details <textarea name="description" rows="3" required></textarea></label>
@@ -729,7 +731,7 @@
           </select>
         </label>
         <label>Priority <select name="priority">${["low", "normal", "high", "urgent"].map(optionHtml).join("")}</select></label>
-        <label>Related employee <select name="relatedEmployeeId"><option value="">Me / not specific</option>${employeeOptions(state, actor.id)}</select></label>
+        <label>Related associate <select name="relatedEmployeeId"><option value="">Me / not specific</option>${employeeOptions(state, actor.id)}</select></label>
         <label>Related document <select name="relatedDocumentId"><option value="">None yet</option>${documents.map((item) => `<option value="${item.id}">${escapeHtml(item.title)}</option>`).join("")}</select></label>
         <label>Request details <textarea name="description" rows="3" required placeholder="Describe the document or routing need. Do not paste sensitive document contents."></textarea></label>
         <button class="primary-button" type="submit">Submit legal document request</button>
@@ -828,18 +830,18 @@
     const admin = portalData.can(actor, "manage_checklists");
     const runs = state.checklistRuns.filter((run) => admin || run.employeeId === actor.id);
     return `
-      ${sectionHeader("Onboarding and offboarding", "Checklist templates and employee runs", "Checklist tasks are local mock records until backend/auth integration exists.")}
+      ${sectionHeader("Onboarding and offboarding", "Checklist templates and associate runs", "Checklist tasks are local mock records until backend/auth integration exists.")}
       ${
         admin
           ? `<div class="portal-card-grid">
               <form class="portal-card portal-stack-form" data-form="start-checklist" data-template-id="template-onboarding">
                 <h3>Start onboarding</h3>
-                <label>Employee <select name="employeeId">${employeeOptions(state)}</select></label>
+                <label>Associate <select name="employeeId">${employeeOptions(state)}</select></label>
                 <button class="primary-button" type="submit">Start onboarding run</button>
               </form>
               <form class="portal-card portal-stack-form" data-form="start-checklist" data-template-id="template-offboarding">
                 <h3>Start offboarding</h3>
-                <label>Employee <select name="employeeId">${employeeOptions(state)}</select></label>
+                <label>Associate <select name="employeeId">${employeeOptions(state)}</select></label>
                 <p class="portal-item-meta">Access disabling is a placeholder until backend/auth integration exists.</p>
                 <button class="secondary-button" type="submit">Start offboarding run</button>
               </form>
@@ -873,16 +875,16 @@
   function renderAdmin(state, actor) {
     if (!isAdmin(actor)) return `<p class="portal-empty">Admin access is not available for this role.</p>`;
     return `
-      ${sectionHeader("Admin", "Employee operations center", "Manage employees, tasks, email notifications, desk rules, and audit visibility in local demo mode.")}
+      ${sectionHeader("Admin", "Associate operations center", "Manage associates, tasks, email notifications, desk rules, and audit visibility in local demo mode.")}
       ${trustNote("email")}
       <div class="portal-card-grid">
-        ${card("Employees", String(state.employees.length), statusPill("directory"))}
+        ${card("Associates", String(state.employees.length), statusPill("directory"))}
         ${card("Email outbox", String(state.emailNotifications.length), statusPill("sent_mock"))}
         ${card("Desk routing rules", String(state.deskAutomationRules.length), statusPill("automation"))}
         ${card("Audit events", String(state.auditLogs.length), statusPill("audit"))}
       </div>
       <section class="portal-panel">
-        ${sectionHeader("Employee email center", "Directory, templates, and mock outbox")}
+        ${sectionHeader("Associate email center", "Directory, templates, and mock outbox")}
         <div class="portal-directory">
           ${state.employeeEmails
             .map((email) => `<p><strong>${escapeHtml(email.email)}</strong><span>${escapeHtml(readable(email.type))} | notifications ${email.receivesNotifications ? "on" : "off"}</span></p>`)
@@ -907,7 +909,7 @@
       </section>
       <section class="portal-panel">
         ${sectionHeader("Cloudflare email tunnel", "Domain aliases routed through Cloudflare Email Routing", "These inbound routes are live in Cloudflare for lrcpropertyllc.com. The portal tracks route status locally; email notifications inside this demo remain mock-only.")}
-        <p class="portal-trust-note">Cloudflare Email Routing forwards inbound domain mail to a verified LRC destination. This browser demo does not send real employee notifications, collect secrets, or create Cloudflare routes from the UI.</p>
+        <p class="portal-trust-note">Cloudflare Email Routing forwards inbound domain mail to a verified LRC destination. This browser demo does not send real associate notifications, collect secrets, or create Cloudflare routes from the UI.</p>
         <div class="portal-list">
           ${(state.emailTunnelRoutes || [])
             .map(
@@ -951,7 +953,7 @@
 
   function renderSettings(state, actor) {
     return `
-      ${sectionHeader("Settings", "Local demo controls", "Switch demo employees, reset seeded data, and review future integration boundaries.")}
+      ${sectionHeader("Settings", "Local demo controls", "Switch demo associates, reset seeded data, and review future integration boundaries.")}
       ${trustNote("portal")}
       <div class="portal-card-grid">
         ${card("Current role", `${escapeHtml(actor.displayName)}<br>${escapeHtml(portalData.ROLE_LABELS[actor.role])}`)}
@@ -960,7 +962,7 @@
         ${card("Backend readiness", "Interfaces are grouped for future auth, database, email, payroll links, and secure document storage.")}
       </div>
       <div class="portal-actions">
-        <button class="secondary-button" type="button" data-action="switch-user">Switch employee</button>
+        <button class="secondary-button" type="button" data-action="switch-user">Switch associate</button>
         <button class="secondary-button danger-button" type="button" data-action="reset-demo">Reset demo data</button>
       </div>
     `;
@@ -1192,9 +1194,9 @@
         values.templateKey,
         "manual",
         "admin",
-        values.body || "A portal update is available. Open LRC Employee Portal for details."
+        values.body || "A portal update is available. Open LRC Associate Portal for details."
       );
-      portalData.recordAudit(editableState, actor.id, "create_mock_email", "EmailNotification", values.employeeId, "Created mock employee email notification.");
+      portalData.recordAudit(editableState, actor.id, "create_mock_email", "EmailNotification", values.employeeId, "Created mock associate email notification.");
       portalData.saveState(editableState);
     }
     if (kind === "email-route-update") {
@@ -1335,7 +1337,7 @@
     const employee = portalData.findEmployee(state, values.employeeId);
     if (!employee || employee.status === "inactive") {
       if (loginStatus) {
-        loginStatus.textContent = "This demo employee does not have portal access.";
+        loginStatus.textContent = "This demo associate does not have portal access.";
         loginStatus.dataset.state = "error";
       }
       return;
