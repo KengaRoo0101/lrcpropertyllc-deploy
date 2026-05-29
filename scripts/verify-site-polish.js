@@ -2,8 +2,8 @@ const fs = require("fs");
 const { spawnSync } = require("child_process");
 
 const FOUNDATIONAL_COPY = {
-  headline: "Your idea. Our tools. Your future business.",
-  subheadline: "Tell us what you want to build and get a real launch plan in minutes.",
+  headline: "Build the next version with guided LRC support.",
+  subheadline: "Bring the idea, problem, or work goal.",
   cta: "Start My Plan",
   storageKey: "lrc_workspace_v1",
   safety: "Nothing happens without your approval. You securely review and authorize payment before anything is charged.",
@@ -122,16 +122,18 @@ function checkHome() {
   const home = readText("index.html");
   assertContains("home", home, FOUNDATIONAL_COPY.headline);
   assertContains("home", home, FOUNDATIONAL_COPY.subheadline);
-  assertContains("home", home, "placeholder=\"A clothing brand\"");
+  assertContains("home", home, "placeholder=\"I want to start a local service business\"");
   assertContains("home", home, "/assets/lrc-system.css?v=22");
   assertContains("home", home, "/assets/lrc-runtime.js?v=6");
   assertContains("home", home, "/assets/lrc-agent.js?v=24");
   assertContains("home", home, "data-lrc-agent-input");
   assertContains("home", home, "data-lrc-agent-output hidden");
   assertContains("home", home, "founder-flow-page");
-  assertContains("home", home, "Stripe Checkout only. You approve before anything is charged.");
-  assertContains("home", home, "LRC ecosystem");
-  assertContains("home", home, "One front door, multiple focused tools.");
+  assertContains("home", home, "Public home. Member tools and team workspaces require approved access.");
+  assertContains("home", home, "Membership access");
+  assertContains("home", home, "Membership starts with review, not an automatic checkout.");
+  assertContains("home", home, "Member tools");
+  assertContains("home", home, "One front door, multiple focused work paths.");
   assertContains("home", home, "href=\"./suite/\"");
   assertContains("home", home, "JobsAI + Careers");
   assertContains("home", home, "href=\"./founding-circle/\"");
@@ -146,6 +148,10 @@ function checkHome() {
   assertContains("home", home, "id=\"employee-portal-content\"");
   assertContains("home", home, "It does not provide");
   assertContains("home", home, "HR compliance, or employment-law advice");
+  const worker = readText("_worker.js");
+  assertContains("worker", worker, "SITE_PASSWORD_PROTECTED_PREFIXES");
+  assertContains("worker", worker, "isSitePasswordProtectedRoute");
+  assertContains("worker", worker, "Team and admin access.");
   const portalData = readText("assets/employee-portal-data.js");
   const portalApp = readText("assets/timeclock.js");
   assertContains("employee portal data", portalData, "desk@lrcpropertyllc.com");

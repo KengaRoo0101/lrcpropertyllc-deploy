@@ -223,15 +223,16 @@ async function checkRoutes() {
   }
 
   const home = await assertRouteOk("/");
-  assertContains("home", home, "Your idea. Our tools. Your future business.");
-  assertContains("home", home, "Tell us what you want to build and get a real launch plan in minutes.");
-  assertContains("home", home, "Stripe Checkout only. You approve before anything is charged.");
+  assertContains("home", home, "Build the next version with guided LRC support.");
+  assertContains("home", home, "Bring the idea, problem, or work goal.");
+  assertContains("home", home, "Public home. Member tools and team workspaces require approved access.");
+  assertContains("home", home, "Membership starts with review, not an automatic checkout.");
   assertContains("home", home, 'href="./goal/"');
   assertContains("home", home, 'href="./suite/"');
   assertContains("home", home, 'href="./founding-circle/"');
   assertContains("home", home, 'href="./friends-family/"');
-  assertContains("home", home, "LRC ecosystem");
-  assertContains("home", home, "One front door, multiple focused tools.");
+  assertContains("home", home, "Member tools");
+  assertContains("home", home, "One front door, multiple focused work paths.");
   assertContains("home", home, '<body class="lrc-affiliate focused-home formed-home">');
   blockedPublicCopy.forEach((blocked) => assertNotContains("home", home, blocked));
 

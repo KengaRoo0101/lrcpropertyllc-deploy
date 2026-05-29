@@ -134,13 +134,14 @@ async function run() {
     assertContains("checkout confirmation error", confirmation.json.error || "", "Real-world payments are not active");
 
     const home = await fetchText("/");
-    assertContains("home", home.text, "LRC Property LLC | Tool Ecosystem and Launch Plan Builder");
-    assertContains("home", home.text, "Guided business tools");
+    assertContains("home", home.text, "LRC Property LLC | Guided Tools and Membership Access");
+    assertContains("home", home.text, "Guided tools and member access");
     assertContains("home", home.text, "/assets/lrc-system.css");
     assertContains("home", home.text, "/assets/lrc-agent.js");
     assertContains("home", home.text, "data-lrc-agent-input");
     assertContains("home", home.text, "data-lrc-agent-output");
-    assertContains("home", home.text, "Stripe Checkout only. You approve before anything is charged.");
+    assertContains("home", home.text, "Public home. Member tools and team workspaces require approved access.");
+    assertContains("home", home.text, "Membership starts with review, not an automatic checkout.");
     assertNotContains("home", home.text, "app-front-door");
     assertNotContains("home", home.text, "id=\"lrc-react-funnel\"");
     assertNotContains("home", home.text, "home-funnel.js");

@@ -825,6 +825,49 @@ function isAccessGateAsset(pathname) {
   );
 }
 
+const SITE_PASSWORD_PROTECTED_PREFIXES = [
+  "/admin",
+  "/agentcheck",
+  "/behappy",
+  "/careers",
+  "/formed",
+  "/founding-circle",
+  "/friends-family",
+  "/goal",
+  "/jobsai",
+  "/ninja",
+  "/offshoot",
+  "/product-lab",
+  "/promo",
+  "/socialscan",
+  "/stewardship-packet",
+  "/suite",
+];
+
+const SITE_PASSWORD_PROTECTED_APIS = [
+  "/api/admin/",
+  "/api/agent/activity",
+  "/api/approvals",
+  "/api/entities",
+  "/api/events",
+  "/api/intake",
+  "/api/ninja/tasks",
+  "/api/recommendations",
+  "/run-agent",
+];
+
+function pathMatchesPrefix(pathname, prefix) {
+  const normalizedPrefix = prefix.endsWith("/") ? prefix.slice(0, -1) : prefix;
+  return pathname === normalizedPrefix || pathname.startsWith(`${normalizedPrefix}/`);
+}
+
+function isSitePasswordProtectedRoute(pathname) {
+  return (
+    SITE_PASSWORD_PROTECTED_PREFIXES.some((prefix) => pathMatchesPrefix(pathname, prefix)) ||
+    SITE_PASSWORD_PROTECTED_APIS.some((prefix) => pathMatchesPrefix(pathname, prefix))
+  );
+}
+
 function accessGateHtml(error = "", redirectPath = "/") {
   const errorMarkup = error ? `<p class="error">${escapeHtml(error)}</p>` : "";
   const safeRedirect = redirectPath.startsWith("/") && !redirectPath.startsWith("//") ? redirectPath : "/";
@@ -947,13 +990,13 @@ function accessGateHtml(error = "", redirectPath = "/") {
         <img class="brand-logo" src="/assets/lrc-property-llc-logo.jpeg" alt="LRC Property LLC" />
         <p class="eyebrow">Preview access</p>
       </div>
-      <h1>Private review mode.</h1>
-      <p class="lede">This LRC Property LLC site is live for review, but it is not public yet. Enter the preview password to continue.</p>
+      <h1>Team and admin access.</h1>
+      <p class="lede">This LRC Property LLC workspace is available to approved team and admin readers. Enter the site password to continue.</p>
       ${errorMarkup}
       <form method="POST" action="/__access">
         <input type="hidden" name="redirect" value="${escapeHtml(safeRedirect)}" />
         <label>
-          Preview password
+          Site password
           <input name="password" type="password" autocomplete="current-password" required autofocus />
         </label>
         <button type="submit">Enter site</button>
@@ -1020,6 +1063,7 @@ async function requireSiteAccess(request, env) {
 
   const url = new URL(request.url);
   if (url.pathname === "/__access" || isAccessGateAsset(url.pathname)) return null;
+  if (!isSitePasswordProtectedRoute(url.pathname)) return null;
 
   const expectedToken = await accessToken(env.SITE_ACCESS_PASSWORD);
   if (getCookie(request, ACCESS_COOKIE) === expectedToken) return null;
