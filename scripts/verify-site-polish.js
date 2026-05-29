@@ -105,6 +105,8 @@ function checkSyntax() {
     "ninja/app.js",
     "goal/app.js",
     "friends-family/app.js",
+    "assets/employee-portal-data.js",
+    "assets/timeclock.js",
     "server.js",
     "_worker.js",
   ].forEach((file) => {
@@ -136,6 +138,22 @@ function checkHome() {
   assertContains("home", home, "Founding Circle");
   assertContains("home", home, "href=\"./friends-family/\"");
   assertContains("home", home, "Friends & Family");
+  assertContains("home", home, "LRC Employee Portal");
+  assertContains("home", home, "legal document routing");
+  assertContains("home", home, "employee-portal-data.js?v=1");
+  assertContains("home", home, "timeclock.js?v=2");
+  assertContains("home", home, "id=\"employee-portal-nav\"");
+  assertContains("home", home, "id=\"employee-portal-content\"");
+  assertContains("home", home, "It does not provide");
+  assertContains("home", home, "HR compliance, or employment-law advice");
+  const portalData = readText("assets/employee-portal-data.js");
+  const portalApp = readText("assets/timeclock.js");
+  assertContains("employee portal data", portalData, "desk@lrcpropertyllc.com");
+  assertContains("employee portal data", portalData, "legal@lrcpropertyllc.com");
+  assertContains("employee portal data", portalData, "payroll@lrcpropertyllc.com");
+  assertContains("employee portal data", portalData, "active_live");
+  assertContains("employee portal app", portalApp, "Cloudflare email tunnel");
+  assertContains("employee portal app", portalApp, "These inbound routes are live in Cloudflare");
 
   [
     "user-pathway",
