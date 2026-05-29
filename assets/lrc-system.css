@@ -752,6 +752,12 @@
   line-height: 1.65;
 }
 
+.lrc-suite-hero .lrc-principle-line {
+  max-width: 54ch;
+  color: var(--lrc-system-ink);
+  font-weight: 850;
+}
+
 .lrc-suite-visual {
   overflow: hidden;
   border: 1px solid var(--lrc-system-line);

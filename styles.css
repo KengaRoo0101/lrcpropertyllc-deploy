@@ -900,6 +900,12 @@ h1, h2, h3 {
   line-height: 1.65;
 }
 
+.membership-principle {
+  max-width: 62ch;
+  color: #3b4a5c;
+  font-weight: 850;
+}
+
 .membership-cta {
   display: flex;
   align-items: center;
