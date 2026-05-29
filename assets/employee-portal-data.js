@@ -1,9 +1,9 @@
 (function () {
   "use strict";
 
-  const STORE_KEY = "lrc_employee_portal_os_v1";
-  const SESSION_KEY = "lrc_employee_portal_session_v1";
-  const VERSION = 1;
+  const STORE_KEY = "lrc_associate_portal_os_v1";
+  const SESSION_KEY = "lrc_associate_portal_session_v1";
+  const VERSION = 2;
 
   const ROLE_LABELS = {
     owner_admin: "Owner/Admin",
@@ -156,12 +156,12 @@
       },
       {
         id: "emp-alex",
-        displayName: "Alex Employee",
-        legalName: "Alex Employee Demo",
+        displayName: "Alex Associate",
+        legalName: "Alex Associate Demo",
         role: "team_member",
         team: "Operations",
         status: "onboarding",
-        workEmail: "alex.employee@example.com",
+        workEmail: "alex.associate@example.com",
         personalEmail: "",
         phone: "",
         startDate: "2026-06-03",
@@ -171,12 +171,12 @@
       },
       {
         id: "emp-jordan",
-        displayName: "Jordan Employee",
-        legalName: "Jordan Employee Demo",
+        displayName: "Jordan Associate",
+        legalName: "Jordan Associate Demo",
         role: "team_member",
         team: "Operations",
         status: "active",
-        workEmail: "jordan.employee@example.com",
+        workEmail: "jordan.associate@example.com",
         personalEmail: "",
         phone: "",
         startDate: "2026-05-12",
@@ -272,7 +272,7 @@
         destinationLabel: "Cloudflare Email Routing forwards to the verified LRC mailbox",
         status: "active_live",
         cloudflareStatus: "active_verified",
-        notes: "Live Cloudflare rule is enabled for employee support intake. Keep sensitive details inside approved secure channels.",
+        notes: "Live Cloudflare rule is enabled for associate support intake. Keep sensitive details inside approved secure channels.",
         createdAt,
         updatedAt: createdAt,
       },
@@ -362,7 +362,7 @@
         .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
         .join(" "),
       subject: EMAIL_TEMPLATE_SUBJECTS[key],
-      body: "A portal update is available. Open LRC Employee Portal for details.",
+      body: "A portal update is available. Open LRC Associate Portal for details.",
       category: categories[key],
       enabled: true,
       createdAt,
@@ -375,7 +375,7 @@
     return [
       {
         id: "thread-welcome",
-        title: "Welcome to the LRC Employee Portal",
+        title: "Welcome to the LRC Associate Portal",
         body: "This portal keeps team messages, tasks, schedule notes, requests, and timeclock demo records in one local workspace.",
         category: "announcements",
         visibility: "all",
@@ -424,7 +424,7 @@
       {
         id: "task-assigned-demo",
         title: "Review portal launch checklist",
-        description: "Confirm the employee portal sections are easy to find and note any missing demo workflow.",
+        description: "Confirm the associate portal sections are easy to find and note any missing demo workflow.",
         type: "assigned",
         status: "assigned",
         proposalStatus: "",
@@ -699,7 +699,7 @@
         roleScope: "",
         teamScope: "",
         items: [
-          "Create employee profile",
+          "Create associate profile",
           "Confirm work email",
           "Confirm start date",
           "Add to schedule",
@@ -728,7 +728,7 @@
           "Final payroll review reminder",
           "Collect company property placeholder",
           "Disable portal access placeholder",
-          "Archive employee record",
+          "Archive associate record",
         ],
         createdAt,
         updatedAt: createdAt,
@@ -756,7 +756,7 @@
   function seedChecklistItems() {
     const createdAt = daysFromNow(-1);
     return [
-      "Create employee profile",
+      "Create associate profile",
       "Confirm work email",
       "Confirm start date",
       "Add to schedule",
@@ -789,10 +789,10 @@
         {
           id: "email-seed-welcome",
           toEmployeeId: "emp-alex",
-          toEmail: "alex.employee@example.com",
+          toEmail: "alex.associate@example.com",
           templateKey: "onboarding_started",
           subject: EMAIL_TEMPLATE_SUBJECTS.onboarding_started,
-          body: "Your onboarding checklist is available in LRC Employee Portal.",
+          body: "Your onboarding checklist is available in LRC Associate Portal.",
           status: "sent_mock",
           relatedType: "checklist",
           relatedId: "run-alex-onboarding",
@@ -827,7 +827,7 @@
           action: "seed_demo",
           entityType: "portal",
           entityId: "demo",
-          summary: "Seeded LRC Employee Portal local demo data.",
+          summary: "Seeded LRC Associate Portal local demo data.",
           metadata: { mode: "localStorage" },
           createdAt: daysFromNow(-4),
         },
@@ -840,7 +840,7 @@
     return [
       {
         id: "legal-doc-handbook",
-        title: "Employee handbook placeholder",
+        title: "Associate handbook placeholder",
         category: "policy",
         status: "placeholder",
         access: "all",
@@ -929,7 +929,7 @@
         ...saved,
       });
     } catch (error) {
-      console.error("Employee portal state could not be loaded", error);
+      console.error("Associate portal state could not be loaded", error);
       const seeded = seedState();
       saveState(seeded);
       return seeded;

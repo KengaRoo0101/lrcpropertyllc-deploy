@@ -324,7 +324,7 @@ Formed can organize a review packet, checklist, and next questions. It does not 
       deliverableStatus: "local-draft-only",
       statuses: {
         draft: "Ready",
-        review: "Needs User Review",
+        review: "Needs Team Review",
         checkout: "Hold",
       },
       paymentNote: PAYMENT_NOTE,
@@ -425,7 +425,7 @@ Formed can organize a review packet, checklist, and next questions. It does not 
       deliverableStatus: clean(workspace.deliverableStatus || "local-draft-only", 80),
       statuses: {
         draft: workspace.deliverableStatus === "local-draft-only" ? "Ready" : "Ready",
-        review: workspace.reviewStatus === "review-requested" ? "Review Requested" : "Needs User Review",
+        review: workspace.reviewStatus === "review-requested" ? "Review Requested" : "Needs Team Review",
         checkout: "Hold",
       },
       paymentNote: PAYMENT_NOTE,
@@ -505,7 +505,7 @@ Formed can organize a review packet, checklist, and next questions. It does not 
       recentArtifactHistory: [FOUNDER_ROUTES[workspace.activeRoute]?.deliverableTitle || "Starter Business Brief"],
       statuses: {
         draft: "Ready",
-        review: workspace.reviewStatus === "review-requested" ? "Review Requested" : "Needs User Review",
+        review: workspace.reviewStatus === "review-requested" ? "Review Requested" : "Needs Team Review",
         checkout: "Hold",
       },
       nextAction: workspace.draft.cta,

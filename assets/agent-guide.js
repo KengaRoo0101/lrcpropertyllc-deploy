@@ -14,7 +14,7 @@
         "Match a rough idea to the right site and working solution.",
         "Look for useful connections between your goals, tools, and next actions.",
         "Do as much of the safe page work as your need allows.",
-        "Adjust guidance as you move from beginner to experienced user.",
+        "Adjust guidance as you move from beginner to experienced team member.",
         "Recognize useful contributions and turn consented signals into cleaner product and data signals for LRC."
       ],
       prompts: [
@@ -312,7 +312,7 @@
           },
           {
             heading: "First deliverable",
-            content: `Create a polished ${route} starter product that names the outcome, the user, the offer or workflow, the proof points, the next action, and what should be reviewed before anything is submitted or paid for.`
+            content: `Create a polished ${route} starter product that names the outcome, the team member, the offer or workflow, the proof points, the next action, and what should be reviewed before anything is submitted or paid for.`
           },
           {
             heading: "Independent promotion",
@@ -480,7 +480,7 @@
       localHref: "./jobsai/index.html#brief",
       outcome: "Work fit brief",
       reason: "Use when the need is hiring, roles, applicants, resumes, profiles, or work fit.",
-      terms: ["job", "jobs", "hiring", "hire", "resume", "applicant", "role", "work", "career", "employee", "candidate"]
+      terms: ["job", "jobs", "hiring", "hire", "resume", "applicant", "role", "work", "career", "associate", "candidate"]
     },
     market: {
       label: "Untapped",

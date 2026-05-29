@@ -105,7 +105,7 @@ if (!ready) {
     if (checkoutEnabled) {
       blockers.forEach((blocker) => console.log(`- ${blocker}`));
     } else {
-      console.log("- Users stay on preview/contact paths.");
+      console.log("- Team members stay on preview/contact paths.");
     }
   }
 }
