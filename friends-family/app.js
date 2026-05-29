@@ -57,7 +57,7 @@
       }
 
       if (passphrase !== expected) {
-        setStatus(status, "Use the invited person's first name to view this pitch.", "error");
+        setStatus(status, "Use the role access code shown on this card to view this preview.", "error");
         return;
       }
 

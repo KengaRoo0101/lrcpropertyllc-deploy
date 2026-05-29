@@ -73,209 +73,209 @@ const AGENT_BLOCKED_TERMS = [
 ];
 const PRIVATE_PREVIEW_ACKNOWLEDGEMENT_VERSION = "lrc-private-preview-v1";
 const PRIVATE_PREVIEW_INVITES = {
-  misty: {
-    label: "Misty / Boss Suite",
-    envCode: "PRIVATE_PREVIEW_MISTY_CODE",
-    fallbackCode: "misty",
+  aioperations: {
+    label: "AI operations collaborator",
+    envCode: "PRIVATE_PREVIEW_AI_OPERATIONS_CODE",
+    fallbackCode: "aioperations",
     proof:
       "LRC already has a suite hub, Goal Builder, Formed path, JobsAI path, Ninja workflow path, SocialScan path, Be Happy path, and safety boundary working together as one ecosystem.",
     pitch:
-      "Misty could connect as an independent AI-minded collaborator. The pitch is not to merge brands or take over Boss Suite; it is to explore optional shared workflows, AI testing, client organization, and practical templates where both sides stay clear.",
+      "This role could connect as an independent AI-minded collaborator. The pitch is not to merge brands or take over another system; it is to explore optional shared workflows, AI testing, client organization, and practical templates where both sides stay clear.",
     safeFirstAsk:
-      "Review one LRC tool, point out what is confusing, and suggest one Boss Suite-style workflow that could stay separate but compatible.",
+      "Review one LRC tool, point out what is confusing, and suggest one operations workflow that could stay separate but compatible.",
     ctaLabel: "Show LRC Suite",
     ctaHref: "/suite/",
   },
-  bear: {
-    label: "Bear",
-    envCode: "PRIVATE_PREVIEW_BEAR_CODE",
-    fallbackCode: "bear",
+  trustedsupport: {
+    label: "Trusted support reviewer",
+    envCode: "PRIVATE_PREVIEW_TRUSTED_SUPPORT_CODE",
+    fallbackCode: "trustedsupport",
     proof:
       "LRC can now show a live front door, product routes, safety notes, and local draft tools that a trusted tester can walk through and critique.",
     pitch:
-      "Bear is already helping, so the safest fit is practical support: testing pages, reading drafts like a real user, spotting confusing steps, and helping decide what should be fixed before anything is shown more widely.",
+      "This role is practical support: testing pages, reading drafts like a real user, spotting confusing steps, and helping decide what should be fixed before anything is shown more widely.",
     safeFirstAsk:
       "Test Goal, Formed, and one other tool, then send a short list of what felt clear, what felt risky, and what should be simplified.",
     ctaLabel: "Open Goal Builder",
     ctaHref: "/goal/",
   },
-  robert: {
-    label: "Robert",
-    envCode: "PRIVATE_PREVIEW_ROBERT_CODE",
-    fallbackCode: "robert",
+  qualityreview: {
+    label: "Quality reviewer",
+    envCode: "PRIVATE_PREVIEW_QUALITY_REVIEW_CODE",
+    fallbackCode: "qualityreview",
     proof:
       "LRC can show live routes, private preview gating, checkout safe-hold, and a working review boundary instead of only an idea.",
     pitch:
-      "Robert is being invited as a quality-first reviewer: someone who can look past presentation, ask whether the work is practical, and point out where the foundation needs to be stronger before wider exposure.",
+      "This role is quality-first review: look past presentation, ask whether the work is practical, and point out where the foundation needs to be stronger before wider exposure.",
     safeFirstAsk:
       "Review Founding Circle and one live tool, then send the three strongest concerns and one thing that already feels useful.",
     ctaLabel: "Open Founding Circle",
     ctaHref: "/founding-circle/",
   },
-  christina: {
-    label: "Christina",
-    envCode: "PRIVATE_PREVIEW_CHRISTINA_CODE",
-    fallbackCode: "christina",
+  clarityreview: {
+    label: "Clarity and trust reviewer",
+    envCode: "PRIVATE_PREVIEW_CLARITY_REVIEW_CODE",
+    fallbackCode: "clarityreview",
     proof:
       "LRC now has a visible purpose page, support invitation barrier, product routes, and safety language that can be reviewed like a real early ecosystem.",
     pitch:
-      "Christina is invited to review clarity and trust: whether someone can understand the purpose, where they fit, and what stays protected without getting lost in formatting.",
+      "This role reviews clarity and trust: whether someone can understand the purpose, where they fit, and what stays protected without getting lost in formatting.",
     safeFirstAsk:
       "Read the private invitation and tell LRC what feels clear, what feels too broad, and what would make a serious person lean in.",
     ctaLabel: "Read Founding Circle",
     ctaHref: "/founding-circle/",
   },
-  professormichael: {
-    label: "Professor Michael",
-    envCode: "PRIVATE_PREVIEW_PROFESSOR_MICHAEL_CODE",
-    fallbackCode: "professormichael",
+  standardsreview: {
+    label: "Standards and stewardship reviewer",
+    envCode: "PRIVATE_PREVIEW_STANDARDS_REVIEW_CODE",
+    fallbackCode: "standardsreview",
     proof:
       "LRC has moved from a loose idea into a routed ecosystem with purpose language, stewardship boundaries, and approval gates that can be challenged and improved.",
     pitch:
-      "Professor Michael is invited for standards and stewardship review: challenge the assumptions, ethics, governance, and credibility before this grows beyond a small trusted circle.",
+      "This role reviews standards and stewardship: challenge the assumptions, ethics, governance, and credibility before this grows beyond a small trusted circle.",
     safeFirstAsk:
       "Review the Founding Circle standard and send the strongest objections, missing safeguards, and one practical next approval layer.",
     ctaLabel: "Read Safety Notes",
     ctaHref: "/safety.html",
   },
-  andrew: {
-    label: "Andrew",
-    envCode: "PRIVATE_PREVIEW_ANDREW_CODE",
-    fallbackCode: "andrew",
+  learningsystems: {
+    label: "Learning systems reviewer",
+    envCode: "PRIVATE_PREVIEW_LEARNING_SYSTEMS_CODE",
+    fallbackCode: "learningsystems",
     proof:
       "LRC now has live pages, a stewardship packet, regression checks, checkout safe-hold, and scoped agent boundaries ready for careful learning-systems review.",
     pitch:
-      "Andrew is invited for college coding and future-of-learning review: whether this can become a serious model for AI-assisted builders who learn by doing real governed work.",
+      "This role reviews college coding and future-of-learning fit: whether this can become a serious model for AI-assisted builders who learn by doing real governed work.",
     safeFirstAsk:
       "Review the stewardship packet and identify one learning-system risk, one technical opportunity, and one rule that would help builders improve safely.",
     ctaLabel: "Open Stewardship Packet",
     ctaHref: "/stewardship-packet/",
   },
-  andrewr: {
-    label: "Andrew R",
-    envCode: "PRIVATE_PREVIEW_ANDREW_R_CODE",
-    fallbackCode: "andrewr",
+  riskremotework: {
+    label: "Risk and remote-work reviewer",
+    envCode: "PRIVATE_PREVIEW_RISK_REMOTE_WORK_CODE",
+    fallbackCode: "riskremotework",
     proof:
       "LRC has a governed access model, referral accountability, trial review, paid usage boundaries, and private preview acknowledgements ready for risk review.",
     pitch:
-      "Andrew R is invited for risk management and work-from-home operations review: abuse cases, remote trust, productivity signals, access discipline, and how to manage people without overreaching.",
+      "This role reviews risk management and work-from-home operations: abuse cases, remote trust, productivity signals, access discipline, and how to manage people without overreaching.",
     safeFirstAsk:
       "Review the packet and send the top three operational risks, plus one remote-work rule that would protect quality without killing creativity.",
     ctaLabel: "Open Stewardship Packet",
     ctaHref: "/stewardship-packet/",
   },
-  eddie: {
-    label: "Eddie",
-    envCode: "PRIVATE_PREVIEW_EDDIE_CODE",
-    fallbackCode: "eddie",
+  operationsreview: {
+    label: "Operational realism reviewer",
+    envCode: "PRIVATE_PREVIEW_OPERATIONS_REVIEW_CODE",
+    fallbackCode: "operationsreview",
     proof:
       "LRC can already present a working front door, tool paths, private invitations, and approval boundaries that can be stress-tested for real-world usefulness.",
     pitch:
-      "Eddie is invited for operational realism: whether the tools make sense to a practical person, where the flow feels weak, and what would make the first core group stronger.",
+      "This role reviews operational realism: whether the tools make sense to a practical person, where the flow feels weak, and what would make the first core group stronger.",
     safeFirstAsk:
       "Use the home page and one tool path, then send what felt useful, what felt confusing, and what should be removed before wider sharing.",
     ctaLabel: "Open LRC Home",
     ctaHref: "/",
   },
-  trent: {
-    label: "Trent",
-    envCode: "PRIVATE_PREVIEW_TRENT_CODE",
-    fallbackCode: "trent",
+  systemsreview: {
+    label: "Systems and quality reviewer",
+    envCode: "PRIVATE_PREVIEW_SYSTEMS_REVIEW_CODE",
+    fallbackCode: "systemsreview",
     proof:
       "LRC has multiple connected routes, a private invitation barrier, safe checkout hold, and tests that protect the baseline from drifting.",
     pitch:
-      "Trent is invited for systems and quality review: look for fragile points, unclear handoffs, duplicated ideas, or places where the foundation needs more discipline before growth.",
+      "This role handles systems and quality review: look for fragile points, unclear handoffs, duplicated ideas, or places where the foundation needs more discipline before growth.",
     safeFirstAsk:
       "Review the LRC Suite and send the top three structural risks or quality fixes you would handle first.",
     ctaLabel: "Open LRC Suite",
     ctaHref: "/suite/",
   },
-  berechia: {
-    label: "Berechia",
-    envCode: "PRIVATE_PREVIEW_BERECHIA_CODE",
-    fallbackCode: "berechia",
+  trustreview: {
+    label: "Trust and stewardship reviewer",
+    envCode: "PRIVATE_PREVIEW_TRUST_REVIEW_CODE",
+    fallbackCode: "trustreview",
     proof:
       "LRC now has a purpose-led invitation, private preview barrier, safety language, and product paths that can be reviewed for trust and human usefulness.",
     pitch:
-      "Berechia is invited for rare judgment, trust, and stewardship review: whether the message feels grounded, respectful, and serious enough for the kind of people who should be near the foundation.",
+      "This role provides rare judgment, trust, and stewardship review: whether the message feels grounded, respectful, and serious enough for the kind of people who should be near the foundation.",
     safeFirstAsk:
       "Read the purpose and private preview language, then send what feels sincere, what feels overbuilt, and what would make the invitation safer.",
     ctaLabel: "Read Founding Circle",
     ctaHref: "/founding-circle/",
   },
-  elijah: {
-    label: "Elijah",
-    envCode: "PRIVATE_PREVIEW_ELIJAH_CODE",
-    fallbackCode: "elijah",
+  signalreview: {
+    label: "Credibility and signal reviewer",
+    envCode: "PRIVATE_PREVIEW_SIGNAL_REVIEW_CODE",
+    fallbackCode: "signalreview",
     proof:
       "LRC now has a tangible stewardship packet, private invitation gate, live product routes, safe checkout hold, and governance language ready for serious review.",
     pitch:
-      "Elijah is invited for operating discipline and credibility review: whether this feels clear, serious, and strong enough to keep people focused, accountable, and in line with the standard.",
+      "This role reviews operating discipline and credibility: whether this feels clear, serious, and strong enough to keep people focused, accountable, and in line with the standard.",
     safeFirstAsk:
       "Read the stewardship packet and send what makes the idea feel credible, what feels unproven, and what would make a high-quality person take the next step.",
     ctaLabel: "Open Stewardship Packet",
     ctaHref: "/stewardship-packet/",
   },
-  brodie: {
-    label: "Brodie",
-    envCode: "PRIVATE_PREVIEW_BRODIE_CODE",
-    fallbackCode: "brodie",
+  practicalityreview: {
+    label: "Practicality and technical operations reviewer",
+    envCode: "PRIVATE_PREVIEW_PRACTICALITY_REVIEW_CODE",
+    fallbackCode: "practicalityreview",
     proof:
       "LRC can now show the operating model in one place: invitation, trial, review, ownership, AI data boundaries, paid usage resources, and removal accountability.",
     pitch:
-      "Brodie is invited for manager-level practicality review: whether the system feels useful, manageable, and grounded for real work instead of abstract or overbuilt.",
+      "This role provides manager-level practicality review: whether the system feels useful, manageable, and grounded for real work instead of abstract or overbuilt.",
     safeFirstAsk:
       "Review the packet like a real user, then send what feels simple, what feels confusing, and what should be cut before wider sharing.",
     ctaLabel: "Open Stewardship Packet",
     ctaHref: "/stewardship-packet/",
   },
-  professorbacon: {
-    label: "Professor Bacon",
-    envCode: "PRIVATE_PREVIEW_PROFESSOR_BACON_CODE",
-    fallbackCode: "professorbacon",
+  psychologyreview: {
+    label: "Psychology and human-systems reviewer",
+    envCode: "PRIVATE_PREVIEW_PSYCHOLOGY_REVIEW_CODE",
+    fallbackCode: "psychologyreview",
     proof:
       "LRC is now framed as a governed AI builder ecosystem with no paid recruiting, trial access, referral accountability, user-owned work, and explicit misuse review.",
     pitch:
-      "Professor Bacon is invited for psychology and human-systems review: motivation, group dynamics, learning safety, prestige pressure, misuse risk, and whether the trial model supports responsible development.",
+      "This role reviews psychology and human systems: motivation, group dynamics, learning safety, prestige pressure, misuse risk, and whether the trial model supports responsible development.",
     safeFirstAsk:
       "Review the stewardship packet and identify the strongest human-risk issue, the clearest safeguard, and the one approval rule that should exist before scale.",
     ctaLabel: "Open Stewardship Packet",
     ctaHref: "/stewardship-packet/",
   },
-  rebecca: {
-    label: "Rebecca",
-    envCode: "PRIVATE_PREVIEW_REBECCA_CODE",
-    fallbackCode: "rebecca",
+  purposereview: {
+    label: "Purpose and encouragement reviewer",
+    envCode: "PRIVATE_PREVIEW_PURPOSE_REVIEW_CODE",
+    fallbackCode: "purposereview",
     proof:
       "LRC now has a purpose-led invitation, private preview barrier, safety language, and enough working routes to show that the idea is becoming a real foundation.",
     pitch:
-      "Rebecca is invited because encouragement and steady belief matter at the start. The role here is purpose review: whether the invitation feels human, sincere, and strong enough to help the right people keep going.",
+      "This role focuses on encouragement and steady purpose review: whether the invitation feels human, sincere, and strong enough to help the right people keep going.",
     safeFirstAsk:
       "Read the Founding Circle page and send what feels inspiring, what feels unclear, and what would make a trusted person take the work seriously.",
     ctaLabel: "Read Founding Circle",
     ctaHref: "/founding-circle/",
   },
-  jake: {
-    label: "Jake",
-    envCode: "PRIVATE_PREVIEW_JAKE_CODE",
-    fallbackCode: "jake",
+  strategyreview: {
+    label: "Strategy and systems reviewer",
+    envCode: "PRIVATE_PREVIEW_STRATEGY_REVIEW_CODE",
+    fallbackCode: "strategyreview",
     proof:
       "LRC has enough real structure to be judged now: live product routes, a private invite barrier, safe checkout hold, admin review path, and purpose-led stewardship language.",
     pitch:
-      "Jake is invited for high-quality strategy and systems review. The ask is not broad commitment; it is sharp judgment on whether the foundation is coherent, serious, and worth tightening.",
+      "This role provides high-quality strategy and systems review. The ask is not broad commitment; it is sharp judgment on whether the foundation is coherent, serious, and worth tightening.",
     safeFirstAsk:
       "Review the Founding Circle and LRC Suite, then send the strongest strategic concern and the one improvement that would raise the quality fastest.",
     ctaLabel: "Open LRC Suite",
     ctaHref: "/suite/",
   },
-  rahul: {
-    label: "Rahul",
-    envCode: "PRIVATE_PREVIEW_RAHUL_CODE",
-    fallbackCode: "rahul",
+  productreview: {
+    label: "Product and technical reviewer",
+    envCode: "PRIVATE_PREVIEW_PRODUCT_REVIEW_CODE",
+    fallbackCode: "productreview",
     proof:
       "LRC has a live ecosystem surface, private invite acknowledgement flow, safe checkout hold, admin review path, and deployable Cloudflare Pages foundation.",
     pitch:
-      "Rahul is invited for product and technical judgment: whether this is coherent enough to build on, which part should be tightened first, and where the foundation needs stronger architecture or restraint.",
+      "This role provides product and technical judgment: whether this is coherent enough to build on, which part should be tightened first, and where the foundation needs stronger architecture or restraint.",
     safeFirstAsk:
       "Review the suite and Founding Circle, then send one product risk, one technical risk, and one practical next build step.",
     ctaLabel: "Open LRC Suite",
@@ -1429,7 +1429,7 @@ async function buildPrivatePreviewAcknowledgement(body = {}, request, env) {
 
   const passphrase = normalizePrivatePreviewKey(body.passphrase);
   if (passphrase !== privatePreviewAccessCode(invite, env)) {
-    const error = new Error("Private preview name did not match this invitation.");
+    const error = new Error("Private preview role code did not match this invitation.");
     error.statusCode = 403;
     throw error;
   }

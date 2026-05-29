@@ -298,10 +298,10 @@ async function checkRoutes() {
   assertContains("stewardship-packet", packet, "Smart people do not need an ad.");
   assertContains("stewardship-packet", packet, "I am building LRC as a controlled place");
   assertContains("stewardship-packet", packet, "The facts are simple enough to verify");
-  assertContains("stewardship-packet", packet, "Eli can carry this to the attorneys");
-  assertContains("stewardship-packet", packet, "Berechia is here because brilliant people");
-  assertContains("stewardship-packet", packet, "Brodie knows the industry, technical work, and operations");
-  assertContains("stewardship-packet", packet, "Andrew and Professor Bacon are help on the ground");
+  assertContains("stewardship-packet", packet, "The legal reviewer can carry this to the attorneys");
+  assertContains("stewardship-packet", packet, "The trust reviewer is here because brilliant people");
+  assertContains("stewardship-packet", packet, "The technical operations reviewer brings industry");
+  assertContains("stewardship-packet", packet, "Learning systems and human-systems reviewers");
   assertContains("stewardship-packet", packet, "16 private invite profiles");
   assertContains("stewardship-packet", packet, "16 audited pages");
   assertContains("stewardship-packet", packet, "Checkout refuses sessions while safe hold is active");
@@ -319,15 +319,15 @@ async function checkRoutes() {
   assertContains("stewardship-packet", packet, "AI turns scattered thinking into usable systems, while people keep control.");
   assertContains("stewardship-packet", packet, "AI is the force multiplier.");
   assertContains("stewardship-packet", packet, "The site demonstrates the method");
-  assertContains("stewardship-packet", packet, "Brodie: technical operations proof");
+  assertContains("stewardship-packet", packet, "Technical operations proof");
   assertContains("stewardship-packet", packet, "usable, buildable, and grounded");
-  assertContains("stewardship-packet", packet, "Andrew: future-of-learning proof");
-  assertContains("stewardship-packet", packet, "What each person does next");
+  assertContains("stewardship-packet", packet, "Future-of-learning proof");
+  assertContains("stewardship-packet", packet, "What each role does next");
   assertContains("stewardship-packet", packet, "Pressure-test the work system");
   assertContains("stewardship-packet", packet, "Pressure-test the learning model");
   assertContains("stewardship-packet", packet, "safe payment hold");
   assertContains("stewardship-packet", packet, "Why it can win");
-  assertContains("stewardship-packet", packet, "Bear: operator proof");
+  assertContains("stewardship-packet", packet, "Operator proof");
   assertContains("stewardship-packet", packet, "Attorney 1: structure proof");
   assertContains("stewardship-packet", packet, "Attorney 2: risk proof");
   assertContains("stewardship-packet", packet, "Invitation is earned. Access is governed. Usage is");
@@ -336,13 +336,13 @@ async function checkRoutes() {
   assertContains("stewardship-packet", packet, "This is a team, not a");
   assertContains("stewardship-packet", packet, "This is the trusted launch circle to get the foundation off the ground.");
   assertContains("stewardship-packet", packet, "Call the heavy hitters after the foundation is safe.");
-  assertContains("stewardship-packet", packet, "Berechia");
-  assertContains("stewardship-packet", packet, "Elijah");
-  assertContains("stewardship-packet", packet, "Brodie");
-  assertContains("stewardship-packet", packet, "Christina");
-  assertContains("stewardship-packet", packet, "Andrew");
-  assertContains("stewardship-packet", packet, "Andrew R");
-  assertContains("stewardship-packet", packet, "Professor Bacon");
+  assertContains("stewardship-packet", packet, "Trust reviewer");
+  assertContains("stewardship-packet", packet, "Discipline reviewer");
+  assertContains("stewardship-packet", packet, "Technical operations reviewer");
+  assertContains("stewardship-packet", packet, "Culture and clarity reviewer");
+  assertContains("stewardship-packet", packet, "Learning systems reviewer");
+  assertContains("stewardship-packet", packet, "Risk and remote-work reviewer");
+  assertContains("stewardship-packet", packet, "Psychology and human-systems reviewer");
   assertContains("stewardship-packet", packet, "future-of-learning");
   assertContains("stewardship-packet", packet, "risk-management and work-from-home operations");
   assertContains("stewardship-packet", packet, "Do not borrow another institution");
@@ -359,43 +359,40 @@ async function checkRoutes() {
   assertContains("friends-family", support, "Tasks, systems, notes, tools, and useful work should be credited");
   assertContains("friends-family", support, "No payments are made for adding people.");
   assertContains("friends-family", support, "This trusted launch circle is here to get the foundation off the ground.");
-  assertContains("friends-family", support, "Each person unlocks only their own invitation.");
-  assertContains("friends-family", support, "Misty / Boss Suite");
-  assertContains("friends-family", support, "Bear");
-  assertContains("friends-family", support, "Robert");
-  assertContains("friends-family", support, "Christina");
-  assertContains("friends-family", support, "Professor Michael");
-  assertContains("friends-family", support, "Andrew");
-  assertContains("friends-family", support, "Andrew R");
-  assertContains("friends-family", support, "Eddie");
-  assertContains("friends-family", support, "Trent");
-  assertContains("friends-family", support, "Berechia");
-  assertContains("friends-family", support, "Elijah");
-  assertContains("friends-family", support, "Brodie");
-  assertContains("friends-family", support, "Professor Bacon");
-  assertContains("friends-family", support, "Rebecca");
-  assertContains("friends-family", support, "Jake");
-  assertContains("friends-family", support, "Rahul");
+  assertContains("friends-family", support, "Each role unlocks only its own invitation.");
+  assertContains("friends-family", support, "AI operations collaborator");
+  assertContains("friends-family", support, "Trusted support reviewer");
+  assertContains("friends-family", support, "Quality reviewer");
+  assertContains("friends-family", support, "Clarity and trust reviewer");
+  assertContains("friends-family", support, "Standards and stewardship reviewer");
+  assertContains("friends-family", support, "Learning systems reviewer");
+  assertContains("friends-family", support, "Risk and remote-work reviewer");
+  assertContains("friends-family", support, "Operational realism reviewer");
+  assertContains("friends-family", support, "Systems and quality reviewer");
+  assertContains("friends-family", support, "Trust and stewardship reviewer");
+  assertContains("friends-family", support, "Credibility and signal reviewer");
+  assertContains("friends-family", support, "Practicality and technical operations reviewer");
+  assertContains("friends-family", support, "Psychology and human-systems reviewer");
+  assertContains("friends-family", support, "Purpose and encouragement reviewer");
+  assertContains("friends-family", support, "Strategy and systems reviewer");
+  assertContains("friends-family", support, "Product and technical reviewer");
   assertContains("friends-family", support, "This is a team, not a crowd.");
   assertContains("friends-family", support, "Learning systems");
   assertContains("friends-family", support, "Risk and remote work");
   assertContains("friends-family", support, "does not");
   assertContains("friends-family", support, "public endorser");
   assertContains("friends-family", support, "No sensitive access");
-  assertContains("friends-family", support, "Private preview name");
-  assertContains("friends-family", support, "Typed acknowledgement name");
+  assertContains("friends-family", support, "Role access code");
+  assertContains("friends-family", support, "Typed acknowledgement");
   assertContains("friends-family", support, "copy protected ideas");
   assertContains("friends-family", support, "separate written owner approval");
   assertContains("friends-family", support, '<script src="./app.js?v=1" defer></script>');
   assertNotContains("friends-family", support, "LRC already has a suite hub, Goal Builder, Formed path");
   assertNotContains("friends-family", support, "The ecosystem has real routes, regression checks");
-  assertNotContains("friends-family", support, "Ray");
-  assertNotContains("friends-family", support, "Bearechia");
-
   const preview = await postJson("/api/private-preview/acknowledgement", {
-    invitee: "misty",
-    passphrase: "misty",
-    signatureName: "Misty Preview Test",
+    invitee: "ai-operations",
+    passphrase: "aioperations",
+    signatureName: "AI Operations Preview Test",
     agreement: true,
     acknowledgementVersion: "lrc-private-preview-v1",
     source: "verification",
@@ -404,37 +401,37 @@ async function checkRoutes() {
   assertContains("private-preview proof", preview.json.preview?.proof || "", "LRC already has a suite hub");
   assertContains("private-preview boundary", (preview.json.preview?.boundaries || []).join(" "), "separate signed agreement");
 
-  const rahulPreview = await postJson("/api/private-preview/acknowledgement", {
-    invitee: "rahul",
-    passphrase: "rahul",
-    signatureName: "Rahul Preview Test",
+  const productPreview = await postJson("/api/private-preview/acknowledgement", {
+    invitee: "product-review",
+    passphrase: "productreview",
+    signatureName: "Product Review Preview Test",
     agreement: true,
     acknowledgementVersion: "lrc-private-preview-v1",
     source: "verification",
   });
-  if (rahulPreview.response.status !== 201) fail(`Rahul private preview returned ${rahulPreview.response.status}`);
-  assertContains("rahul private-preview pitch", rahulPreview.json.preview?.pitch || "", "product and technical judgment");
-  assertContains("rahul private-preview boundary", (rahulPreview.json.preview?.boundaries || []).join(" "), "not a pyramid");
-  assertContains("rahul private-preview boundary", (rahulPreview.json.preview?.boundaries || []).join(" "), "misuse by an invited person can trigger review");
-  assertContains("rahul private-preview boundary", (rahulPreview.json.preview?.boundaries || []).join(" "), "work product should be credited");
+  if (productPreview.response.status !== 201) fail(`Product review private preview returned ${productPreview.response.status}`);
+  assertContains("product private-preview pitch", productPreview.json.preview?.pitch || "", "product and technical judgment");
+  assertContains("product private-preview boundary", (productPreview.json.preview?.boundaries || []).join(" "), "not a pyramid");
+  assertContains("product private-preview boundary", (productPreview.json.preview?.boundaries || []).join(" "), "misuse by an invited person can trigger review");
+  assertContains("product private-preview boundary", (productPreview.json.preview?.boundaries || []).join(" "), "work product should be credited");
 
-  const professorBaconPreview = await postJson("/api/private-preview/acknowledgement", {
-    invitee: "professor-bacon",
-    passphrase: "professorbacon",
-    signatureName: "Professor Bacon Preview Test",
+  const psychologyPreview = await postJson("/api/private-preview/acknowledgement", {
+    invitee: "psychology-review",
+    passphrase: "psychologyreview",
+    signatureName: "Psychology Preview Test",
     agreement: true,
     acknowledgementVersion: "lrc-private-preview-v1",
     source: "verification",
   });
-  if (professorBaconPreview.response.status !== 201) {
-    fail(`Professor Bacon private preview returned ${professorBaconPreview.response.status}`);
+  if (psychologyPreview.response.status !== 201) {
+    fail(`Psychology private preview returned ${psychologyPreview.response.status}`);
   }
-  assertContains("professor bacon private-preview pitch", professorBaconPreview.json.preview?.pitch || "", "psychology and human-systems review");
+  assertContains("psychology private-preview pitch", psychologyPreview.json.preview?.pitch || "", "psychology and human systems");
 
   const deniedPreview = await postJson("/api/private-preview/acknowledgement", {
-    invitee: "misty",
+    invitee: "ai-operations",
     passphrase: "wrong",
-    signatureName: "Misty Preview Test",
+    signatureName: "AI Operations Preview Test",
     agreement: true,
     acknowledgementVersion: "lrc-private-preview-v1",
     source: "verification",
@@ -442,14 +439,14 @@ async function checkRoutes() {
   if (deniedPreview.response.status !== 403) fail("private preview should reject the wrong passphrase");
 
   const removedPreview = await postJson("/api/private-preview/acknowledgement", {
-    invitee: "ray",
-    passphrase: "ray",
-    signatureName: "Ray Preview Test",
+    invitee: "removed-role",
+    passphrase: "removedrole",
+    signatureName: "Removed Role Preview Test",
     agreement: true,
     acknowledgementVersion: "lrc-private-preview-v1",
     source: "verification",
   });
-  if (removedPreview.response.status !== 404) fail("removed Ray private preview should not unlock");
+  if (removedPreview.response.status !== 404) fail("removed private preview should not unlock");
 }
 
 async function checkAssets() {
