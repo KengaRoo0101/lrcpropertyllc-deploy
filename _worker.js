@@ -16,7 +16,7 @@ function htmlResponse(body, status = 200) {
     headers: {
       "content-type": "text/html; charset=utf-8",
       "cache-control": "no-store",
-      ...securityHeaders(),
+      ...securityHeaders(),REAL_WORLD_PAYMENTS_ENABLED = false  
     },
   });
 }
