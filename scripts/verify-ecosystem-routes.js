@@ -71,7 +71,6 @@ const blockedPublicCopy = [
   "id=\"lrc-react-funnel\"",
   "home-funnel.js",
   "agent-guide.js",
-  "checkout.js",
   "id=\"paywall\"",
   "PRODUCT_ROUTES",
   "buildLegacyArtifact",
@@ -225,14 +224,15 @@ async function checkRoutes() {
   const home = await assertRouteOk("/");
   assertContains("home", home, "Build the next version with guided LRC support.");
   assertContains("home", home, "Bring the idea, problem, or work goal.");
-  assertContains("home", home, "Public home. Member tools and team workspaces require approved access.");
-  assertContains("home", home, "Membership starts with review, not an automatic checkout.");
+  assertContains("home", home, "Public home. Membership is self-serve; team and admin workspaces stay private.");
+  assertContains("home", home, "Membership access");
+  assertContains("home", home, "Choose the access level that fits the work.");
+  assertContains("home", home, "Stripe checkout is the active payment path when available.");
   assertContains("home", home, 'href="./goal/"');
   assertContains("home", home, 'href="./suite/"');
-  assertContains("home", home, 'href="./founding-circle/"');
-  assertContains("home", home, 'href="./friends-family/"');
-  assertContains("home", home, "Member tools");
-  assertContains("home", home, "One front door, multiple focused work paths.");
+  assertContains("home", home, 'href="./formed/"');
+  assertContains("home", home, 'href="./jobsai/"');
+  assertContains("home", home, "Core access can start through the main membership checkout.");
   assertContains("home", home, '<body class="lrc-affiliate focused-home formed-home">');
   blockedPublicCopy.forEach((blocked) => assertNotContains("home", home, blocked));
 
@@ -289,6 +289,20 @@ async function checkRoutes() {
   const packet = await assertRouteOk("/stewardship-packet/");
   assertContains("stewardship-packet", packet, "An institution-grade standard for responsible AI builders.");
   assertContains("stewardship-packet", packet, "Attorney and core reviewer brief");
+  assertContains("stewardship-packet", packet, "Founder-Guided Introduction");
+  assertContains("stewardship-packet", packet, "Begin Founder-Guided Introduction");
+  assertContains("stewardship-packet", packet, "Video coming after final review");
+  assertContains("stewardship-packet", packet, "Your first LRC orientation");
+  assertContains("stewardship-packet", packet, "Initial LRC Review Packet");
+  assertContains("stewardship-packet", packet, "What you can learn to do here");
+  assertContains("stewardship-packet", packet, "Everyone is equal before the standard.");
+  assertContains("stewardship-packet", packet, "Quality in quantity");
+  assertContains("stewardship-packet", packet, "Standard-led, not employee-led");
+  assertContains("stewardship-packet", packet, "Role boundaries");
+  assertContains("stewardship-packet", packet, "Participation vs. work rule");
+  assertContains("stewardship-packet", packet, "Accept the Standard and Continue");
+  assertContains("stewardship-packet", packet, "data-ack-submit disabled");
+  assertContains("stewardship-packet", packet, "assets/stewardship-packet.js");
   assertContains("stewardship-packet", packet, "Read this first. Record the video later.");
   assertContains("stewardship-packet", packet, "Canva-ready founder brief");
   assertContains("stewardship-packet", packet, "The video should feel like a private founder note, not a commercial.");

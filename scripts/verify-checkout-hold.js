@@ -123,7 +123,7 @@ async function run() {
     const checkout = await fetchJson("/create-checkout-session", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ product: "lrc-conversation-clarity-full-report" }),
+      body: JSON.stringify({ product: "lrc-core-membership" }),
     });
     if (checkout.response.status !== 503) fail("checkout session route should return 503 without config");
     assertContains("checkout error", checkout.json.error || "", "Real-world payments are not active");
@@ -140,15 +140,14 @@ async function run() {
     assertContains("home", home.text, "/assets/lrc-agent.js");
     assertContains("home", home.text, "data-lrc-agent-input");
     assertContains("home", home.text, "data-lrc-agent-output");
-    assertContains("home", home.text, "Public home. Member tools and team workspaces require approved access.");
-    assertContains("home", home.text, "Membership starts with review, not an automatic checkout.");
+    assertContains("home", home.text, "Public home. Membership is self-serve; team and admin workspaces stay private.");
+    assertContains("home", home.text, "Stripe checkout is the active payment path when available.");
     assertNotContains("home", home.text, "app-front-door");
     assertNotContains("home", home.text, "id=\"lrc-react-funnel\"");
     assertNotContains("home", home.text, "home-funnel.js");
     assertNotContains("home", home.text, "File-safe fallback");
     assertNotContains("home", home.text, "buildStructuredBrief");
     assertNotContains("home", home.text, "create-checkout-session");
-    assertNotContains("home", home.text, "checkout.js");
     assertNotContains("home", home.text, "Unlock Full Report");
     assertNotContains("home", home.text, "Request Conversation Clarity preview");
 
@@ -196,7 +195,7 @@ async function run() {
     const checkout = await fetchJson("/create-checkout-session", {
       method: "POST",
       headers: { "content-type": "application/json" },
-      body: JSON.stringify({ product: "lrc-conversation-clarity-full-report" }),
+      body: JSON.stringify({ product: "lrc-core-membership" }),
     });
     if (checkout.response.status !== 503) fail("checkout session route should return 503 with invalid Stripe config");
     assertContains("invalid checkout error", checkout.json.error || "", "Real-world payments are not active");
