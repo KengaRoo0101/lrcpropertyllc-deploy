@@ -16,7 +16,7 @@ function htmlResponse(body, status = 200) {
     headers: {
       "content-type": "text/html; charset=utf-8",
       "cache-control": "no-store",
-      ...securityHeaders(),REAL_WORLD_PAYMENTS_ENABLED = false  
+      ...securityHeaders()  
     },
   });
 }
@@ -25,7 +25,7 @@ const ACCESS_COOKIE = "lrc_site_access";
 const VISITOR_COOKIE = "lrc_visitor_id";
 const SESSION_COOKIE = "lrc_session_id";
 const CHECKOUT_PRODUCT = "lrc-core-membership";
-const REAL_WORLD_PAYMENTS_ENABLED = false;
+const REAL_WORLD_PAYMENTS_ENABLED = true;
 const PAYMENT_HOLD_MESSAGE = "Real-world payments are not active. Use the preview or contact LRC to continue.";
 const CHECKOUT_DIAGNOSTIC_GUARDRAILS = [
   "No real-world payments are active.",
@@ -364,111 +364,7 @@ function stripeServerKeyMode(value) {
   return "";
 }
 
-function checkoutStatus(env) {
-  return {
-    ok: true,
-    available: false,
-    mode: "hold",
-    paymentStatus: "not_started",
-    message: PAYMENT_HOLD_MESSAGE,
-  };
-}
-
-async function verifiedCheckoutStatus(env) {
-  const status = checkoutStatus(env);
-  if (!status.available) return status;
-
-  try {
-    const stripeResponse = await fetch(`https://api.stripe.com/v1/prices/${encodeURIComponent(env.STRIPE_PRICE_ID)}`, {
-      headers: {
-        authorization: `Bearer ${env.STRIPE_SECRET_KEY}`,
-        accept: "application/json",
-      },
-    });
-    const price = await stripeResponse.json();
-    const modeMatches = status.mode === "live" ? price.livemode === true : price.livemode === false;
-    if (stripeResponse.ok && price.active !== false && modeMatches) return status;
-  } catch (_error) {
-    // Fall through to a safe public hold state.
-  }
-
-  return {
-    ...status,
-    available: false,
-    mode: "hold",
-    message: PAYMENT_HOLD_MESSAGE,
-  };
-}
-
-async function diagnoseCheckoutConfig(env) {
-  const baseStatus = checkoutStatus(env);
-  const checks = {
-    realWorldPaymentsEnabled: REAL_WORLD_PAYMENTS_ENABLED,
-    checkoutEnabled: truthyEnv(env.CHECKOUT_ENABLED),
-    publicUrl: Boolean(env.PUBLIC_URL),
-    stripeSecret: Boolean(env.STRIPE_SECRET_KEY),
-    stripeSecretMode: stripeServerKeyMode(env.STRIPE_SECRET_KEY) || "missing-or-invalid-prefix",
-    stripeRestrictedKey: String(env.STRIPE_SECRET_KEY || "").startsWith("rk_"),
-    stripePriceId: Boolean(env.STRIPE_PRICE_ID),
-    stripePriceIdFormat: String(env.STRIPE_PRICE_ID || "").startsWith("price_"),
-    stripeWebhookSecret: Boolean(env.STRIPE_WEBHOOK_SECRET),
-  };
-
-  const diagnostic = (category, available = false, extra = {}) => ({
-    ok: true,
-    category,
-    available,
-    guardrails: CHECKOUT_DIAGNOSTIC_GUARDRAILS,
-    checks,
-    ...extra,
-  });
-
-  if (!checks.realWorldPaymentsEnabled) return diagnostic("real-world-payments-disabled");
-  if (!checks.checkoutEnabled) return diagnostic("checkout-disabled");
-  if (!checks.stripeSecret) return diagnostic("missing-secret-key");
-  if (checks.stripeSecretMode !== "live") return diagnostic("live-test-mismatch");
-  if (!checks.stripePriceId) return diagnostic("missing-price-id");
-  if (!checks.stripePriceIdFormat) return diagnostic("invalid-price-id-format");
-  if (!checks.stripeWebhookSecret) return diagnostic("missing-webhook-secret");
-
-  try {
-    const stripeResponse = await fetch(`https://api.stripe.com/v1/prices/${encodeURIComponent(env.STRIPE_PRICE_ID)}`, {
-      headers: {
-        authorization: `Bearer ${env.STRIPE_SECRET_KEY}`,
-        accept: "application/json",
-      },
-    });
-    const price = await stripeResponse.json();
-
-    if (stripeResponse.status === 401 || stripeResponse.status === 403) {
-      return diagnostic("invalid-key");
-    }
-    if (stripeResponse.status === 404) {
-      return diagnostic("wrong-account-or-price-not-found");
-    }
-    if (!stripeResponse.ok) {
-      return diagnostic("stripe-price-lookup-failed");
-    }
-    if (price.livemode !== true || baseStatus.mode !== "live") {
-      return diagnostic("live-test-mismatch");
-    }
-    if (price.active === false) {
-      return diagnostic("inactive-price");
-    }
-
-    return diagnostic("ready", true, {
-      mode: "live",
-      price: {
-        active: price.active !== false,
-        livemode: price.livemode === true,
-        currency: cleanText(price.currency, 20),
-        unitAmount: Number(price.unit_amount || 0),
-      },
-    });
-  } catch (_error) {
-    return diagnostic("stripe-network-or-runtime-error");
-  }
-}
+function checkoutStatus(env) {   const enabled = truthyEnv(env.CHECKOUT_ENABLED);   const stripeMode = stripeServerKeyMode(env.STRIPE_SECRET_KEY);   const priceConfigured = Boolean(env.STRIPE_PRICE_ID);   const webhookConfigured = Boolean(env.STRIPE_WEBHOOK_SECRET);   const available = enabled && REAL_WORLD_PAYMENTS_ENABLED && stripeMode !== "unknown" && priceConfigured && webhookConfigured;   return {     available,     mode: available ? stripeMode : "hold",     paymentStatus: "not_started",     message: available ? "Stripe checkout enabled." : PAYMENT_HOLD_MESSAGE,   }; }
 
 function stripePaymentsReady(env) {
   return checkoutStatus(env).available;
