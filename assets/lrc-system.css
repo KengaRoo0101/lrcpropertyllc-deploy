@@ -741,6 +741,19 @@
   letter-spacing: 0;
 }
 
+body.rooms-page .lrc-suite-hero {
+  padding-top: clamp(18px, 4vw, 44px);
+}
+
+body.rooms-page .lrc-suite-hero h1 {
+  max-width: 10ch;
+  font-size: clamp(2.35rem, 4.8vw, 4.2rem);
+}
+
+body.rooms-page .lrc-suite-hero .lrc-principle-line {
+  color: #172539;
+}
+
 .lrc-suite-hero p,
 .lrc-suite-section p,
 .lrc-product-guide p,
@@ -815,6 +828,16 @@
 .lrc-suite-card {
   display: grid;
   gap: 12px;
+}
+
+.locked-room-card {
+  border-color: rgba(198, 169, 107, 0.38);
+}
+
+.locked-action {
+  justify-self: start;
+  cursor: not-allowed;
+  opacity: 0.76;
 }
 
 .lrc-suite-card-media {
@@ -900,6 +923,23 @@
   margin: 0;
   color: var(--lrc-system-muted);
   font-size: clamp(1rem, 1.5vw, 1.18rem);
+}
+
+.lrc-video-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.lrc-video-meta span {
+  border: 1px solid rgba(249, 244, 232, 0.18);
+  border-radius: 999px;
+  padding: 6px 9px;
+  color: rgba(249, 244, 232, 0.78);
+  font-size: 0.72rem;
+  font-weight: 850;
+  text-transform: uppercase;
 }
 
 .lrc-video-progress {

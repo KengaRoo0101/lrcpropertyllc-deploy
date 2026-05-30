@@ -12,6 +12,8 @@ const publicRoutes = [
   "/goal",
   "/suite/",
   "/suite",
+  "/rooms/",
+  "/rooms",
   "/stewardship-packet/",
   "/stewardship-packet",
   "/founding-circle/",
@@ -213,7 +215,7 @@ async function checkRoutes() {
     assertContains(`${pathname} lrc app`, page, 'class="lrc-app');
     assertContains(`${pathname} lrc input`, page, "data-lrc-agent-input");
     assertContains(`${pathname} lrc output`, page, "data-lrc-agent-output");
-    const systemVersion = pathname === "/" ? "22" : "21";
+    const systemVersion = pathname === "/" ? "26" : "21";
     const agentVersion = pathname === "/" ? "24" : "23";
     assertContains(`${pathname} lrc system css`, page, `<link rel="stylesheet" href="/assets/lrc-system.css?v=${systemVersion}"`);
     assertContains(`${pathname} lrc runtime`, page, '<script src="/assets/lrc-runtime.js?v=6" defer></script>');
@@ -227,9 +229,12 @@ async function checkRoutes() {
   assertContains("home", home, "Public home. Membership is self-serve; team and admin workspaces stay private.");
   assertContains("home", home, "Membership access");
   assertContains("home", home, "Choose the access level that fits the work.");
+  assertContains("home", home, "Rooms & Commons");
+  assertContains("home", home, "Public visitors see the overview only.");
   assertContains("home", home, "Stripe checkout is the active payment path when available.");
   assertContains("home", home, 'href="./goal/"');
   assertContains("home", home, 'href="./suite/"');
+  assertContains("home", home, 'href="./rooms/"');
   assertContains("home", home, 'href="./formed/"');
   assertContains("home", home, 'href="./jobsai/"');
   assertContains("home", home, "Core access can start through the main membership checkout.");
@@ -285,6 +290,22 @@ async function checkRoutes() {
   assertContains("founding-circle", founding, "not legal advice and is not a contract");
   assertContains("founding-circle", founding, "../friends-family/");
   assertContains("founding-circle", founding, "../stewardship-packet/");
+
+  const rooms = await assertRouteOk("/rooms/");
+  assertContains("rooms", rooms, "LRC Rooms & Commons");
+  assertContains("rooms", rooms, "Governed collaboration rooms.");
+  assertContains("rooms", rooms, "The Commons is the public lobby, not the private room.");
+  assertContains("rooms", rooms, "Each room type has a job and a boundary.");
+  assertContains("rooms", rooms, "The rooms are named now and locked until the security layer exists.");
+  assertContains("rooms", rooms, "Dynamic rooms wait for auth, server-side permissions, audit logs, and security review.");
+  assertContains("rooms", rooms, "Collaborative by design, but not unmanaged.");
+  assertContains("rooms", rooms, "The founder acts as a safeguard for core values");
+  assertContains("rooms", rooms, "AI safety orientation preview");
+  assertContains("rooms", rooms, "Rooms support collaboration and learning; they do not replace professional review.");
+  assertContains("rooms", rooms, "Phase 1 adds no private dynamic data");
+  assertContains("rooms", rooms, "Locked pending secure access");
+  assertNotContains("rooms", rooms, "data-lrc-agent-input");
+  assertNotContains("rooms", rooms, "sk-");
 
   const packet = await assertRouteOk("/stewardship-packet/");
   assertContains("stewardship-packet", packet, "An institution-grade standard for responsible AI builders.");

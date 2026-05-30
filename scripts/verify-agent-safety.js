@@ -239,7 +239,7 @@ async function checkRenderedPages() {
     assert(response.ok, `${pathname} did not return 200`);
     assertContains(pathname, text, "data-lrc-agent-input");
     assertContains(pathname, text, "data-lrc-agent-output");
-    const systemVersion = pathname === "/" ? "22" : "21";
+    const systemVersion = pathname === "/" ? "26" : "21";
     const agentVersion = pathname === "/" ? "24" : "23";
     assertContains(pathname, text, `/assets/lrc-system.css?v=${systemVersion}`);
     assertContains(pathname, text, "/assets/lrc-runtime.js?v=6");
