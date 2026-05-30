@@ -6,7 +6,7 @@
     <title>LRC Property LLC | Guided Tools and Membership Access</title>
     <meta
       name="description"
-      content="LRC Property LLC helps builders turn an idea into a clear next step, then gives approved members access to guided business, work, and operations tools."
+      content="LRC Property LLC helps builders turn an idea into a clear next step, then offers self-serve access to guided business, work, and operations tools."
     />
     <meta name="theme-color" content="#c6a96b" />
     <meta name="application-name" content="LRC Property LLC" />
@@ -15,7 +15,7 @@
     <meta property="og:title" content="LRC Property LLC | Guided Tools and Membership Access" />
     <meta
       property="og:description"
-      content="Start with a clear request, review the LRC standard, and request access to guided member tools."
+      content="Start with a clear plan, choose a membership path, and continue into focused LRC tools."
     />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.lrcpropertyllc.com/" />
@@ -24,7 +24,7 @@
     <meta name="twitter:title" content="LRC Property LLC" />
     <meta
       name="twitter:description"
-      content="Request guided access to LRC tools for business setup, work planning, and operations support."
+      content="Guided access to LRC tools for business setup, work planning, and operations support."
     />
     <link rel="canonical" href="https://www.lrcpropertyllc.com/" />
     <link rel="manifest" href="./manifest.webmanifest?v=2" />
@@ -38,8 +38,7 @@
     <script src="/assets/lrc-agent.js?v=24" defer></script>
     <script src="/assets/lrc-suite.js?v=2" defer></script>
     <script src="/assets/feature-requests.js?v=2" defer></script>
-    <script src="./assets/employee-portal-data.js?v=1" defer></script>
-    <script src="./assets/timeclock.js?v=2" defer></script>
+    <script src="./assets/checkout.js?v=3" defer></script>
   </head>
   <body class="lrc-affiliate focused-home formed-home">
     <div class="site-shell">
@@ -58,21 +57,20 @@
           <a class="nav-cta" href="./goal/">Goal</a>
           <a href="#membership">Membership</a>
           <a href="./suite/">LRC Suite</a>
-          <a href="./founding-circle/">Founding Circle</a>
-          <a href="./friends-family/">Support</a>
           <a href="./formed/">Formed</a>
           <a href="./jobsai/">JobsAI</a>
+          <a href="./contact/">Contact</a>
           <a href="./safety.html">Safety</a>
-          <a href="#employee-access">Employee</a>
         </nav>
 
-        <p class="site-header-note">Public home. Member tools and team workspaces require approved access.</p>
+        <p class="site-header-note">Public home. Membership is self-serve; team and admin workspaces stay private.</p>
       </header>
 
       <main class="founder-flow-page" id="top">
         <section class="lrc-app founder-flow" id="lrc-operating-system">
           <div class="lrc-shell">
             <div class="founder-hero-copy" data-founder-hero>
+              <p class="eyebrow">Start here</p>
               <h1 class="lrc-title">Build the next version with guided LRC support.</h1>
               <p class="lrc-subtitle">Bring the idea, problem, or work goal. LRC helps turn it into a clear plan, the right tool path, and a safer next step before anything is filed, paid, published, or sent.</p>
             </div>
@@ -91,151 +89,77 @@
               <div class="lrc-label">Plan</div>
               <div class="lrc-value">Your starting plan is ready.</div>
             </div>
-          </div>
-        </section>
 
-        <section class="market-tool-panel" id="untapped-markets" aria-label="Untapped market lane">
-          <div class="section-heading">
-            <p class="eyebrow">Start here</p>
-            <h2>Get the first move clear before the build gets bigger.</h2>
-            <p>Use the guided start to shape the offer, audience, risks, and next action. Deeper tools open through member or team access.</p>
-          </div>
-
-          <div class="market-tool-actions">
-            <a class="primary-button" href="#membership">Request membership review</a>
-            <a class="secondary-button" href="./contact/">Contact LRC</a>
+            <div class="market-tool-actions" aria-label="Start actions">
+              <a class="primary-button" href="#membership">View membership</a>
+              <a class="secondary-button" href="./contact/">Contact LRC</a>
+            </div>
           </div>
         </section>
 
         <section class="membership-panel" id="membership" aria-labelledby="membership-title">
           <div class="section-heading">
             <p class="eyebrow">Membership access</p>
-            <h2 id="membership-title">For people who want more than a one-off page.</h2>
+            <h2 id="membership-title">Choose the access level that fits the work.</h2>
             <p>
-              LRC membership is for approved builders, collaborators, and team readers who want
-              organized access to guided tools, review paths, and internal workspaces.
+              LRC membership is a focused entry point for builders who want structured tools,
+              clearer decisions, and review boundaries before sensitive actions.
             </p>
             <p class="membership-principle">
-              Referred by trust. Reviewed by standard. Success by exclusive collaboration.
+              Promoted by LRC Property LLC. Referred by trust. Reviewed by standard. Success by exclusive collaboration.
             </p>
           </div>
 
-          <div class="membership-grid" aria-label="Membership access benefits">
+          <div class="membership-grid" aria-label="LRC membership pricing">
             <article>
-              <span>Plan</span>
-              <h3>Turn the idea into a working path.</h3>
-              <p>Use guided prompts, launch notes, and structured checklists before spending money or asking others to act.</p>
+              <span>Starter</span>
+              <h3>$0 access gate</h3>
+              <p>Use the public start path, safety notes, contact form, and guided first-plan output.</p>
+              <a class="secondary-button" href="./goal/">Start free</a>
             </article>
+
             <article>
-              <span>Build</span>
-              <h3>Move into focused tools when the work is ready.</h3>
-              <p>Approved access can open business setup, work planning, workflow, social review, and product-lab paths.</p>
+              <span>Core</span>
+              <h3>$19/month</h3>
+              <p>Open the standard LRC tool suite for planning, work routing, operations drafts, and support paths.</p>
+              <button class="primary-button" id="pay-button" type="button" data-live-label="Start Core Membership">
+                Start Core Membership
+              </button>
+              <p class="form-status" data-checkout-status data-state="hold" aria-live="polite">
+                Stripe checkout is the active payment path when available.
+              </p>
             </article>
+
             <article>
-              <span>Protect</span>
-              <h3>Keep sensitive steps behind review.</h3>
-              <p>Payments, filings, publishing, payroll, legal documents, and account changes stay behind approval and provider boundaries.</p>
+              <span>LLC Builder</span>
+              <h3>$149 setup + $49/month</h3>
+              <p>Premium builder path for a structured business draft, launch checklist, and higher-review workflow.</p>
+              <a class="secondary-button" href="./formed/">Open LLC Builder</a>
             </article>
           </div>
 
           <div class="membership-cta">
             <div>
               <p class="panel-label">Access standard</p>
-              <h3>Membership starts with review, not an automatic checkout.</h3>
+              <h3>Membership is self-serve; sensitive actions still require review.</h3>
               <p>
-                Public visitors can read the home page and contact LRC. Member tools, team routes,
-                and admin workspaces require the approved site password.
+                Core access can start through the main membership checkout. Payments, filings,
+                publishing, payroll, legal documents, account changes, and admin actions stay
+                behind explicit owner or provider review.
               </p>
             </div>
             <div class="membership-actions">
-              <a class="primary-button" href="./contact/">Request access</a>
+              <a class="primary-button" href="./suite/">Explore tools</a>
               <a class="secondary-button" href="./safety.html">Read safety notes</a>
             </div>
-          </div>
-        </section>
-
-        <section class="suite-connection" id="ecosystem" aria-labelledby="ecosystem-title">
-          <div class="suite-connection-copy">
-            <p class="eyebrow">Member tools</p>
-            <h2 id="ecosystem-title">One front door, multiple focused work paths.</h2>
-            <p>
-              After access is approved, move into the LRC path that fits the work: business
-              formation planning, hiring support, workflow management, social trust review,
-              daily support, career intake, or product-lab exploration.
-            </p>
-          </div>
-
-          <div class="suite-connection-grid" aria-label="LRC product paths">
-            <article class="suite-connection-card">
-              <span>Business</span>
-              <h3>Formed</h3>
-              <p>Turn a business idea into a structured Business Draft, launch checklist, and review path.</p>
-              <a class="secondary-button" href="./formed/">Member access</a>
-            </article>
-
-            <article class="suite-connection-card">
-              <span>Work</span>
-              <h3>JobsAI + Careers</h3>
-              <p>Shape role notes, applicant paths, resume support, and LRC hiring intake without overclaiming outcomes.</p>
-              <a class="secondary-button" href="./jobsai/">Member access</a>
-            </article>
-
-            <article class="suite-connection-card">
-              <span>Operations</span>
-              <h3>Ninja + SocialScan</h3>
-              <p>Prepare local workflow drafts and public-presence review notes before any publishing or external change.</p>
-              <a class="secondary-button" href="./suite/">Member access</a>
-            </article>
-
-            <article class="suite-connection-card">
-              <span>Support</span>
-              <h3>Friends & Family</h3>
-              <p>Invite chosen supporters into clear, scoped roles without implying employment, partnership, or approval.</p>
-              <a class="secondary-button" href="./friends-family/">Member access</a>
-            </article>
-
-            <article class="suite-connection-card">
-              <span>Stewardship</span>
-              <h3>Founding Circle</h3>
-              <p>Show trusted people the purpose, values, participation layers, and safety standard before deeper access.</p>
-              <a class="secondary-button" href="./founding-circle/">Member access</a>
-            </article>
-          </div>
-        </section>
-
-        <section class="employee-panel" id="employee-access">
-          <div class="section-heading">
-            <p class="eyebrow">Team access</p>
-            <h2>LRC Employee Portal.</h2>
-            <p>
-              Team members can open messages, schedule, tasks, Automated Desk, HR, payroll,
-              legal document routing, onboarding, and the existing local timeclock demo from one
-              private workspace.
-            </p>
-          </div>
-
-          <div class="employee-access">
-            <div>
-              <p class="panel-label">Employee operating system</p>
-              <h3>Run the team workspace without leaving the LRC front door.</h3>
-              <p>
-                The portal stays behind demo employee login. Current records, mock email
-                notifications, desk tickets, legal document requests, and timeclock data are saved
-                only in this browser until the backend is connected. The broader team and admin
-                site routes are also protected by the server-side site password.
-              </p>
-            </div>
-            <button class="primary-button" id="open-timeclock" type="button">
-              Open Employee Portal
-            </button>
           </div>
         </section>
       </main>
 
       <footer class="site-footer">
         <div class="footer-brand">
-          <p class="eyebrow">LRC Property LLC</p>
-          <h2>Build with a clean plan, approved access, and a clear next step.</h2>
+          <p class="eyebrow">Promoted by LRC Property LLC</p>
+          <h2>Build with a clean plan, guided access, and a clear next step.</h2>
           <p>Riverside County, California</p>
         </div>
 
@@ -245,8 +169,6 @@
             <a href="./index.html">LRC Home</a>
             <a href="./goal/">Goal</a>
             <a href="./suite/">LRC Suite</a>
-            <a href="./founding-circle/">Founding Circle</a>
-            <a href="./friends-family/">Friends & Family</a>
             <a href="./formed/">Formed</a>
             <a href="./jobsai/">JobsAI</a>
             <a href="./contact/">Contact</a>
@@ -263,71 +185,6 @@
 
         <p class="footer-fine">Copyright 2026 LRC Property LLC. All rights reserved.</p>
       </footer>
-    </div>
-
-    <div class="timeclock-modal" id="timeclock-modal" aria-hidden="true">
-      <div class="timeclock-backdrop" data-timeclock-close></div>
-      <section
-        class="timeclock-dialog"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="timeclock-title"
-      >
-        <div class="timeclock-modal-header">
-          <div>
-            <p class="eyebrow">LRC employee portal</p>
-            <h2 id="timeclock-title">LRC Employee Portal</h2>
-            <p id="employee-portal-mode">Local demo until backend, auth, database, email, and secure storage are connected.</p>
-          </div>
-          <button class="icon-button" type="button" data-timeclock-close aria-label="Close timeclock">
-            &times;
-          </button>
-        </div>
-
-        <form class="timeclock-login" id="timeclock-login-form">
-          <label>
-            Demo employee
-            <select name="employeeId" id="portal-employee-select" required></select>
-          </label>
-          <label>
-            Demo PIN
-            <input
-              name="employeePin"
-              type="password"
-              inputmode="numeric"
-              autocomplete="current-password"
-              placeholder="1234"
-              required
-            />
-          </label>
-          <button class="primary-button" type="submit">Enter timeclock</button>
-          <p class="timeclock-status" id="timeclock-login-status" aria-live="polite">
-            Demo PIN: 1234
-          </p>
-        </form>
-
-        <div class="employee-portal-app" id="employee-portal-app" hidden>
-          <div class="timeclock-toolbar employee-portal-toolbar">
-            <div>
-              <p class="panel-label">Signed in</p>
-              <p class="timeclock-now" id="employee-portal-user">Demo access</p>
-            </div>
-            <button class="secondary-button" id="employee-portal-logout" type="button">Switch employee</button>
-          </div>
-
-          <div class="employee-portal-layout">
-            <nav class="employee-portal-nav" id="employee-portal-nav" aria-label="Employee portal navigation"></nav>
-            <main class="employee-portal-content" id="employee-portal-content" tabindex="-1"></main>
-          </div>
-
-          <p class="portal-footer-note">
-            LRC Employee Portal is an internal operations and planning tool. It does not provide
-            legal, tax, payroll, accounting, HR compliance, or employment-law advice. Payroll,
-            benefits, tax, legal, and employment decisions should be reviewed through approved
-            company providers or professionals.
-          </p>
-        </div>
-      </section>
     </div>
   </body>
 </html>
