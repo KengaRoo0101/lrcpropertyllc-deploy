@@ -364,7 +364,7 @@ function stripeServerKeyMode(value) {
   return "";
 }
 
-function checkoutStatus(env) {   const enabled = truthyEnv(env.CHECKOUT_ENABLED);   const stripeMode = stripeServerKeyMode(env.STRIPE_SECRET_KEY);   const priceConfigured = Boolean(env.STRIPE_PRICE_ID);   const webhookConfigured = Boolean(env.STRIPE_WEBHOOK_SECRET);   const available = enabled && REAL_WORLD_PAYMENTS_ENABLED && stripeMode !== "unknown" && priceConfigured && webhookConfigured;   return {     available,     mode: available ? stripeMode : "hold",     paymentStatus: "not_started",     message: available ? "Stripe checkout enabled." : PAYMENT_HOLD_MESSAGE,   }; }
+function checkoutStatus(env) {   const enabled = truthyEnv(env.CHECKOUT_ENABLED);   const stripeMode = stripeServerKeyMode(env.STRIPE_SECRET_KEY);   const priceConfigured = Boolean(env.STRIPE_PRICE_ID);   const webhookConfigured = Boolean(env.STRIPE_WEBHOOK_SECRET);   const available = enabled && REAL_WORLD_PAYMENTS_ENABLED && stripeMode !== "" && priceConfigured && webhookConfigured;   return {     available,     mode: available ? stripeMode : "hold",     paymentStatus: "not_started",     message: available ? "Stripe checkout enabled." : PAYMENT_HOLD_MESSAGE,   }; }
 
 function stripePaymentsReady(env) {
   return checkoutStatus(env).available;
