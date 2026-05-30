@@ -71,7 +71,6 @@ const blockedPublicCopy = [
   "id=\"lrc-react-funnel\"",
   "home-funnel.js",
   "agent-guide.js",
-  "checkout.js",
   "id=\"paywall\"",
   "PRODUCT_ROUTES",
   "buildLegacyArtifact",
@@ -225,14 +224,15 @@ async function checkRoutes() {
   const home = await assertRouteOk("/");
   assertContains("home", home, "Build the next version with guided LRC support.");
   assertContains("home", home, "Bring the idea, problem, or work goal.");
-  assertContains("home", home, "Public home. Member tools and team workspaces require approved access.");
-  assertContains("home", home, "Membership starts with review, not an automatic checkout.");
+  assertContains("home", home, "Public home. Membership is self-serve; team and admin workspaces stay private.");
+  assertContains("home", home, "Membership is self-serve; sensitive actions still require review.");
   assertContains("home", home, 'href="./goal/"');
   assertContains("home", home, 'href="./suite/"');
-  assertContains("home", home, 'href="./founding-circle/"');
-  assertContains("home", home, 'href="./friends-family/"');
-  assertContains("home", home, "Member tools");
-  assertContains("home", home, "One front door, multiple focused work paths.");
+  assertContains("home", home, 'href="#membership"');
+  assertContains("home", home, "Choose the access level that fits the work.");
+  assertContains("home", home, "Promoted by LRC Property LLC");
+  assertContains("home", home, "Start Core Membership");
+  assertContains("home", home, "Explore tools");
   assertContains("home", home, '<body class="lrc-affiliate focused-home formed-home">');
   blockedPublicCopy.forEach((blocked) => assertNotContains("home", home, blocked));
 
