@@ -2,7 +2,7 @@
   const payButton = document.querySelector("#pay-button");
   const status = document.querySelector("[data-checkout-status]") || document.querySelector("#checkout-status");
   const defaultButtonText = payButton ? payButton.dataset.liveLabel || payButton.textContent.trim() : "";
-  const holdMessage = "Real-world payments are not active. Use the preview or contact LRC to continue.";
+  const holdMessage = "Stripe checkout is not active yet. Contact LRC or continue with the free starter path.";
   let checkoutAvailable = false;
 
   function showMessage(message, state = "error") {
@@ -20,10 +20,10 @@
 
     payButton.disabled = !checkoutAvailable;
     payButton.setAttribute("aria-disabled", String(!checkoutAvailable));
-    payButton.textContent = checkoutAvailable ? defaultButtonText : "Payments inactive";
+    payButton.textContent = checkoutAvailable ? defaultButtonText : "Checkout pending";
 
     if (message) {
-      showMessage(message, checkoutAvailable ? "success" : "hold");
+      showMessage(checkoutAvailable ? message : holdMessage, checkoutAvailable ? "success" : "hold");
     }
   }
 
@@ -44,7 +44,7 @@
         throw new Error(data.error || "Checkout availability could not be confirmed.");
       }
 
-      setButtonState(data.available, data.message);
+      setButtonState(data.available, data.message || "Stripe checkout is ready.");
     } catch (error) {
       console.error("Checkout status could not be confirmed", error);
       setButtonState(false, holdMessage);
@@ -68,7 +68,7 @@
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          product: "lrc-conversation-clarity-full-report",
+          product: "lrc-core-membership",
         }),
       });
       const data = await response.json().catch(() => ({}));
