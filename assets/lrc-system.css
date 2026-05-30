@@ -1105,6 +1105,249 @@ body.stewardship-packet-page .lrc-video-meta span {
   text-transform: uppercase;
 }
 
+body.stewardship-packet-page .lrc-intro-shell,
+body.stewardship-packet-page .lrc-quality-grid,
+body.stewardship-packet-page .lrc-ack-gate {
+  background:
+    linear-gradient(135deg, rgba(11, 32, 56, 0.98), rgba(22, 53, 83, 0.96)) !important;
+  color: #ffffff !important;
+}
+
+body.stewardship-packet-page .lrc-intro-shell .section-heading h2,
+body.stewardship-packet-page .lrc-intro-shell .section-heading p,
+body.stewardship-packet-page .lrc-quality-grid .section-heading h2,
+body.stewardship-packet-page .lrc-quality-grid .section-heading p,
+body.stewardship-packet-page .lrc-ack-gate .section-heading h2,
+body.stewardship-packet-page .lrc-ack-gate .section-heading p {
+  color: #ffffff !important;
+}
+
+.lrc-intro-grid,
+.lrc-orientation-layout,
+.lrc-two-column-rule,
+.founder-video-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.7fr);
+  gap: 18px;
+  align-items: start;
+}
+
+.lrc-standard-card,
+.lrc-doctrine-card,
+.lrc-orientation-form,
+.lrc-review-packet,
+.founder-video-frame,
+.founder-video-copy {
+  border: 1px solid rgba(16, 32, 51, 0.12);
+  border-radius: 22px;
+  padding: clamp(18px, 3vw, 28px);
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 18px 48px rgba(12, 30, 52, 0.1);
+}
+
+body.stewardship-packet-page .lrc-intro-shell .lrc-standard-card,
+body.stewardship-packet-page .lrc-intro-shell .lrc-doctrine-card,
+body.stewardship-packet-page .lrc-quality-grid .lrc-doctrine-card {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 22px 62px rgba(0, 0, 0, 0.2);
+}
+
+body.stewardship-packet-page .lrc-intro-shell .lrc-standard-card h3,
+body.stewardship-packet-page .lrc-intro-shell .lrc-doctrine-card h3,
+body.stewardship-packet-page .lrc-quality-grid .lrc-doctrine-card h3,
+body.stewardship-packet-page .lrc-intro-shell .lrc-standard-card p,
+body.stewardship-packet-page .lrc-intro-shell .lrc-doctrine-card p,
+body.stewardship-packet-page .lrc-quality-grid .lrc-doctrine-card p {
+  color: #ffffff !important;
+}
+
+.lrc-doctrine-card ul,
+.lrc-suite-card ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.lrc-doctrine-card li,
+.lrc-suite-card li {
+  color: inherit;
+  line-height: 1.55;
+}
+
+.lrc-doctrine-card li + li,
+.lrc-suite-card li + li {
+  margin-top: 8px;
+}
+
+.founder-video-frame {
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  background:
+    linear-gradient(135deg, rgba(11, 32, 56, 0.96), rgba(21, 95, 159, 0.84)),
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: auto, 48px 48px, 48px 48px;
+  color: #ffffff;
+}
+
+.founder-video-frame video {
+  width: 100%;
+  max-height: 520px;
+  border-radius: 16px;
+  background: #0b2038;
+}
+
+.founder-video-placeholder h2,
+.founder-video-placeholder p {
+  color: #ffffff !important;
+}
+
+.lrc-learning-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.lrc-learning-list span,
+.lrc-status-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  border: 1px solid rgba(21, 95, 159, 0.16);
+  border-radius: 999px;
+  padding: 8px 12px;
+  color: #155f9f;
+  background: rgba(255, 255, 255, 0.88);
+  font-size: 0.85rem;
+  font-weight: 800;
+}
+
+.lrc-form-row {
+  display: grid;
+  gap: 8px;
+}
+
+.lrc-form-row + .lrc-form-row,
+.lrc-checkbox-list + .lrc-form-row,
+.lrc-form-row + .lrc-checkbox-list {
+  margin-top: 14px;
+}
+
+.lrc-form-row label,
+.lrc-checkbox-list legend {
+  color: #0b2038;
+  font-weight: 850;
+}
+
+.lrc-form-row input,
+.lrc-form-row textarea,
+.lrc-form-row select {
+  width: 100%;
+  border: 1px solid rgba(16, 32, 51, 0.16);
+  border-radius: 14px;
+  padding: 12px 13px;
+  color: #0b2038;
+  background: #ffffff;
+}
+
+.lrc-form-row textarea {
+  resize: vertical;
+}
+
+.lrc-checkbox-list {
+  display: grid;
+  gap: 10px;
+  border: 1px solid rgba(16, 32, 51, 0.12);
+  border-radius: 18px;
+  padding: 16px;
+  background: rgba(246, 249, 252, 0.9);
+}
+
+.lrc-checkbox-list label {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  color: #334d66;
+  line-height: 1.5;
+}
+
+.lrc-checkbox-list input {
+  margin-top: 4px;
+}
+
+.lrc-review-packet {
+  position: sticky;
+  top: 96px;
+}
+
+.lrc-packet-summary {
+  display: grid;
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.lrc-packet-summary div {
+  display: grid;
+  gap: 4px;
+  border: 1px solid rgba(16, 32, 51, 0.1);
+  border-radius: 12px;
+  padding: 10px;
+  background: rgba(246, 249, 252, 0.78);
+}
+
+.lrc-packet-summary dt {
+  color: #155f9f;
+  font-size: 0.76rem;
+  font-weight: 850;
+  text-transform: uppercase;
+}
+
+.lrc-packet-summary dd {
+  margin: 0;
+  color: #0b2038;
+  font-weight: 800;
+}
+
+.lrc-packet-json {
+  max-height: 360px;
+  overflow: auto;
+  margin: 16px 0 0;
+  border-radius: 16px;
+  padding: 14px;
+  color: #e5eef8;
+  background: #0b2038;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.lrc-ack-form {
+  display: grid;
+  gap: 16px;
+}
+
+body.stewardship-packet-page .lrc-ack-gate .lrc-checkbox-list {
+  border-color: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+body.stewardship-packet-page .lrc-ack-gate .lrc-checkbox-list label {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.lrc-ack-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.52;
+  transform: none;
+}
+
+.lrc-form-status {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
 body.stewardship-packet-page .lrc-video-controls {
   border-color: rgba(16, 32, 51, 0.12) !important;
   background: #0b2038 !important;
@@ -1258,6 +1501,10 @@ summary:focus-visible {
   .lrc-suite-grid,
   .lrc-guide-grid,
   .lrc-fit-grid,
+  .lrc-intro-grid,
+  .lrc-orientation-layout,
+  .lrc-two-column-rule,
+  .founder-video-card,
   .lrc-video-brief,
   .lrc-video-transcript,
   .lrc-review-strip,
@@ -1275,8 +1522,23 @@ summary:focus-visible {
 
   .lrc-suite-actions a,
   .lrc-guide-cta a,
-  .lrc-not-found-actions a {
+  .lrc-not-found-actions a,
+  .lrc-suite-actions button {
     width: 100%;
     justify-content: center;
+  }
+
+  .lrc-review-packet {
+    position: static;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.stewardship-packet-page *,
+  body.stewardship-packet-page *::before,
+  body.stewardship-packet-page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
   }
 }
