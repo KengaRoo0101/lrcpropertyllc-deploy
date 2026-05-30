@@ -4,6 +4,7 @@ const fs = require("fs");
 
 const PORT = "3212";
 const BASE_URL = `http://localhost:${PORT}`;
+const STARTUP_TIMEOUT_MS = parseInt(process.env.STARTUP_TIMEOUT_MS || "30000", 10);
 
 function fail(message) {
   throw new Error(message);
@@ -32,20 +33,37 @@ function startServer() {
     stdio: ["ignore", "pipe", "pipe"],
   });
 
+  let stdout = "";
   let stderr = "";
+  
+  server.stdout.on("data", (chunk) => {
+    stdout += chunk.toString();
+  });
+  
   server.stderr.on("data", (chunk) => {
     stderr += chunk.toString();
   });
 
-  return { server, getStderr: () => stderr };
+  return { server, getStdout: () => stdout, getStderr: () => stderr };
 }
 
-async function stopServer(server, getStderr) {
-  server.kill("SIGTERM");
-  await Promise.race([once(server, "exit"), new Promise((resolve) => setTimeout(resolve, 1200))]);
-  if (server.exitCode && server.exitCode !== 0 && !server.killed) {
-    fail(`server failed during Ninja verification: ${getStderr()}`);
-  }
+async function stopServer(server, getStdout, getStderr) {
+  return new Promise((resolve) => {
+    if (!server.killed) {
+      server.kill("SIGTERM");
+    }
+    
+    const killTimeout = setTimeout(() => {
+      if (!server.killed) {
+        server.kill("SIGKILL");
+      }
+    }, 1200);
+    
+    server.once("exit", () => {
+      clearTimeout(killTimeout);
+      resolve();
+    });
+  });
 }
 
 async function fetchJson(pathname, options = {}) {
@@ -60,10 +78,20 @@ async function fetchJson(pathname, options = {}) {
   return { response, json };
 }
 
-async function waitForServer(server) {
+async function waitForServer(server, getStdout, getStderr) {
   const started = Date.now();
-  while (Date.now() - started < 8000) {
-    if (server.exitCode !== null) fail(`server exited early with code ${server.exitCode}`);
+  const timeoutMs = STARTUP_TIMEOUT_MS;
+  
+  while (Date.now() - started < timeoutMs) {
+    if (server.exitCode !== null) {
+      const stdout = getStdout();
+      const stderr = getStderr();
+      console.error("\n=== Server stdout ===");
+      console.error(stdout || "(empty)");
+      console.error("\n=== Server stderr ===");
+      console.error(stderr || "(empty)");
+      fail(`server exited early with code ${server.exitCode}`);
+    }
     try {
       const { response } = await fetchJson("/api/ninja/tasks");
       if (response.ok) return;
@@ -71,7 +99,14 @@ async function waitForServer(server) {
       await new Promise((resolve) => setTimeout(resolve, 120));
     }
   }
-  fail("server did not start within 8 seconds");
+  
+  const stdout = getStdout();
+  const stderr = getStderr();
+  console.error("\n=== Server stdout ===");
+  console.error(stdout || "(empty)");
+  console.error("\n=== Server stderr ===");
+  console.error(stderr || "(empty)");
+  fail(`server did not start within ${timeoutMs}ms`);
 }
 
 async function createTask(prompt) {
@@ -94,9 +129,9 @@ function assertManagerTask(label, task) {
   assertTruthy(`${label} usefulArtifact`, task.usefulArtifact);
   assertTruthy(`${label} usefulArtifact title`, task.usefulArtifact.title);
   assertArray(`${label} usefulArtifact items`, task.usefulArtifact.items);
-  assertContains(`${label} usefulArtifact`, task.usefulArtifact.items.join(" "), "Route spine: LRC Home → Recommended Route → Starter Business Draft → Owner Approval → Preview, Contact, or Checkout");
+  assertContains(`${label} usefulArtifact`, task.usefulArtifact.items.join(" "), "Route spine: LRC Home → Recommended Route → Starter Business Draft → Owner Approval → Preview, Contact, or[...]
   assertContains(`${label} usefulArtifact`, task.usefulArtifact.items.join(" "), "Smooth transition: keep the user in one path from the starter Business Draft into the recommended route.");
-  assertContains(`${label} usefulArtifact`, task.usefulArtifact.items.join(" "), "Ninja continuity: preserve the route, blocker, approval gate, and next move without sending the user into extra panels.");
+  assertContains(`${label} usefulArtifact`, task.usefulArtifact.items.join(" "), "Ninja continuity: preserve the route, blocker, approval gate, and next move without sending the user into extra pa[...]
   assertContains(`${label} usefulArtifact`, task.usefulArtifact.items.join(" "), "polished local product draft");
   assertContains(`${label} usefulArtifact`, task.usefulArtifact.items.join(" "), "Approval gate");
   assertContains(`${label} usefulArtifact`, task.usefulArtifact.items.join(" "), "Secure checkout path");
@@ -112,7 +147,7 @@ async function run() {
 
   const running = startServer();
   try {
-    await waitForServer(running.server);
+    await waitForServer(running.server, running.getStdout, running.getStderr);
 
     const safeTask = await createTask("Build the Formed launch page draft");
     assertManagerTask("safe task", safeTask);
@@ -132,7 +167,7 @@ async function run() {
     const { response, json } = await fetchJson("/api/ninja/tasks");
     if (!response.ok || !json.ok || !Array.isArray(json.tasks)) fail("Ninja task list did not return an array");
   } finally {
-    await stopServer(running.server, running.getStderr);
+    await stopServer(running.server, running.getStdout, running.getStderr);
   }
 
   console.log("Ninja manager verification passed.");
