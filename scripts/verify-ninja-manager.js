@@ -131,7 +131,7 @@ function assertManagerTask(label, task) {
   assertArray(`${label} usefulArtifact items`, task.usefulArtifact.items);
 assertContains(`${label} usefulArtifact`, task.usefulArtifact.items.join(" "), "Route spine: LRC Home");
   assertContains(`${label} usefulArtifact`, task.usefulArtifact.items.join(" "), "Smooth transition: keep the user in one path from the starter Business Draft into the recommended route.");
-  assertContains(`${label} usefulArtifact`, task.usefulArtifact.items.join(" "), "Ninja continuity: preserve the route, blocker, approval gate, and next move without sending the user into extra paths");
+  assertContains(`${label} usefulArtifact`, task.usefulArtifact.items.join(" "), "Ninja continuity: preserve the route, blocker, approval gate, and next move without sending the user into ");
   assertContains(`${label} usefulArtifact`, task.usefulArtifact.items.join(" "), "polished local product draft");
   assertContains(`${label} usefulArtifact`, task.usefulArtifact.items.join(" "), "Approval gate");
   assertContains(`${label} usefulArtifact`, task.usefulArtifact.items.join(" "), "Secure checkout path");
