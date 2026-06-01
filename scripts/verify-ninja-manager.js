@@ -4,7 +4,7 @@ const fs = require("fs");
 
 const PORT = "3212";
 const BASE_URL = `http://localhost:${PORT}`;
-const STARTUP_TIMEOUT_MS = parseInt(process.env.STARTUP_TIMEOUT_MS || "30000", 10);
+const STARTUP_TIMEOUT_MS = Math.max(parseInt(process.env.STARTUP_TIMEOUT_MS, 10) || 30000, 30000);
 
 function fail(message) {
   throw new Error(message);
