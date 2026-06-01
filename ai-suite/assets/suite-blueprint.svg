@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="620" viewBox="0 0 960 620" role="img" aria-labelledby="title desc">
+  <title id="title">AI Suite room blueprint</title>
+  <desc id="desc">A structured map of eleven onboarding rooms flowing from safety to power to assets.</desc>
+  <rect width="960" height="620" fill="#eef3f8"/>
+  <rect x="42" y="42" width="876" height="536" rx="26" fill="#ffffff" stroke="#c6a96b" stroke-width="3"/>
+  <path d="M112 166H848M112 310H848M112 454H848M242 96V524M432 96V524M622 96V524" stroke="#d8dee4" stroke-width="2"/>
+  <g fill="#0b2038">
+    <rect x="84" y="92" width="118" height="74" rx="16"/>
+    <rect x="274" y="92" width="118" height="74" rx="16"/>
+    <rect x="464" y="92" width="118" height="74" rx="16"/>
+    <rect x="654" y="92" width="118" height="74" rx="16"/>
+  </g>
+  <g fill="#f7f0df" stroke="#c6a96b" stroke-width="2">
+    <rect x="84" y="236" width="118" height="74" rx="16"/>
+    <rect x="274" y="236" width="118" height="74" rx="16"/>
+    <rect x="464" y="236" width="118" height="74" rx="16"/>
+    <rect x="654" y="236" width="118" height="74" rx="16"/>
+  </g>
+  <g fill="#dff3eb" stroke="#236c54" stroke-width="2">
+    <rect x="178" y="382" width="118" height="74" rx="16"/>
+    <rect x="368" y="382" width="118" height="74" rx="16"/>
+    <rect x="558" y="382" width="118" height="74" rx="16"/>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900" text-anchor="middle">
+    <text x="143" y="124" fill="#ffffff">00</text><text x="333" y="124" fill="#ffffff">01</text><text x="523" y="124" fill="#ffffff">02</text><text x="713" y="124" fill="#ffffff">03</text>
+    <text x="143" y="268" fill="#6a4b13">04</text><text x="333" y="268" fill="#6a4b13">05</text><text x="523" y="268" fill="#6a4b13">06</text><text x="713" y="268" fill="#6a4b13">07</text>
+    <text x="237" y="414" fill="#236c54">08</text><text x="427" y="414" fill="#236c54">09</text><text x="617" y="414" fill="#236c54">10</text>
+  </g>
+  <g font-family="Inter, Arial, sans-serif" font-size="13" font-weight="800" text-anchor="middle">
+    <text x="143" y="148" fill="#ffffff">Tour</text><text x="333" y="148" fill="#ffffff">Identity</text><text x="523" y="148" fill="#ffffff">Safety</text><text x="713" y="148" fill="#ffffff">Sandbox</text>
+    <text x="143" y="292" fill="#6a4b13">AI Basics</text><text x="333" y="292" fill="#6a4b13">Task Brief</text><text x="523" y="292" fill="#6a4b13">Permissions</text><text x="713" y="292" fill="#6a4b13">Codex</text>
+    <text x="237" y="438" fill="#236c54">Collab</text><text x="427" y="438" fill="#236c54">Launch</text><text x="617" y="438" fill="#236c54">Operator</text>
+  </g>
+  <path d="M206 129H268M396 129H458M586 129H648M713 170V230M650 273H588M458 273H396M268 273H206M143 314V376M300 419H362M490 419H552" fill="none" stroke="#43586f" stroke-width="4" stroke-linecap="round"/>
+  <text x="480" y="530" fill="#0b2038" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="900" text-anchor="middle">Safety unlocks power. Power creates assets.</text>
+</svg>
+

@@ -76,6 +76,7 @@ Live-payment verification is not part of the current operating path.
 
 - `/` parent LRC route
 - `/suite/` LRC Suite hub and product ecosystem overview
+- `/ai-suite/` guided AI Suite onboarding and user-owned asset buildout
 - `/formed/` active business-builder result path
 - `/offshoot/` product lab / route guide
 - `/jobsai/` job, resume, and role tooling

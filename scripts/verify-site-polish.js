@@ -30,6 +30,7 @@ function checkSyntax(file) {
   "assets/lrc-runtime.js",
   "assets/lrc-suite.js",
   "assets/checkout.js",
+  "ai-suite/app.js",
   "formed/app.js",
   "ninja/app.js",
   "goal/app.js",

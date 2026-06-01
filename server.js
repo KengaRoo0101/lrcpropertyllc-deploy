@@ -627,6 +627,7 @@ app.use((req, res, next) => {
 
 const EXTENSIONLESS_PAGE_ROUTES = new Map([
   ["/suite", path.join(__dirname, "suite", "index.html")],
+  ["/ai-suite", path.join(__dirname, "ai-suite", "index.html")],
   ["/promo/posts", path.join(__dirname, "promo", "posts.html")],
   ["/promo/launch", path.join(__dirname, "promo", "launch.html")],
 ]);

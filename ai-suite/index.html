@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>AI Suite Buildout | Guided LRC Onboarding</title>
+    <meta
+      name="description"
+      content="Build a personal AI suite through guided LRC rooms that teach one skill, unlock one capability, and create one user-owned asset at a time."
+    />
+    <meta name="robots" content="noindex,nofollow,noarchive" />
+    <meta name="theme-color" content="#0b2038" />
+    <meta property="og:title" content="AI Suite Buildout | LRC Property LLC" />
+    <meta
+      property="og:description"
+      content="A guided onboarding system where safety unlocks power, power creates assets, and assets become the user's AI suite."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.lrcpropertyllc.com/ai-suite/" />
+    <meta property="og:image" content="https://www.lrcpropertyllc.com/ai-suite/assets/suite-blueprint.svg" />
+    <link rel="canonical" href="https://www.lrcpropertyllc.com/ai-suite/" />
+    <link rel="apple-touch-icon" href="../assets/lrc-property-llc-logo.jpeg" />
+    <link rel="stylesheet" href="../styles.css?v=16" />
+    <link rel="stylesheet" href="../assets/lrc-modern.css?v=10" />
+    <link rel="stylesheet" href="../assets/lrc-final.css?v=14" />
+    <link rel="stylesheet" href="../assets/lrc-affiliate-layout.css?v=5" />
+    <link rel="stylesheet" href="/assets/lrc-system.css?v=26" />
+    <link rel="stylesheet" href="./styles.css?v=1" />
+  </head>
+  <body class="lrc-affiliate ecosystem-home ai-suite-page">
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="brand-lockup" href="../index.html" aria-label="LRC Property LLC home">
+          <span class="brand-symbol" aria-hidden="true">
+            <img src="../assets/lrc-property-llc-logo.jpeg" alt="" />
+          </span>
+          <span>
+            <strong>LRC Property LLC</strong>
+            <small>AI suite buildout</small>
+          </span>
+        </a>
+
+        <nav class="header-links" aria-label="Primary navigation">
+          <a href="../index.html">Home</a>
+          <a href="../suite/">LRC Suite</a>
+          <a href="../rooms/">Rooms</a>
+          <a href="../stewardship-packet/">Stewardship</a>
+          <a href="../safety.html">Safety</a>
+          <a class="nav-cta" href="../contact/">Contact LRC</a>
+        </nav>
+      </header>
+
+      <main class="ai-suite-shell" id="top">
+        <section class="ai-suite-hero" aria-labelledby="ai-suite-title">
+          <div>
+            <p class="lrc-route">Guided AI Suite Onboarding</p>
+            <h1 id="ai-suite-title">Build the suite, one governed room at a time.</h1>
+            <p>
+              Users are not completing lessons. They are building their own AI suite with guided
+              help. Each room teaches one core skill, unlocks one capability, and creates one
+              permanent asset the user keeps.
+            </p>
+            <p class="ai-suite-principle">
+              Safety unlocks power. Power creates assets. Assets become the user's AI suite.
+            </p>
+          </div>
+
+          <figure class="ai-suite-visual">
+            <img src="./assets/suite-blueprint.svg" alt="AI Suite rooms arranged as a safety-to-asset buildout map." />
+          </figure>
+        </section>
+
+        <section class="ai-suite-workbench" aria-label="AI Suite onboarding workbench">
+          <aside class="ai-suite-rail" aria-label="Room sequence">
+            <div class="ai-suite-rail-head">
+              <p class="eyebrow">Rooms</p>
+              <span id="ai-suite-progress">0 / 11 complete</span>
+            </div>
+            <div class="ai-suite-room-list" id="room-list"></div>
+          </aside>
+
+          <article class="ai-suite-room-panel" id="room-panel" tabindex="-1"></article>
+
+          <aside class="ai-suite-asset-panel" aria-labelledby="asset-title">
+            <div>
+              <p class="eyebrow">User-owned asset</p>
+              <h2 id="asset-title">Suite Map Draft</h2>
+              <p>
+                Drafts stay in this browser session only. Copy or download the asset when the user
+                wants to keep it.
+              </p>
+            </div>
+
+            <label for="asset-editor">Asset workspace</label>
+            <textarea id="asset-editor" spellcheck="true"></textarea>
+
+            <div class="ai-suite-actions">
+              <button class="primary-button" type="button" id="mark-complete">Mark room complete</button>
+              <button class="secondary-button" type="button" id="copy-asset">Copy asset</button>
+              <button class="secondary-button" type="button" id="download-asset">Download asset</button>
+            </div>
+
+            <p class="ai-suite-status" id="asset-status" aria-live="polite">
+              No account access, payment data, secrets, billing, organization administration,
+              unrelated repositories, or production systems are used here.
+            </p>
+          </aside>
+        </section>
+
+        <section class="ai-suite-section" id="suite-map" aria-labelledby="suite-map-title">
+          <div class="section-heading">
+            <p class="eyebrow">Suite map</p>
+            <h2 id="suite-map-title">The room sequence becomes the operating map.</h2>
+            <p>
+              The onboarding path starts with identity, safety, and sandboxing before any higher
+              power buildout. Capability grows only after boundaries are clear.
+            </p>
+          </div>
+          <div class="ai-suite-unlock-grid" id="unlock-grid"></div>
+        </section>
+
+        <section class="ai-suite-section" id="policies" aria-labelledby="policies-title">
+          <div class="section-heading">
+            <p class="eyebrow">Policies</p>
+            <h2 id="policies-title">The boundary stays visible before power increases.</h2>
+          </div>
+          <div class="ai-suite-policy-grid">
+            <article>
+              <span>Data boundary</span>
+              <p>Use onboarding files, dummy examples, public examples, and user-approved non-sensitive samples.</p>
+            </article>
+            <article>
+              <span>No payments</span>
+              <p>No checkout, payment processor, billing, refund, subscription, or payment-data behavior is added here.</p>
+            </article>
+            <article>
+              <span>No personal data</span>
+              <p>Use generalized answers unless a future workflow is separately approved and narrowly scoped.</p>
+            </article>
+            <article>
+              <span>Codex access</span>
+              <p>Codex gets full working access only inside approved buildout resources and only for the approved task.</p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="footer-brand">
+          <p class="eyebrow">LRC Property LLC</p>
+          <h2>Build capability through safety, assets, and review.</h2>
+          <p>Copyright 2026 LRC Property LLC. All rights reserved.</p>
+        </div>
+
+        <div class="footer-link-groups">
+          <nav class="footer-links" aria-label="Footer AI Suite links">
+            <p>AI Suite</p>
+            <a href="#top">Buildout</a>
+            <a href="#suite-map">Suite Map</a>
+            <a href="#policies">Policies</a>
+            <a href="../rooms/">Rooms</a>
+          </nav>
+          <nav class="footer-links" aria-label="Footer company links">
+            <p>Company</p>
+            <a href="../suite/">LRC Suite</a>
+            <a href="../stewardship-packet/">Stewardship</a>
+            <a href="../safety.html">Safety</a>
+            <a href="../contact/">Contact</a>
+          </nav>
+        </div>
+      </footer>
+    </div>
+    <script src="./app.js?v=1" defer></script>
+  </body>
+</html>
+
