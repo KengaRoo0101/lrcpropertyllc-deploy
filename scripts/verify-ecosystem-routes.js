@@ -12,6 +12,8 @@ const publicRoutes = [
   "/goal",
   "/suite/",
   "/suite",
+  "/ai-suite/",
+  "/ai-suite",
   "/rooms/",
   "/rooms",
   "/stewardship-packet/",
@@ -306,6 +308,19 @@ async function checkRoutes() {
   assertContains("rooms", rooms, "Locked pending secure access");
   assertNotContains("rooms", rooms, "data-lrc-agent-input");
   assertNotContains("rooms", rooms, "sk-");
+
+  const aiSuite = await assertRouteOk("/ai-suite/");
+  assertContains("ai-suite", aiSuite, "AI Suite Buildout | Guided LRC Onboarding");
+  assertContains("ai-suite", aiSuite, "Build the suite, one governed room at a time.");
+  assertContains("ai-suite", aiSuite, "Safety unlocks power. Power creates assets. Assets become the user's AI suite.");
+  assertContains("ai-suite", aiSuite, "Drafts stay in this browser session only.");
+  assertContains("ai-suite", aiSuite, "No account access, payment data, secrets, billing, organization administration");
+  assertContains("ai-suite", aiSuite, "Codex gets full working access only inside approved buildout resources");
+  assertContains("ai-suite", aiSuite, '<script src="./app.js?v=1" defer></script>');
+  assertContains("ai-suite", aiSuite, 'meta name="robots" content="noindex,nofollow,noarchive"');
+  assertNotContains("ai-suite", aiSuite, "sk-");
+  assertNotContains("ai-suite", aiSuite, "OPENAI_API_KEY");
+  assertNotContains("ai-suite", aiSuite, "create-checkout-session");
 
   const packet = await assertRouteOk("/stewardship-packet/");
   assertContains("stewardship-packet", packet, "An institution-grade standard for responsible AI builders.");

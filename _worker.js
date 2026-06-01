@@ -340,6 +340,7 @@ function withSecurityHeaders(response, extra = {}) {
 
 const EXTENSIONLESS_ASSET_ROUTES = new Map([
   ["/suite", "/suite/index.html"],
+  ["/ai-suite", "/ai-suite/index.html"],
 ]);
 
 function requestForAssetPath(request, pathname) {
@@ -575,7 +576,7 @@ async function handleStripeWebhook(request, env) {
 }
 
 function robotsResponse() {
-  return new Response("User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/\nDisallow: /__access\nDisallow: /stripe/\nDisallow: /friends-family/\nDisallow: /stewardship-packet/\nSitemap: https://www.lrcpropertyllc.com/sitemap.xml\n", {
+  return new Response("User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/\nDisallow: /__access\nDisallow: /stripe/\nDisallow: /ai-suite/\nDisallow: /friends-family/\nDisallow: /stewardship-packet/\nSitemap: https://www.lrcpropertyllc.com/sitemap.xml\n", {
     status: 200,
     headers: securityHeaders({
       "content-type": "text/plain; charset=utf-8",
@@ -722,6 +723,7 @@ function isAccessGateAsset(pathname) {
 }
 
 const SITE_PASSWORD_PROTECTED_PREFIXES = [
+  "/ai-suite",
   "/admin",
   "/agentcheck",
   "/behappy",
